@@ -1,0 +1,9 @@
+/* swiper-pagination-bullet swiper-pagination-bullet-active */
+
+.swiper-pagination {
+    bottom: 0 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #008345 !important;
+}
