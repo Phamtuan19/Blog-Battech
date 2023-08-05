@@ -14,7 +14,7 @@ import development from '~/assets/development.svg'
 import padlock from '~/assets/padlock.svg'
 import amico from '~/assets/amico.svg'
 import secureShield from '~/assets/secureShield.svg'
-import Banner from '~/component/customs'
+import Banner from '~/component/customs/banner'
 import LatestNews from './component/LatestNews'
 import RegisterInformation from './component/RegisterInformation'
 
@@ -64,50 +64,60 @@ const list2 = [
 
 function Home() {
     return (
-        <div className='xl:mt-[40px] mt-[100px]'>
+        <div className=' lg:mt-[40px] mt-[100px] '>
             <Banner {...DATABANNER} />
 
-            <div className='container mx-auto'>
-                <div className='flex flex-col gap-36'>
-                    <div className='grid grid-cols-12 gap-5'>
-                        <div className='col-span-6'>
-                            <img src={amico} alt='' />
+            <div className='xl:container w-full px-[1rem] mx-auto lg:mt-0 mt-10'>
+                <div className='flex flex-col lg:gap-36 gap-20'>
+                    <div className='grid grid-cols-12 lg:gap-8 gap-y-10'>
+                        <div className='lg:col-span-5 col-span-7'>
+                            <div className='block max-w-[540px] max-h-[410px]'>
+                                <img src={amico} alt='' />
+                            </div>
                         </div>
-                        <div className='col-span-6'>
-                            <h3 className='text-2xl left-7 font-bold not-italic text-default mb-6'>
+                        <div className='lg:col-span-7 col-span-full'>
+                            <h3 className='text-2xl left-7 font-bold not-italic text-default lg:text-start text-center mb-6'>
                                 GIỚI THIỆU VỀ BATTECH
                             </h3>
-                            <p className='text-base not-italic font-medium leading-6 mb-6'>
+                            <p className='text-base not-italic font-medium leading-6 mb-6 text-justify'>
                                 Với gần 15 năm kinh nghiệm, Công ty cổ phần Quốc tế BATTECH là nhà cung cấp các giải
                                 pháp quản trị nguồn lực doanh nghiệp chuyên nghiệp. Hỗ trợ Ban lãnh đạo hoạch định và
                                 điều hành toàn bộ nguồn lực của doanh nghiệp bao gồm Hàng hóa - Tài chính - Nhân sự -
                                 Truyền thông và kết nối các bộ phận thao tác nghiệp vụ hiệu quả thông qua những quy
                                 trình được thiết kế theo quy chuẩn quốc tế.
                             </p>
-                            <div className='flex gap-5 '>
-                                <div className='flex-1 flex items-center flex-col shadow-baseShadow bg-white pt-[19px] pb-[7px] rounded-xl'>
-                                    <img src={clock} alt='' width='40' height='40' />
-                                    <p className='mt-3 h-[64px] text-base font-semibold not-italic leading-6 text-center'>
-                                        Phản hồi <br /> nhanh
-                                    </p>
+                            <div className='grid grid-cols-12 gap-5 '>
+                                <div className='md:col-span-3 sm:col-span-6 col-span-full'>
+                                    <div className=' flex items-center flex-col shadow-baseShadow bg-white pt-[19px] pb-[7px] rounded-xl'>
+                                        <img src={clock} alt='' width='40' height='40' />
+                                        <p className='mt-3 h-[64px] text-base font-semibold not-italic leading-6 text-center'>
+                                            Phản hồi <br /> nhanh
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className='flex-1 flex items-center flex-col shadow-baseShadow bg-white pt-[19px] pb-[7px] rounded-xl'>
-                                    <img src={development} alt='' width='40' height='40' />
-                                    <p className='mt-3 h-[64px] text-base font-semibold not-italic leading-6 text-center'>
-                                        Phản hồi <br /> nhanh
-                                    </p>
+                                <div className='md:col-span-3 sm:col-span-6 col-span-full'>
+                                    <div className=' flex items-center flex-col shadow-baseShadow bg-white pt-[19px] pb-[7px] rounded-xl'>
+                                        <img src={development} alt='' width='40' height='40' />
+                                        <p className='mt-3 h-[64px] text-base font-semibold not-italic leading-6 text-center'>
+                                            Phản hồi <br /> nhanh
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className='flex-1 flex items-center flex-col shadow-baseShadow bg-white pt-[19px] pb-[7px] rounded-xl'>
-                                    <img src={padlock} alt='' width='40' height='40' />
-                                    <p className='mt-3 h-[64px] text-base font-semibold not-italic leading-6 text-center'>
-                                        Phản hồi <br /> nhanh
-                                    </p>
+                                <div className='md:col-span-3 sm:col-span-6 col-span-full'>
+                                    <div className='flex items-center flex-col shadow-baseShadow bg-white pt-[19px] pb-[7px] rounded-xl'>
+                                        <img src={padlock} alt='' width='40' height='40' />
+                                        <p className='mt-3 h-[64px] text-base font-semibold not-italic leading-6 text-center'>
+                                            Phản hồi <br /> nhanh
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className='flex-1 flex items-center flex-col shadow-baseShadow bg-white pt-[19px] pb-[7px] rounded-xl'>
-                                    <img src={secureShield} alt='' width='40' height='40' />
-                                    <p className='mt-3 h-[64px] text-base font-semibold not-italic leading-6 text-center'>
-                                        Phản hồi <br /> nhanh
-                                    </p>
+                                <div className='md:col-span-3 sm:col-span-6 col-span-full'>
+                                    <div className=' flex items-center flex-col shadow-baseShadow bg-white pt-[19px] pb-[7px] rounded-xl'>
+                                        <img src={secureShield} alt='' width='40' height='40' />
+                                        <p className='mt-3 h-[64px] text-base font-semibold not-italic leading-6 text-center'>
+                                            Phản hồi <br /> nhanh
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -117,9 +127,9 @@ function Home() {
                         <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-[76px] '>
                             <span className='text-orange'>KHÁC BIỆT</span> VÀ TIÊN PHONG
                         </h3>
-                        <div className='grid grid-cols-12 gap-8'>
+                        <div className='grid grid-cols-12 gap-8 '>
                             {list2.map((item, index) => (
-                                <div className='col-span-3' key={index}>
+                                <div className='lg:col-span-3 sm:col-span-6 col-span-12' key={index}>
                                     <div className='relative pt-11 px-3 pb-4 bg-white shadow-baseShadow rounded-2xl'>
                                         <h5 className='text-xl leading-6 font-bold text-center mb-3'>
                                             <span className='block'>{item.title.item1}</span>
@@ -130,7 +140,7 @@ function Home() {
                                         </div>
                                         <div className='absolute top-3 left-6 -translate-y-1/2'>
                                             <span className='text-[64px] leading-6 text-default font-bold not-italic '>
-                                                {`0${index}`}
+                                                {`0${index + 1}`}
                                             </span>
                                         </div>
                                     </div>
@@ -145,12 +155,13 @@ function Home() {
             </div>
             {/* Form res */}
             <RegisterInformation />
-            <div className='container mx-auto'>
+            <div className='lg:container w-full px-4 mx-auto'>
                 <div className='my-36'>
                     <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-7'>ĐỐI TÁC</h3>
                     <div className='mt-4 '>
                         <Swiper
                             slidesPerView={4}
+                            breakpoints={breakpoints}
                             spaceBetween={30}
                             pagination={{
                                 clickable: true
@@ -182,6 +193,28 @@ function Home() {
             </div>
         </div>
     )
+}
+
+const breakpoints = {
+    // when window width is >= 320px
+    320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+    },
+    // when window width is >= 480px
+    550: {
+        slidesPerView: 2,
+        spaceBetween: 30
+    },
+    // when window width is >= 640px
+    768: {
+        slidesPerView: 3,
+        spaceBetween: 40
+    },
+    1024: {
+        slidesPerView: 4,
+        spaceBetween: 40
+    }
 }
 
 export default Home
