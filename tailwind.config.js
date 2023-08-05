@@ -36,7 +36,7 @@ export default {
                 baseShadow: "4px 2px 15px 0px rgba(0, 0, 0, 0.05)",
             },
             backgroundImage: {
-                'vector16': "url('~/assets/vector16.svg')",
+                'vector16': "url('~/assets/svg/vector16.svg')",
             }
         },
     },

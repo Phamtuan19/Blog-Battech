@@ -9,8 +9,8 @@ import 'swiper/css/grid'
 // import required modules
 import { Autoplay, Pagination, Grid } from 'swiper/modules'
 
-import user from '~/assets/user.svg'
-import calendar from '~/assets/calendar.svg'
+import user from '~/assets/svg/user.svg'
+import calendar from '~/assets/svg/calendar.svg'
 
 import './style.css'
 
