@@ -43,7 +43,6 @@ function Header() {
                 <div className=''>
                     <img src={logo} alt='' />
                 </div>
-
                 {/* nav item */}
                 <div className='flex items-center'>
                     {isDesktopOrLaptop && (

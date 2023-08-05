@@ -8,7 +8,7 @@ import './style.css'
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <BrowserRouter>
-            <Routers />
+                <Routers />
         </BrowserRouter>
     </React.StrictMode>
 )

@@ -8,12 +8,14 @@ import right from '~/assets/right.svg'
 function Footer() {
     return (
         <footer
-            className='w-full min-h-[500px] flex items-center'
-            style={{ backgroundImage: `url(${footerSvg})`, backgroundRepeat: 'no-repeat' }}
+            className='relative w-full'
+            // style={{ backgroundImage: `url(${footerSvg})`, backgroundRepeat: 'no-repeat' }}
         >
-            <div className='container mx-auto mt-10'>
-                <div className='grid grid-cols-12 gap-5'>
-                    <div className='col-span-4'>
+            <img src={footerSvg} alt='' className='absolute top-0 left-0 w-full object-cover' />
+            {/* <div className='absolute top-0 left-0 w-full lg:pt-32 pt-16'> */}
+            <div className='lg:container w-full px-4 mx-auto h-full z-10'>
+                <div className='grid grid-cols-12 gap-5 '>
+                    <div className='lg:col-span-4 col-span-full'>
                         <div className='mb-2'>
                             <LogoSvg />
                         </div>
@@ -23,7 +25,7 @@ function Footer() {
                             thông qua việc kết nối con người và công nghệ hiện đại.
                         </p>
                     </div>
-                    <div className='col-span-4'>
+                    <div className='lg:col-span-4 col-span-full'>
                         <h3 className='text-2xl leading-7 font-bold uppercase not-italic text-white h-[56px] mb-2'>
                             Liên Hệ
                         </h3>
@@ -53,7 +55,7 @@ function Footer() {
                             </div>
                         </div>
                     </div>
-                    <div className='col-span-4'>
+                    <div className='lg:col-span-4 col-span-full'>
                         <h3 className='text-2xl leading-7 font-bold uppercase not-italic text-white h-[56px] mb-2'>
                             LIÊN KẾT HỮU ÍCH
                         </h3>
@@ -92,6 +94,7 @@ function Footer() {
                     </div>
                 </div>
             </div>
+            {/* </div> */}
         </footer>
     )
 }

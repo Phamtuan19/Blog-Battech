@@ -4,12 +4,15 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/grid'
 
 // import required modules
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Autoplay, Pagination, Grid } from 'swiper/modules'
 
 import user from '~/assets/user.svg'
 import calendar from '~/assets/calendar.svg'
+
+import './style.css'
 
 function LatestNews() {
     return (
@@ -17,8 +20,8 @@ function LatestNews() {
             <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-2'>TIN TỨC</h3>
             <div className=''>
                 <h6 className='text-xl font-bold not-italic text-[#444444]'>Tin tức mới</h6>
-                <div className='grid grid-cols-12 gap-8'>
-                    <div className='col-span-8'>
+                <div className='grid grid-cols-12 lg:gap-8 gap-3'>
+                    <div className='lg:col-span-8 col-span-12'>
                         <div
                             className='relative h-[358px] rounded-xl'
                             style={{
@@ -29,13 +32,21 @@ function LatestNews() {
                                 backgroundColor: 'lightgray'
                             }}
                         >
-                            <div className='absolute left-9 bottom-6 right-10'>
+                            <div className='absolute left-0 bottom-6 right-0 px-4'>
                                 <button className='py-[6px] px-3 text-center rounded-lg bg-[#FD4848] mb-3'>
-                                    <span className='text-white text-xl text-center not-italic font-bold'>
+                                    <span className='text-white lg:text-xl text-lg text-center not-italic font-bold'>
                                         Phát triển phần mềm
                                     </span>
                                 </button>
-                                <p className='text-2xl leading-7 font-bold not-italic text-white'>
+                                <p
+                                    className='lg:text-2xl text-xl leading-7 font-bold not-italic text-white'
+                                    style={{
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: 2,
+                                        WebkitBoxOrient: 'vertical',
+                                        overflow: 'hidden'
+                                    }}
+                                >
                                     Chuyển đổi số ngành sản xuất: Làm thế nào để doanh nghiệp tối ưu lợi thế trong thị
                                     trường siêu cạnh tranh?
                                 </p>
@@ -52,7 +63,7 @@ function LatestNews() {
                             </div>
                         </div>
                     </div>
-                    <div className='col-span-4'>
+                    <div className='lg:col-span-4 col-span-12'>
                         <div
                             className='relative h-[358px] rounded-xl'
                             style={{
@@ -63,13 +74,21 @@ function LatestNews() {
                                 backgroundColor: 'lightgray'
                             }}
                         >
-                            <div className='absolute left-9 bottom-6 right-10'>
+                            <div className='absolute left-0 bottom-6 right-0 px-4'>
                                 <button className='py-[6px] px-3 text-center rounded-lg bg-[#FD4848] mb-3'>
-                                    <span className='text-white text-xl text-center not-italic font-bold'>
+                                    <span className='text-white lg:text-xl text-lg text-center not-italic font-bold'>
                                         Phát triển phần mềm
                                     </span>
                                 </button>
-                                <p className='text-2xl leading-7 font-bold not-italic text-white'>
+                                <p
+                                    className='lg:text-2xl text-xl leading-7 font-bold not-italic text-white'
+                                    style={{
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: 2,
+                                        WebkitBoxOrient: 'vertical',
+                                        overflow: 'hidden'
+                                    }}
+                                >
                                     Blockchain là gì? Hoạt động và ứng dụng của Blockchain
                                 </p>
                                 <div className='mt-2 flex items-center gap-10'>
@@ -91,7 +110,7 @@ function LatestNews() {
                     <h6 className='text-xl font-bold not-italic text-[#444444]'>Tin tức và sự kiện</h6>
                     <div className='mt-4 '>
                         <Swiper
-                            slidesPerView={3}
+                            breakpoints={breakpoints}
                             spaceBetween={30}
                             pagination={{
                                 clickable: true
@@ -100,7 +119,7 @@ function LatestNews() {
                                 delay: 2500,
                                 disableOnInteraction: false
                             }}
-                            modules={[Autoplay, Pagination]}
+                            modules={[Autoplay, Pagination, Grid]}
                             className='relative w-full h-full bg-white pb-10 '
                         >
                             {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
@@ -125,7 +144,15 @@ function LatestNews() {
                                                     <p className='text-sm not-italic ms-2'>May 4th 2023</p>
                                                 </div>
                                             </div>
-                                            <p className='text-xl font-bold not-italic mt-2 text-start'>
+                                            <p
+                                                className='lg:text-xl text-lg font-bold not-italic mt-2 text-start'
+                                                style={{
+                                                    display: '-webkit-box',
+                                                    WebkitLineClamp: 2,
+                                                    WebkitBoxOrient: 'vertical',
+                                                    overflow: 'hidden'
+                                                }}
+                                            >
                                                 Chuyển đổi số ngành truyền thông đại chúng: xu hướng mới trong lĩnh vực
                                                 công nghệ số
                                             </p>
@@ -139,6 +166,24 @@ function LatestNews() {
             </div>
         </div>
     )
+}
+
+const breakpoints = {
+    // when window width is >= 320px
+    320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+    },
+    // when window width is >= 480px
+    550: {
+        slidesPerView: 2,
+        spaceBetween: 30
+    },
+    // when window width is >= 640px
+    768: {
+        slidesPerView: 3,
+        spaceBetween: 40
+    }
 }
 
 const UserBlue = () => {
