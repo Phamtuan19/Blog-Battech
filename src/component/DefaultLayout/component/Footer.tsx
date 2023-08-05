@@ -1,20 +1,19 @@
-import footerSvg from '~/assets/footerSvg.svg'
 import phone from '~/assets/phone.svg'
 import email from '~/assets/email.svg'
-import home from '~/assets/home.svg'
-import address from '~/assets/address.svg'
-import right from '~/assets/right.svg'
+import home from '~/assets/svg/home.svg'
+import address from '~/assets/svg/address.svg'
+import right from '~/assets/svg/right.svg'
 
 function Footer() {
     return (
         <footer
-            className='relative w-full'
+            className='relative w-full bg-default pt-12'
             // style={{ backgroundImage: `url(${footerSvg})`, backgroundRepeat: 'no-repeat' }}
         >
-            <img src={footerSvg} alt='' className='absolute top-0 left-0 w-full object-cover' />
+            {/* <img src={footerSvg} alt='' className='absolute top-0 left-0 w-full object-cover' /> */}
             {/* <div className='absolute top-0 left-0 w-full lg:pt-32 pt-16'> */}
             <div className='lg:container w-full px-4 mx-auto h-full z-10'>
-                <div className='grid grid-cols-12 gap-5 '>
+                <div className='grid grid-cols-12 lg:gap-5 gap-y-20 '>
                     <div className='lg:col-span-4 col-span-full'>
                         <div className='mb-2'>
                             <LogoSvg />
@@ -26,7 +25,7 @@ function Footer() {
                         </p>
                     </div>
                     <div className='lg:col-span-4 col-span-full'>
-                        <h3 className='text-2xl leading-7 font-bold uppercase not-italic text-white h-[56px] mb-2'>
+                        <h3 className='text-2xl leading-7 font-bold uppercase not-italic text-white lg:h-[56px] mb-2'>
                             Liên Hệ
                         </h3>
                         <div className='flex flex-col gap-3'>
@@ -56,7 +55,7 @@ function Footer() {
                         </div>
                     </div>
                     <div className='lg:col-span-4 col-span-full'>
-                        <h3 className='text-2xl leading-7 font-bold uppercase not-italic text-white h-[56px] mb-2'>
+                        <h3 className='text-2xl leading-7 font-bold uppercase not-italic text-white lg:h-[56px] mb-2'>
                             LIÊN KẾT HỮU ÍCH
                         </h3>
                         <div className='flex flex-col gap-3'>

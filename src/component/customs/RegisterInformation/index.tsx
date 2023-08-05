@@ -1,8 +1,8 @@
-import vector17 from '~/assets/viector17.svg'
+import vector17 from '~/assets/svg/viector17.svg'
 
 function RegisterInformation() {
     return (
-        <div className='relative lg:mt-36 mt-10 bg-no-repeat  min-h-[400px] flex justify-center items-center'>
+        <div className='relative bg-no-repeat min-h-[400px] flex justify-center items-center'>
             <img src={vector17} alt='' className='w-full min-h-[400px] object-cover' />
             <div className='absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                 <h3 className='lg:text-2xl text-lg text-white text-center left-7 font-bold not-italic lg:mb-10 mb-5 '>

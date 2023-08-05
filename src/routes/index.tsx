@@ -1,6 +1,7 @@
 import { useRoutes } from 'react-router-dom'
 import DefaultLayout from '~/component/DefaultLayout'
 import Home from '~/page/Home'
+import Introduction from '~/page/Introduction'
 
 const routers = [
     {
@@ -8,6 +9,14 @@ const routers = [
         element: (
             <DefaultLayout>
                 <Home />
+            </DefaultLayout>
+        )
+    },
+    {
+        path: '/introduction',
+        element: (
+            <DefaultLayout>
+                <Introduction />
             </DefaultLayout>
         )
     }

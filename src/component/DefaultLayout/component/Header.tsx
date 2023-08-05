@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 
-import logo from '~/assets/logo.svg'
-import flagVietnamese from '~/assets/flagVietnamese.svg'
-import flagEngland from '~/assets/flagEngland.svg'
+import logo from '~/assets/svg/logo.svg'
+import flagVietnamese from '~/assets/svg/flagVietnamese.svg'
+import flagEngland from '~/assets/svg/flagEngland.svg'
 
 const HEADER = [
     {
@@ -12,7 +12,7 @@ const HEADER = [
         title: 'Trang chủ'
     },
     {
-        path: '/a',
+        path: '/introduction',
         title: 'Giới thiệu'
     },
     {
