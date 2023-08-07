@@ -1,0 +1,24 @@
+{
+    "tabs": [
+        {
+            "path": "internal",
+            "title": "INTERNAL NEWS"
+        },
+        {
+            "path": "metaverse",
+            "title": "METAVERSE "
+        },
+        {
+            "path": "blockchanin",
+            "title": "BLOCKCHAIN"
+        },
+        {
+            "path": "game-nft",
+            "title": "GAME NFT"
+        },
+        {
+            "path": "software-development",
+            "title": "SOFTWARE DEVELOPMENT"
+        }
+    ]
+}

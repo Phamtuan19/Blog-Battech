@@ -1,9 +1,49 @@
 {
-    "header": {
-        "title1": "Home",
-        "title2": "Introduction",
-        "title3": "News",
-        "title4": "Job opportunities",
-        "title5": "Job"
+    "header": [
+        {
+            "path": "/",
+            "title": "Trang chủ"
+        },
+        {
+            "path": "/introduction",
+            "title": "Giới thiệu"
+        },
+        {
+            "path": "/news?q=internal",
+            "title": "Tin tức"
+        },
+        {
+            "path": "/v",
+            "title": "Cơ hội việc làm"
+        },
+        {
+            "path": "/s",
+            "title": "Việc làm"
+        }
+    ],
+    "footer": {
+        "title": {
+            "contact": "LIÊN HỆ",
+            "link": "LIÊN KẾT HỮU ÍCH"
+        },
+        "company": "Tại BATTECH, chúng tôi luôn phấn đấu giúp các doanh nghiệp định hình lại phương pháp quản trị doanh nghiệp để vận hành tốt hơn, nâng cao hiệu quả kinh doanh và cải thiện đời sống thông qua việc kết nối con người và công nghệ hiện đại.",
+        "introduction": [
+            { "title": "Phone: ", "content": " 024 85 896 999" },
+            { "title": "E-Mail: ", "content": " info@batgroup.vn" },
+            {
+                "title": "Ðịa chỉ: ",
+                "content": " Tòa HH02, Eco Lakeview, số 32 Ðại Từ, phường Ðại Kim, quận Hoàng Mai, Hà Nội"
+            },
+            { "title": "", "content": "CÔNG TY CỔ PHẦN TẬP ĐOÀN CÔNG NGHỆ BATTECH" }
+        ],
+        "link": [
+            "Giới thiệu về BATTECH",
+            "Thoả thuận sử dụng",
+            "Chính sách bảo hành",
+            "Chương trình đối tác",
+            "Tuyển dụng nhân sự",
+            "Trung tâm hỗ trợ",
+            "Giải pháp marketing online"
+        ]
     }
 }

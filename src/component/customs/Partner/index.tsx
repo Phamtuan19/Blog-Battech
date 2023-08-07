@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -9,10 +11,14 @@ import 'swiper/css/pagination'
 import { Autoplay, Pagination } from 'swiper/modules'
 
 export default function Partner() {
+    const { t } = useTranslation(['home'])
+
     return (
         <div className='lg:container w-full px-4 mx-auto'>
             <div className='mb-12'>
-                <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-7'>ĐỐI TÁC</h3>
+                <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-7 uppercase'>
+                    {t('partner.title')}
+                </h3>
                 <div className='mt-4 '>
                     <Swiper
                         slidesPerView={4}

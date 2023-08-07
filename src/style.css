@@ -22,3 +22,9 @@ body {
     overflow-y: scroll;
     background: #fff;
 }
+
+
+.scroll-0::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}

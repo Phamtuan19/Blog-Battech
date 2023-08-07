@@ -7,88 +7,40 @@ import Banner from '~/component/customs/banner'
 import LatestNews from './component/LatestNews'
 import RegisterInformation from '~/component/customs/RegisterInformation'
 import Partner from '~/component/customs/Partner'
+import { useTranslation } from 'react-i18next'
 
-const DATABANNER = {
-    img: banner,
-    title: 'BATTECH ERP',
-    content: 'GIẢI PHÁP QUẢN TRỊ NGUỒN LỰC DOANH NGHIỆP',
-    description:
-        'Hỗ trợ Ban lãnh đạo hoạch định và điều hành toàn bộ nguồn lực của doanh nghiệp bao gồm Hàng hóa - Tài chính - Nhân sự - Truyền thông và kết nối các bộ phận thao tác nghiệp vụ hiệu quả thông qua những quy trình được thiết kế theo quy chuẩn quốc tế.'
-}
-
-const list2 = [
-    {
-        title: {
-            item1: 'Tư duy phát triển',
-            item2: 'sản phẩm'
-        },
-        content:
-            'Tạo ra môi trường làm việc trực tuyến cho doanh nghiệp. Tất cả thành viên đều được cung cấp đầy đủ công cụ và tài nguyên số để phục vụ cho công việc.'
-    },
-    {
-        title: {
-            item1: 'Tư duy phát triển',
-            item2: 'sản phẩm'
-        },
-        content:
-            'Tạo ra môi trường làm việc trực tuyến cho doanh nghiệp. Tất cả thành viên đều được cung cấp đầy đủ công cụ và tài nguyên số để phục vụ cho công việc.'
-    },
-    {
-        title: {
-            item1: 'Tư duy phát triển',
-            item2: 'sản phẩm'
-        },
-        content:
-            'Tạo ra môi trường làm việc trực tuyến cho doanh nghiệp. Tất cả thành viên đều được cung cấp đầy đủ công cụ và tài nguyên số để phục vụ cho công việc.'
-    },
-    {
-        title: {
-            item1: 'Tư duy phát triển',
-            item2: 'sản phẩm'
-        },
-        content:
-            'Tạo ra môi trường làm việc trực tuyến cho doanh nghiệp. Tất cả thành viên đều được cung cấp đầy đủ công cụ và tài nguyên số để phục vụ cho công việc.'
-    }
-]
-
-const INTRODUCTION = [
-    {
-        img: clock,
-        title: 'Phản hồi',
-        title2: 'nhanh'
-    },
-    {
-        img: development,
-        title: 'Hệ thống',
-        title2: 'phát triển'
-    },
-    {
-        img: padlock,
-        title: 'bảo mật',
-        title2: 'thông tin'
-    },
-    {
-        img: padlock,
-        title: 'Tự động',
-        title2: 'hóa'
-    }
-]
+const INTRODUCTION_IMG = [clock, development, padlock, padlock]
 
 function Home() {
+    const { t } = useTranslation(['home'])
+
+    const DATABANNER = {
+        img: banner,
+        title: 'BATTECH ERP',
+        content: t('banner.title'),
+        description: t('banner.description')
+    }
+    const INTRODUCTION: { title: string; title2: string }[] = t('introduction.listItem', { returnObjects: true })
+    const LIST_DIFFERENCE: { title: string; title2: string; content: string }[] = t('difference.listDifference', {
+        returnObjects: true
+    })
+
     return (
         <div
             className=' lg:mt-[40px] mt-[100px] lg:bg-vector16 lg:bg-no-repeat flex flex-col gap-24'
             style={{ backgroundPosition: '100% 850px', backgroundSize: '847px 1113px' }}
         >
-            <Banner {...DATABANNER}>
-                <button className='bg-default rounded-lg text-white px-6 py-[10px]'>
-                    <span
-                        className='text-2xl font-bold not-italic'
-                        style={{ textShadow: '4px 2px 15px rgba(0, 0, 0, 0.05)' }}
-                    >
-                        Đăng ký nhận tư vấn
-                    </span>
-                </button>
+            <Banner {...DATABANNER} sx='pb-[50%]'>
+                <div className='mt-[52px]'>
+                    <button className='bg-default rounded-lg text-white px-6 py-[10px]'>
+                        <span
+                            className='text-2xl font-bold not-italic'
+                            style={{ textShadow: '4px 2px 15px rgba(0, 0, 0, 0.05)' }}
+                        >
+                            {t('banner.btnTitle')}
+                        </span>
+                    </button>
+                </div>
             </Banner>
 
             <div className='xl:container w-full px-[1rem] mx-auto lg:mt-0 mt-10'>
@@ -103,20 +55,16 @@ function Home() {
                         </div>
                         <div className='lg:col-span-7 col-span-full'>
                             <h3 className='text-2xl left-7 font-bold not-italic text-default lg:text-start text-center mb-6'>
-                                GIỚI THIỆU VỀ BATTECH
+                                {t('introduction.title')}
                             </h3>
                             <p className='text-base not-italic font-medium leading-6 mb-6 text-justify'>
-                                Với gần 15 năm kinh nghiệm, Công ty cổ phần Quốc tế BATTECH là nhà cung cấp các giải
-                                pháp quản trị nguồn lực doanh nghiệp chuyên nghiệp. Hỗ trợ Ban lãnh đạo hoạch định và
-                                điều hành toàn bộ nguồn lực của doanh nghiệp bao gồm Hàng hóa - Tài chính - Nhân sự -
-                                Truyền thông và kết nối các bộ phận thao tác nghiệp vụ hiệu quả thông qua những quy
-                                trình được thiết kế theo quy chuẩn quốc tế.
+                                {t('introduction.content')}
                             </p>
                             <div className='grid grid-cols-12 gap-5 '>
                                 {INTRODUCTION.map((item, index) => (
                                     <div key={index} className='md:col-span-3 sm:col-span-6 col-span-full'>
                                         <div className=' flex items-center flex-col shadow-baseShadow bg-white pt-[19px] pb-[7px] rounded-xl'>
-                                            <img src={item.img} alt='' width='40' height='40' />
+                                            <img src={INTRODUCTION_IMG[index]} alt='' width='40' height='40' />
                                             <p className='mt-3 h-[64px] text-base font-semibold not-italic leading-6 text-center'>
                                                 {item.title} <br /> {item.title2}
                                             </p>
@@ -129,15 +77,16 @@ function Home() {
 
                     <div className=''>
                         <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-[76px] '>
-                            <span className='text-orange'>KHÁC BIỆT</span> VÀ TIÊN PHONG
+                            <span className='text-orange'>{t('difference.title.item')}</span>
+                            {t('difference.title.item2')}
                         </h3>
-                        <div className='grid grid-cols-12 gap-8 '>
-                            {list2.map((item, index) => (
-                                <div className='lg:col-span-3 sm:col-span-6 col-span-12' key={index}>
-                                    <div className='relative pt-11 px-3 pb-4 bg-white shadow-baseShadow rounded-2xl'>
+                        <div className='grid grid-cols-12 gap-8'>
+                            {LIST_DIFFERENCE.map((item, index) => (
+                                <div className='lg:col-span-3 sm:col-span-6 col-span-12 ' key={index}>
+                                    <div className='relative pt-11 px-3 pb-4 bg-white shadow-baseShadow rounded-2xl h-full'>
                                         <h5 className='text-xl leading-6 font-bold text-center mb-3'>
-                                            <span className='block'>{item.title.item1}</span>
-                                            <span className='block'>{item.title.item2}</span>
+                                            <span className='block'>{item.title}</span>
+                                            <span className='block'>{item.title2}</span>
                                         </h5>
                                         <div className='text-base not-italic font-medium text-center'>
                                             {item.content}
