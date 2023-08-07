@@ -1,0 +1,59 @@
+{
+    "banner": {
+        "title": "GIẢI PHÁP QUẢN TRỊ NGUỒN LỰC DOANH NGHIỆP",
+        "description": "Hỗ trợ Ban lãnh đạo hoạch định và điều hành toàn bộ nguồn lực của doanh nghiệp bao gồm Hàng hóa - Tài chính - Nhân sự - Truyền thông và kết nối các bộ phận thao tác nghiệp vụ hiệu quả thông qua những quy trình được thiết kế theo quy chuẩn quốc tế.",
+        "btnTitle": "Đăng ký nhận tư vấn"
+    },
+    "introduction": {
+        "title": "GIỚI THIỆU VỀ BATTECH",
+        "content": "Với gần 15 năm kinh nghiệm, Công ty cổ phần Quốc tế BATTECH là nhà cung cấp các giải pháp quản trị nguồn lực doanh nghiệp chuyên nghiệp. Hỗ trợ Ban lãnh đạo hoạch định và điều hành toàn bộ nguồn lực của doanh nghiệp bao gồm Hàng hóa - Tài chính - Nhân sự - Truyền thông và kết nối các bộ phận thao tác nghiệp vụ hiệu quả thông qua những quy trình được thiết kế theo quy chuẩn quốc tế.",
+        "listItem": [
+            { "title": "Phản hồi", "title2": "nhanh" },
+            { "title": "Hệ thống", "title2": "phát triển" },
+            { "title": "bảo mật", "title2": "thông tin" },
+            { "title": "tự động", "title2": "hóa" }
+        ]
+    },
+    "difference": {
+        "title": {
+            "item": "KHÁC BIỆT",
+            "item2": "VÀ TIÊN PHONG"
+        },
+        "listDifference": [
+            {
+                "title": "Tư duy phát triển",
+                "title2": "sản phẩm",
+                "content": "Tạo ra môi trường làm việc trực tuyến cho doanh nghiệp. Tất cả thành viên đều được cung cấp đầy đủ công cụ và tài nguyên số để phục vụ cho công việc."
+            },
+            {
+                "title": "Khả năng tích hợp",
+                "title2": "và mở rộng",
+                "content": "Cung cấp các giải pháp, mở rộng thêm phần mềm theo yêu cầu của doanh nghiệp."
+            },
+            {
+                "title": "Khả năng tùy biến",
+                "title2": "và tự động",
+                "content": "Battech luôn nghiên cứu đặc thù khác nhau của từng doanh nghiệp để đưa ra lời giải cho bài toán tổng quát."
+            },
+            {
+                "title": "Chi phí hợp lý ",
+                "title2": "và linh hoạt",
+                "content": "Khách hàng chỉ chi trả cho những dịch vụ mình sử dụng. Cam kết không phát sinh thêm các khoản phụ thu."
+            }
+        ]
+    },
+    "news": {
+        "title": "Tin tức",
+        "title2": "Tin tức",
+        "title3": "Tin tức và sự kiện"
+    },
+    "form": {
+        "title": "Đăng ký nhận thông tin mới nhất từ BATTECH",
+        "placeholder1": "Nhập tên của bạn",
+        "placeholder2": "Nhập email của bạn",
+        "btnName": "Đăng ký nhận thông tin"
+    },
+    "partner": {
+        "title": "Đối tác"
+    }
+}

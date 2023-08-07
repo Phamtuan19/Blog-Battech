@@ -1,10 +1,14 @@
-import phone from '~/assets/phone.svg'
-import email from '~/assets/email.svg'
+import phone from '~/assets/svg/phone.svg'
+import email from '~/assets/svg/email.svg'
 import home from '~/assets/svg/home.svg'
 import address from '~/assets/svg/address.svg'
 import right from '~/assets/svg/right.svg'
+import { useTranslation } from 'react-i18next'
 
 function Footer() {
+    const { t } = useTranslation(['layout'])
+
+    const LINK: string[] = t('footer.link', { returnObjects: true })
     return (
         <footer
             className='relative w-full bg-default pt-12'
@@ -18,15 +22,11 @@ function Footer() {
                         <div className='mb-2'>
                             <LogoSvg />
                         </div>
-                        <p className='text-base not-italic font-medium text-white'>
-                            Tại BATTECH, chúng tôi luôn phấn đấu giúp các doanh nghiệp định hình lại phương pháp quản
-                            trị doanh nghiệp để vận hành tốt hơn, nâng cao hiệu quả kinh doanh và cải thiện đời sống
-                            thông qua việc kết nối con người và công nghệ hiện đại.
-                        </p>
+                        <p className='text-base not-italic font-medium text-white'>{t('footer.company')}</p>
                     </div>
                     <div className='lg:col-span-4 col-span-full'>
                         <h3 className='text-2xl leading-7 font-bold uppercase not-italic text-white lg:h-[56px] mb-2'>
-                            Liên Hệ
+                            {t('footer.title.contact')}
                         </h3>
                         <div className='flex flex-col gap-3'>
                             <div className='flex items-center gap-3'>
@@ -56,39 +56,15 @@ function Footer() {
                     </div>
                     <div className='lg:col-span-4 col-span-full'>
                         <h3 className='text-2xl leading-7 font-bold uppercase not-italic text-white lg:h-[56px] mb-2'>
-                            LIÊN KẾT HỮU ÍCH
+                            {t('footer.title.link')}
                         </h3>
                         <div className='flex flex-col gap-3'>
-                            <div className='flex items-center gap-3'>
-                                <img src={right} alt='' />
-                                <p className='text-base not-italic font-medium text-white'>Giới thiệu về BATTECH</p>
-                            </div>
-                            <div className='flex items-center gap-3'>
-                                <img src={right} alt='' />
-                                <p className='text-base not-italic font-medium text-white'>Thoả thuận sử dụng</p>
-                            </div>
-                            <div className='flex items-center gap-3'>
-                                <img src={right} alt='' />
-                                <p className='text-base not-italic font-medium text-white'>Chính sách bảo hành</p>
-                            </div>
-                            <div className='flex items-center gap-3'>
-                                <img src={right} alt='' />
-                                <p className='text-base not-italic font-medium text-white'>Chương trình đối tác</p>
-                            </div>
-                            <div className='flex items-center gap-3'>
-                                <img src={right} alt='' />
-                                <p className='text-base not-italic font-medium text-white'>Tuyển dụng nhân sự</p>
-                            </div>
-                            <div className='flex items-center gap-3'>
-                                <img src={right} alt='' />
-                                <p className='text-base not-italic font-medium text-white'>Trung tâm hỗ trợ</p>
-                            </div>
-                            <div className='flex items-center gap-3'>
-                                <img src={right} alt='' />
-                                <p className='text-base not-italic font-medium text-white'>
-                                    Giải pháp marketing online
-                                </p>
-                            </div>
+                            {LINK.map((item, index) => (
+                                <div key={index} className='flex items-center gap-3'>
+                                    <img src={right} alt='' />
+                                    <p className='text-base not-italic font-medium text-white'>{item}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

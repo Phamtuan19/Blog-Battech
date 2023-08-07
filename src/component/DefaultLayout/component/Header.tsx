@@ -1,41 +1,27 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
+import { useTranslation } from 'react-i18next'
 
 import logo from '~/assets/svg/logo.svg'
-import flagVietnamese from '~/assets/svg/flagVietnamese.svg'
-import flagEngland from '~/assets/svg/flagEngland.svg'
 
-const HEADER = [
-    {
-        path: '/',
-        title: 'Trang chủ'
-    },
-    {
-        path: '/introduction',
-        title: 'Giới thiệu'
-    },
-    {
-        path: '/b',
-        title: 'Tin tức'
-    },
-    {
-        path: '/c',
-        title: 'Cơ hội việc làm'
-    },
-    {
-        path: '/d',
-        title: 'Liên hệ'
-    }
-]
+import { LANGUAGE } from '~/i18n/i18n'
 
 function Header() {
     const [openLng, setOpenLng] = useState<boolean>(false)
     const [openNavbar, setOpenNavbar] = useState<boolean>(false)
-
+    const { t, i18n } = useTranslation<string[]>(['layout'])
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1280px)'
     })
+
+    const handleChangeLanguage = () => {
+        i18n.changeLanguage(lng.name)
+    }
+
+    const HEADER: { path: string; title: string }[] = t('header', { returnObjects: true })
+    const lngActive = i18n.language === LANGUAGE[0].name ? LANGUAGE[0] : LANGUAGE[1]
+    const lng = i18n.language === LANGUAGE[0].name ? LANGUAGE[1] : LANGUAGE[0]
 
     return (
         <div className={`fixed top-0 left-0 w-full bg-white shadow-header z-[99] `}>
@@ -44,6 +30,7 @@ function Header() {
                     <img src={logo} alt='' />
                 </div>
                 {/* nav item */}
+
                 <div className='flex items-center'>
                     {isDesktopOrLaptop && (
                         <>
@@ -70,14 +57,17 @@ function Header() {
                             className='flex justify-between items-center gap-3 text-xl font-normal not-italic w-[70px]'
                             onClick={() => setOpenLng(!openLng)}
                         >
-                            <img src={flagVietnamese} alt='' />
-                            <span className='uppercase'>vn</span>
+                            <img src={lngActive.img} alt='' />
+                            <span className='uppercase'>{lngActive.name}</span>
                         </button>
                         {openLng && (
                             <div className='absolute left-0 -bottom-8'>
-                                <button className='flex justify-between items-center gap-3 text-xl font-normal not-italic w-[70px]'>
-                                    <img src={flagEngland} alt='' />
-                                    <span className='uppercase'>EN</span>
+                                <button
+                                    className='flex justify-between items-center gap-3 text-xl font-normal not-italic w-[70px]'
+                                    onClick={handleChangeLanguage}
+                                >
+                                    <img src={lng.img} alt='' />
+                                    <span className='uppercase'>{lng.name}</span>
                                 </button>
                             </div>
                         )}

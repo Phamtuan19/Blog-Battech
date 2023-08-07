@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -15,11 +17,13 @@ import calendar from '~/assets/svg/calendar.svg'
 import './style.css'
 
 function LatestNews() {
+    const { t } = useTranslation(['home'])
+
     return (
         <div>
-            <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-2'>TIN TỨC</h3>
+            <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-2'>{t('news.title')}</h3>
             <div className=''>
-                <h6 className='text-xl font-bold not-italic text-[#444444]'>Tin tức mới</h6>
+                <h6 className='text-xl font-bold not-italic text-[#444444]'>{t('news.title2')}</h6>
                 <div className='grid grid-cols-12 lg:gap-8 gap-3'>
                     <div className='lg:col-span-8 col-span-12'>
                         <div
@@ -107,7 +111,7 @@ function LatestNews() {
                 </div>
 
                 <div className='mt-6'>
-                    <h6 className='text-xl font-bold not-italic text-[#444444]'>Tin tức và sự kiện</h6>
+                    <h6 className='text-xl font-bold not-italic text-[#444444]'>{t('news.title3')}</h6>
                     <div className='mt-4 '>
                         <Swiper
                             breakpoints={breakpoints}

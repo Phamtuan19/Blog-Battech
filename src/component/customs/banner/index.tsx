@@ -15,7 +15,7 @@ function Banner(props: TypeBanner) {
             <img src={img} alt='' className='absolute top-0 right-0' />
             {/* {!isDesktopOrLaptop && ( */}
             <div className='absolute left-0 top-0 w-full h-full'>
-                <div className='container mx-auto h-full flex justify-center md:items-center items-end py-15'>
+                <div className='lg:container p-4 mx-auto h-full flex items-center'>
                     <div className='flex-1'>
                         <div className=''>
                             <h2 className='text-3xl font-bold not-italic text-orange mb-7 uppercase'>
@@ -25,7 +25,7 @@ function Banner(props: TypeBanner) {
                             <p className='text-xl leading-7 font-bold not-italic text-default mb-6'>{content}</p>
                             <p className='text-base not-italic font-medium leading-6'>{description}</p>
                         </div>
-                        {children && <div className='mt-[52px]'>{children}</div>}
+                        {children}
                     </div>
                     <div className='flex-1'></div>
                 </div>
