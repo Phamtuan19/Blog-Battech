@@ -20,7 +20,7 @@ function Introduction() {
             className=' lg:mt-[20px] md:mt-[80px] mt-[100px] xl:bg-vector16 xl:bg-no-repeat flex flex-col gap-24'
             style={{ backgroundPosition: '100% 950px', backgroundSize: '642px 938px' }}
         >
-            <Banner {...DATABANNER} />
+            <Banner {...DATABANNER} sx='pb-[40%]' />
             <IntroductionDetail />
             <CoreValues />
             <WorkingPrinciple />

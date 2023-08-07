@@ -30,7 +30,7 @@ function Home() {
             className=' lg:mt-[40px] mt-[100px] lg:bg-vector16 lg:bg-no-repeat flex flex-col gap-24'
             style={{ backgroundPosition: '100% 850px', backgroundSize: '847px 1113px' }}
         >
-            <Banner {...DATABANNER}>
+            <Banner {...DATABANNER} sx='pb-[50%]'>
                 <div className='mt-[52px]'>
                     <button className='bg-default rounded-lg text-white px-6 py-[10px]'>
                         <span

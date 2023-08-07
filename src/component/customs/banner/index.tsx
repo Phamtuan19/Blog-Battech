@@ -4,14 +4,15 @@ interface TypeBanner {
     title2?: string
     content?: string
     description: string
+    sx?: string
     children?: React.ReactElement
 }
 
 function Banner(props: TypeBanner) {
-    const { img, title, title2, content, description, children } = props
+    const { img, title, title2, content, description, sx, children } = props
 
     return (
-        <div className='relative w-full flex flex-col justify-end pb-[50%]'>
+        <div className={`relative w-full flex flex-col justify-end ${sx}`}>
             <img src={img} alt='' className='absolute top-0 right-0' />
             {/* {!isDesktopOrLaptop && ( */}
             <div className='absolute left-0 top-0 w-full h-full'>

@@ -6,9 +6,11 @@ import flagEngland from '~/assets/svg/flagEngland.svg'
 
 import VI_DEFAUTLAYOUT from '~/language/VietnameseLanguage/defauLayout.json'
 import VI_HOME from '~/language/VietnameseLanguage/home.json'
+import VI_NEWS from '~/language/VietnameseLanguage/news.json'
 
 import EN_DEFAUTLAYOUT from '~/language/EnglishLanguage/defauLayout.json'
 import EN_HOME from '~/language/EnglishLanguage/home.json'
+import EN_NEWS from '~/language/EnglishLanguage/news.json'
 
 export const LANGUAGE = [
     { img: flagVietnamese, name: 'vi' },
@@ -18,11 +20,13 @@ export const LANGUAGE = [
 const resources = {
     en: {
         layout: EN_DEFAUTLAYOUT,
-        home: EN_HOME
+        home: EN_HOME,
+        news: EN_NEWS
     },
     vi: {
         layout: VI_DEFAUTLAYOUT,
-        home: VI_HOME
+        home: VI_HOME,
+        news: VI_NEWS
     }
 }
 

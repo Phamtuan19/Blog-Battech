@@ -9,11 +9,11 @@
             "title": "Introduction"
         },
         {
-            "path": "/a",
+            "path": "/news?q=internal",
             "title": "News"
         },
         {
-            "path": "/news",
+            "path": "/v",
             "title": "Job opportunities"
         },
         {

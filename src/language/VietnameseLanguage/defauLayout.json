@@ -9,7 +9,7 @@
             "title": "Giới thiệu"
         },
         {
-            "path": "/news",
+            "path": "/news?q=internal",
             "title": "Tin tức"
         },
         {

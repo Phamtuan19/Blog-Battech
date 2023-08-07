@@ -13,7 +13,7 @@ export default {
             },
         },
         screens: {
-            sm: '640px',
+            sm: '360px',
             md: '768px',
             lg: '1024px',
             xl: '1280px',
@@ -39,6 +39,7 @@ export default {
                 'vector16': "url('~/assets/svg/vector16.svg')",
             }
         },
+        
     },
     plugins: [],
 }
