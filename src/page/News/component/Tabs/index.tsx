@@ -39,7 +39,7 @@ function Tabs() {
                 {LIST_TABS_ITEM.map((item, index) => (
                     <div
                         key={index}
-                        className='lg:text-2xl md:text-xl text-lg leading-7 font-bold not-italic uppercase w-auto whitespace-nowrap'
+                        className='lg:text-xl text-lg leading-7 font-bold not-italic uppercase w-auto whitespace-nowrap'
                     >
                         <NavLink
                             key={index}

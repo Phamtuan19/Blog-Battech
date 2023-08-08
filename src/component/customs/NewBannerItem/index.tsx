@@ -23,6 +23,7 @@ function NewBannerItem(props: TypeNewsItems) {
                 backgroundColor: 'lightgray'
             }}
         >
+            <p className='pb-[50%]'></p>
             <div className='absolute left-0 bottom-6 right-0 px-4'>
                 <button className='py-[6px] px-3 text-center rounded-lg bg-[#FD4848] mb-3'>
                     <span className='text-white lg:text-xl text-lg text-center not-italic font-bold'>{btnName}</span>
