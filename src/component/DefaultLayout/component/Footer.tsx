@@ -5,18 +5,18 @@ import address from '~/assets/svg/address.svg'
 import right from '~/assets/svg/right.svg'
 import { useTranslation } from 'react-i18next'
 
+import footerSvg from '~/assets/svg/footerSvg.svg'
+
 function Footer() {
     const { t } = useTranslation(['layout'])
 
     const LINK: string[] = t('footer.link', { returnObjects: true })
     return (
         <footer
-            className='relative w-full bg-default pt-12'
-            // style={{ backgroundImage: `url(${footerSvg})`, backgroundRepeat: 'no-repeat' }}
+            className='relative w-full pt-12 bg-default'
+            style={{ backgroundImage: `url(${footerSvg})`, backgroundRepeat: 'no-repeat', backgroundSize: '100%' }}
         >
-            {/* <img src={footerSvg} alt='' className='absolute top-0 left-0 w-full object-cover' /> */}
-            {/* <div className='absolute top-0 left-0 w-full lg:pt-32 pt-16'> */}
-            <div className='lg:container w-full px-4 mx-auto h-full z-10'>
+            <div className='lg:container w-full px-4 mx-auto h-full z-10 pt-24'>
                 <div className='grid grid-cols-12 lg:gap-5 gap-y-20 '>
                     <div className='lg:col-span-4 col-span-full'>
                         <div className='mb-2'>
@@ -69,7 +69,6 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            {/* </div> */}
         </footer>
     )
 }
