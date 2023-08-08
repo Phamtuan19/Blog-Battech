@@ -27,14 +27,14 @@ function Home() {
 
     return (
         <div
-            className=' lg:mt-[40px] mt-[100px] lg:bg-vector16 lg:bg-no-repeat flex flex-col gap-24'
+            className='mt-header lg:bg-vector16 lg:bg-no-repeat flex flex-col lg:gap-24 gap-10'
             style={{ backgroundPosition: '100% 850px', backgroundSize: '847px 1113px' }}
         >
-            <Banner {...DATABANNER} sx='pb-[50%]'>
-                <div className='mt-[52px]'>
+            <Banner {...DATABANNER}>
+                <div className='lg:mt-[52px] mt-8 text-center'>
                     <button className='bg-default rounded-lg text-white px-6 py-[10px]'>
                         <span
-                            className='text-2xl font-bold not-italic'
+                            className='lg:text-2xl md:text-xl text-lg font-bold not-italic'
                             style={{ textShadow: '4px 2px 15px rgba(0, 0, 0, 0.05)' }}
                         >
                             {t('banner.btnTitle')}
@@ -43,14 +43,13 @@ function Home() {
                 </div>
             </Banner>
 
-            <div className='xl:container w-full px-[1rem] mx-auto lg:mt-0 mt-10'>
+            <div className='xl:container w-full px-[1rem] mx-auto'>
                 <div className='flex flex-col lg:gap-36 gap-20'>
                     <div className='grid grid-cols-12 lg:gap-8 gap-y-10'>
                         <div className='lg:col-span-5 col-span-full '>
-                            <div className='flex justify-center'>
-                                <div className='max-w-[500px] max-h-[500px] '>
-                                    <img className='w-full h-full object-cover block' src={amico} alt='' />
-                                </div>
+                            <div className='relative flex justify-center'>
+                                <p className='lg:pb-[65%] md:pb-[50%] pb-[100%]'></p>
+                                <img className='absolute top-0  h-full object-center block' src={amico} alt='' />
                             </div>
                         </div>
                         <div className='lg:col-span-7 col-span-full'>
@@ -80,7 +79,7 @@ function Home() {
                             <span className='text-orange'>{t('difference.title.item')}</span>
                             {t('difference.title.item2')}
                         </h3>
-                        <div className='grid grid-cols-12 gap-8'>
+                        <div className='grid grid-cols-12 md:gap-8 gap-x-4 gap-y-10'>
                             {LIST_DIFFERENCE.map((item, index) => (
                                 <div className='lg:col-span-3 sm:col-span-6 col-span-12 ' key={index}>
                                     <div className='relative pt-11 px-3 pb-4 bg-white shadow-baseShadow rounded-2xl h-full'>

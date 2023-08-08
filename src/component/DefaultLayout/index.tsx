@@ -12,7 +12,7 @@ function DefaultLayout(props: TypeDefaultLayout) {
     return (
         <div className='relative'>
             <Header />
-            <div className='relative '>{children}</div>
+            <div className='relative mt-header '>{children}</div>
             <Footer />
 
             {/* <div className='hidden fixed left-[2%] bottom-[20%] z-10 hove:flex flex-col gap-5 '>

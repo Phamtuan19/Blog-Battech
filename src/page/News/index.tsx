@@ -11,8 +11,8 @@ const DATABANNER = {
 
 function News() {
     return (
-        <div className=' lg:mt-[20px] md:mt-[80px] mt-[100px] flex flex-col '>
-            <Banner {...DATABANNER} sx='pb-[40%] ' />
+        <div className='flex flex-col '>
+            <Banner {...DATABANNER} />
 
             <div className='lg:container max-auto w-full p-4 flex flex-col gap-y-20'>
                 <div className=''>

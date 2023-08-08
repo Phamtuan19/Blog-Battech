@@ -12,19 +12,23 @@ function Banner(props: TypeBanner) {
     const { img, title, title2, content, description, sx, children } = props
 
     return (
-        <div className={`relative w-full flex flex-col justify-end ${sx}`}>
-            <img src={img} alt='' className='absolute top-0 right-0' />
+        <div className={`relative w-full flex flex-col justify-end ${sx || ''}`}>
+            <p className='pb-[40%]'></p>
+            <img src={img} alt='' className='absolute lg:-top-[12%] -top-[5%] right-0' />
+
             {/* {!isDesktopOrLaptop && ( */}
-            <div className='absolute left-0 top-0 w-full h-full'>
-                <div className='lg:container p-4 mx-auto h-full flex items-center'>
-                    <div className='flex-1'>
-                        <div className=''>
-                            <h2 className='text-3xl font-bold not-italic text-orange mb-7 uppercase'>
-                                <span className='text-default me-2'>{title}</span>
-                                {title2}
+            <div className='lg:absolute lg:left-0 lg:top-0 w-full h-full lg:mt-0 md:mt-14 mt-5'>
+                <div className='lg:container lg:mx-auto p-4 w-full h-full flex items-center'>
+                    <div className='lg:flex-1 w-full'>
+                        <div className='lg:text-start text-center'>
+                            <h2 className='lg:text-3xl md:text-2xl text-xl font-bold not-italic text-orange lg:mb-7 mb-3 uppercase'>
+                                {title}
+                                <span className='text-default me-2'>{title2}</span>
                             </h2>
-                            <p className='text-xl leading-7 font-bold not-italic text-default mb-6'>{content}</p>
-                            <p className='text-base not-italic font-medium leading-6'>{description}</p>
+                            <p className='lg:text-xl text-lg leading-7 font-bold not-italic text-default lg:mb-6 mb-3'>
+                                {content}
+                            </p>
+                            <p className='text-base not-italic font-medium leading-6 text-start'>{description}</p>
                         </div>
                         {children}
                     </div>

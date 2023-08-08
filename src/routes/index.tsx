@@ -3,6 +3,7 @@ import DefaultLayout from '~/component/DefaultLayout'
 import ArticleDetails from '~/page/ArticleDetails'
 import Home from '~/page/Home'
 import Introduction from '~/page/Introduction'
+import JobOpportunity from '~/page/JobOpportunity'
 import News from '~/page/News'
 
 const routers = [
@@ -35,6 +36,14 @@ const routers = [
         element: (
             <DefaultLayout>
                 <ArticleDetails />
+            </DefaultLayout>
+        )
+    },
+    {
+        path: '/job',
+        element: (
+            <DefaultLayout>
+                <JobOpportunity />
             </DefaultLayout>
         )
     }

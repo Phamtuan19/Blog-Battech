@@ -17,10 +17,10 @@ const DATABANNER = {
 function Introduction() {
     return (
         <div
-            className=' lg:mt-[20px] md:mt-[80px] mt-[100px] xl:bg-vector16 xl:bg-no-repeat flex flex-col gap-24'
+            className='xl:bg-vector16 xl:bg-no-repeat flex flex-col gap-14'
             style={{ backgroundPosition: '100% 950px', backgroundSize: '642px 938px' }}
         >
-            <Banner {...DATABANNER} sx='pb-[40%]' />
+            <Banner {...DATABANNER} />
             <IntroductionDetail />
             <CoreValues />
             <WorkingPrinciple />
