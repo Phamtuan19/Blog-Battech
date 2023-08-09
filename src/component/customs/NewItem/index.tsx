@@ -33,7 +33,7 @@ function NewItem(props: TypeNewItem) {
                 </div>
                 <Link
                     to=''
-                    className='lg:text-xl text-lg font-bold not-italic mt-2 text-justify'
+                    className='lg:text-xl text-lg font-bold not-italic mt-2 text-start'
                     style={{
                         display: '-webkit-box',
                         WebkitLineClamp: 4,
@@ -45,7 +45,7 @@ function NewItem(props: TypeNewItem) {
                 </Link>
                 {content && (
                     <p
-                        className='text-base font-medium leading-6 not-italic text-justify mt-2 text-[#929292]'
+                        className='text-base font-medium leading-6 not-italic text-start mt-2 text-[#929292]'
                         style={{
                             display: '-webkit-box',
                             WebkitLineClamp: 3,

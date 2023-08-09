@@ -1,0 +1,43 @@
+{
+    "banner": {
+        "title": "Your dream job is here",
+        "description": "BATTECH believes in the potential and greatness of each person. We value learning, cooperation and mutual support. Discover yourseft. Let us know what you've got and we'll contact you if a role seems like a good fit."
+    },
+    "job": {
+        "title": "CURRENT JOB OPPORTUNITIES",
+        "form": {
+            "placeholder": "The name of the job",
+            "btnName": "Find a job"
+        },
+        "workingGroup": {
+            "title": "Working group",
+            "list": [
+                { "id": "1", "name": "All" },
+                { "id": "2", "name": "Frontend" },
+                { "id": "3", "name": "Backend" },
+                { "id": "4", "name": "Product Design" },
+                { "id": "5", "name": "Tester" },
+                { "id": "6", "name": "HR" }
+            ]
+        },
+        "workLocation": {
+            "title": "Work location",
+            "list": [
+                { "id": "1", "name": "All" },
+                { "id": "2", "name": "Hanoi" },
+                { "id": "3", "name": "Ho Chi Minh" }
+            ]
+        },
+        "typeOfWork": {
+            "title": "Type of work",
+            "list": [
+                { "id": "1", "name": "All" },
+                { "id": "2", "name": "Full-time" },
+                { "id": "3", "name": "Part-time" },
+                { "id": "4", "name": "Interns" }
+            ]
+        },
+        "btnFilter": "Apply filter",
+        "btnApply": "apply for jobs"
+    }
+}

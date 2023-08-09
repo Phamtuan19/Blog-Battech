@@ -1,20 +1,8 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 
-interface TypeJobItem {
-    money: string
-    address: string
-    date: string
-    jobName: string
-    jobTitle: string
-}
-
-function JobItem(props: TypeJobItem) {
-    const { t } = useTranslation(['jobOpportunity'])
-    const { money, address, date, jobName, jobTitle } = props
-
+function JobItem() {
     return (
-        <div className='bg-[#EEEEEE] p-4 rounded-md flex justify-between'>
+        <div className='p-4 rounded-md flex justify-between'>
             <div className='w-full'>
                 <h4
                     className='text-xl font-bold not-italic'
@@ -25,7 +13,7 @@ function JobItem(props: TypeJobItem) {
                         overflow: 'hidden'
                     }}
                 >
-                    {jobName || 'Product Design'}
+                    Product Design
                 </h4>
                 <p
                     className='text-base font-normal not-italic leading-normal'
@@ -36,7 +24,7 @@ function JobItem(props: TypeJobItem) {
                         overflow: 'hidden'
                     }}
                 >
-                    {jobTitle || 'Product Designer (Commercial)'}
+                    Product Designer (Commercial)
                 </p>
                 <div className='flex justify-between items-center'>
                     <div className='flex gap-8'>
@@ -55,9 +43,7 @@ function JobItem(props: TypeJobItem) {
                                     />
                                 </svg>
                             </span>
-                            <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>
-                                {money || 'Thỏa thuận'}
-                            </span>
+                            <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>Thỏa thuận</span>
                         </div>
                         <div className='flex items-center gap-1'>
                             <span>
@@ -74,9 +60,7 @@ function JobItem(props: TypeJobItem) {
                                     />
                                 </svg>
                             </span>
-                            <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>
-                                {address || 'Hà Nội'}
-                            </span>
+                            <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>Hà Nội</span>
                         </div>
                         <div className='flex items-center gap-1'>
                             <span>
@@ -93,18 +77,12 @@ function JobItem(props: TypeJobItem) {
                                     />
                                 </svg>
                             </span>
-                            <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>
-                                {date || '28/10/2022'}
-                            </span>
+                            <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>28/10/2022</span>
                         </div>
                     </div>
-                    <button className='rounded-md bg-default text-xs leading-6 uppercase not-italic font-semibold text-white py-2 px-5'>
-                        {t('job.btnApply')}
-                    </button>
                 </div>
             </div>
         </div>
     )
 }
-
 export default JobItem

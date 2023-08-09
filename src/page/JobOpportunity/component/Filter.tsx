@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 
 interface TypeFilter {
-    options: { id: number; name: string }[]
+    options: { id: string; name: string }[]
 }
 
 function Filter(props: TypeFilter) {
     const { options } = props
 
-    const [check, setCheck] = useState<number>(1)
+    const [check, setCheck] = useState<string>('1')
 
-    const handleChange = (val: number) => {
+    const handleChange = (val: string) => {
         setCheck(val)
     }
 

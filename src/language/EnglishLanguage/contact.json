@@ -1,0 +1,38 @@
+{
+    "banner": {
+        "title": "CONTACT",
+        "description": "We bring you a complete IT solution in an increasingly competitive HR environment"
+    },
+    "contactUs": {
+        "title": "CONTACT US",
+        "content": "Give us a call or drop by anytime, we'll try to answer any questions within 24 hours on business days. Pleased to answer your question."
+    },
+    "information": {
+        "address": "Address",
+        "email": "Email",
+        "phone": "Phone"
+    },
+    "form": {
+        "title": "READY TO GET STARTED",
+        "content": "Your email address will not be published. Required fields marked with ",
+        "formInput": {
+            "name": {
+                "label": "Name",
+                "placeholder": "Enter Name"
+            },
+            "email": {
+                "label": "Email",
+                "placeholder": "Enter Email"
+            },
+            "phone": {
+                "label": "Phone number",
+                "placeholder": "Enter Phone"
+            },
+            "textarea": {
+                "label": "",
+                "placeholder": "Import content..."
+            },
+            "btnName": "Send Message"
+        }
+    }
+}

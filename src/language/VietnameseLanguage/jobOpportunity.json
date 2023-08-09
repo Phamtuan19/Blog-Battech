@@ -1,0 +1,43 @@
+{
+    "banner": {
+        "title": "Công việc giấc mơ của bạn là đây",
+        "description": "BATTECH tin tưởng vào tiềm năng và sự vĩ đại của mỗi người. Chúng tôi coi trọng việc học hỏi, hợp tác và hỗ trợ lẫn nhau. Khám phá bản thân. Hãy cho chúng tôi biết bạn đã có những gì và chúng tôi sẽ liên hệ với bạn nếu có một vai trò nào đó có vẻ phù hợp."
+    },
+    "job": {
+        "title": "CƠ HỘI LÀM VIỆC HIỆN TẠI",
+        "form": {
+            "placeholder": "Tên công việc",
+            "btnName": "Tìm việc làm"
+        },
+        "workingGroup": {
+            "title": "Nhóm công việc",
+            "list": [
+                { "id": "1", "name": "Tất cả" },
+                { "id": "2", "name": "Frontend" },
+                { "id": "3", "name": "Backend" },
+                { "id": "4", "name": "Product Design" },
+                { "id": "5", "name": "Tester" },
+                { "id": "6", "name": "HR" }
+            ]
+        },
+        "workLocation": {
+            "title": "Địa điểm làm việc",
+            "list": [
+                { "id": "1", "name": "Tất cả" },
+                { "id": "2", "name": "Hà Nội" },
+                { "id": "3", "name": "Hồ Chí Minh" }
+            ]
+        },
+        "typeOfWork": {
+            "title": "Loại công việc",
+            "list": [
+                { "id": "1", "name": "Tất cả" },
+                { "id": "2", "name": "Toàn thời gian" },
+                { "id": "3", "name": "Bán thời gian" },
+                { "id": "4", "name": "Thực tập sinh" }
+            ]
+        },
+        "btnFilter": "Áp dụng bộ lọc",
+        "btnApply": "Ứng tuyển"
+    }
+}

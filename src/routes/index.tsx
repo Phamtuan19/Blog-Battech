@@ -1,8 +1,10 @@
-import { useRoutes } from 'react-router-dom'
+import { Outlet, useRoutes } from 'react-router-dom'
+import Contact from '~/page/Contact'
 import DefaultLayout from '~/component/DefaultLayout'
 import ArticleDetails from '~/page/ArticleDetails'
 import Home from '~/page/Home'
 import Introduction from '~/page/Introduction'
+import JobDetail from '~/page/JobDetail'
 import JobOpportunity from '~/page/JobOpportunity'
 import News from '~/page/News'
 
@@ -40,10 +42,32 @@ const routers = [
         )
     },
     {
-        path: '/job',
+        path: '/',
+        element: <Outlet />,
+        children: [
+            {
+                path: 'job',
+                element: (
+                    <DefaultLayout>
+                        <JobOpportunity />
+                    </DefaultLayout>
+                )
+            },
+            {
+                path: 'job/:id',
+                element: (
+                    <DefaultLayout>
+                        <JobDetail />
+                    </DefaultLayout>
+                )
+            }
+        ]
+    },
+    {
+        path: '/contact',
         element: (
             <DefaultLayout>
-                <JobOpportunity />
+                <Contact />
             </DefaultLayout>
         )
     }

@@ -1,4 +1,8 @@
 {
+    "banner": {
+        "title": "TIN TỨC - SỰ KIỆN",
+        "description": "Cung cấp cập nhật thông tin, sự kiện mới của công ty đến với khách hàng và đối tác"
+    },
     "tabs": [
         {
             "path": "internal",
@@ -20,5 +24,8 @@
             "path": "software-development",
             "title": "PHÁT TRIỂN PHẦN MỀM"
         }
-    ]
+    ],
+    "news": {
+        "title": "Tin tức mới"
+    }
 }

@@ -1,0 +1,38 @@
+{
+    "banner": {
+        "title": "LIÊN HỆ",
+        "description": "Chúng tôi mang đến cho bạn một giải pháp CNTT hoàn chỉnh trong điều kiện cạnh tranh nhân sự ngày càng khắc nghiệt"
+    },
+    "contactUs": {
+        "title": "LIÊN HỆ VỚI CHÚNG TÔI",
+        "content": "Hãy gọi cho chúng tôi hoặc ghé qua bất cứ lúc nào, chúng tôi sẽ cố gắng giải đáp mọi thắc mắc trong vòng 24 giờ vào các ngày làm việc. Rất hân hạnh được trả lời câu hỏi của bạn."
+    },
+    "information": {
+        "address": "Địa chỉ",
+        "email": "Email",
+        "phone": "Số điện thoại"
+    },
+    "form": {
+        "title": "SẴN SÀNG ĐỂ BẮT ĐẦU",
+        "content": "Địa chỉ email của bạn sẽ không được công bố. Các trường bắt buộc đánh dấu",
+        "formInput": {
+            "name": {
+                "label": "Tên",
+                "placeholder": "Nhập tên"
+            },
+            "email": {
+                "label": "Email",
+                "placeholder": "Nhập email"
+            },
+            "phone": {
+                "label": "Số điện thoại ",
+                "placeholder": "Nhập số điện thoại"
+            },
+            "textarea": {
+                "label": "",
+                "placeholder": "Nhập nội dung..."
+            },
+            "btnName": "Gửi tin nhắn"
+        }
+    }
+}
