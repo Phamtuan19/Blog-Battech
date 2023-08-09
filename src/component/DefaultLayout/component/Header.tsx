@@ -25,7 +25,7 @@ function Header() {
 
     return (
         <div className={`fixed top-0 left-0 w-full bg-white shadow-header z-[99] `}>
-            <div className={`px-8 w-full h-header flex justify-between items-center`}>
+            <div className={`md:px-8 px-1 w-full h-header flex justify-between items-center`}>
                 <div className=''>
                     <img src={logo} alt='' />
                 </div>

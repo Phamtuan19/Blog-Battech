@@ -1,4 +1,8 @@
 {
+    "banner": {
+        "title": "NEWS - EVENTS",
+        "description": "Provide updated information, new company events to customers and partners"
+    },
     "tabs": [
         {
             "path": "internal",
@@ -20,5 +24,8 @@
             "path": "software-development",
             "title": "SOFTWARE DEVELOPMENT"
         }
-    ]
+    ],
+    "news": {
+        "title": "News"
+    }
 }

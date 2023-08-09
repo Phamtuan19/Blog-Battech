@@ -5,22 +5,22 @@ import WorkingPrinciple from './component/WorkingPrinciple'
 import RegisterInformation from '~/component/customs/RegisterInformation'
 import Banner from '~/component/customs/banner'
 import Partner from '~/component/customs/Partner'
+import { useTranslation } from 'react-i18next'
 
-const DATABANNER = {
-    img: banner,
-    title: 'GIỚI THIỆU VỀ BATTECH',
-    title2: 'BattECH',
-    description:
-        'Sau hơn một thập kỷ xây dựng và trưởng thành, BATTECH đã vươn mình trở thành doanh nghiệp đa lĩnh vực, có tốc độ phát triển thần tốc.'
-}
 
 function Introduction() {
+    const { t } = useTranslation(['introduction'])
     return (
         <div
             className='xl:bg-vector16 xl:bg-no-repeat flex flex-col gap-14'
-            style={{ backgroundPosition: '100% 950px', backgroundSize: '642px 938px' }}
+            style={{ backgroundPosition: '100% 750px', backgroundSize: '742px 975px' }}
         >
-            <Banner {...DATABANNER} />
+            <Banner
+                img={banner}
+                title={t('banner.title')}
+                title2={t('banner.title2')}
+                description={t('banner.description')}
+            />
             <IntroductionDetail />
             <CoreValues />
             <WorkingPrinciple />

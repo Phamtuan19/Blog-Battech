@@ -31,7 +31,7 @@ function Home() {
             style={{ backgroundPosition: '100% 850px', backgroundSize: '847px 1113px' }}
         >
             <Banner {...DATABANNER}>
-                <div className='lg:mt-[52px] mt-8 text-center'>
+                <div className='lg:mt-[52px] mt-8 lg:text-start text-center'>
                     <button className='bg-default rounded-lg text-white px-6 py-[10px]'>
                         <span
                             className='lg:text-2xl md:text-xl text-lg font-bold not-italic'
@@ -45,7 +45,7 @@ function Home() {
 
             <div className='xl:container w-full px-[1rem] mx-auto'>
                 <div className='flex flex-col lg:gap-36 gap-20'>
-                    <div className='grid grid-cols-12 lg:gap-8 gap-y-10'>
+                    <div className='grid grid-cols-12 lg:gap-y-48 gap-y-10'>
                         <div className='lg:col-span-5 col-span-full '>
                             <div className='relative flex justify-center'>
                                 <p className='lg:pb-[65%] md:pb-[50%] pb-[100%]'></p>

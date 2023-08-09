@@ -1,0 +1,68 @@
+{
+    "banner": {
+        "title": "ABOUT ",
+        "title2": "BattECH",
+        "description": "After more than a decade of construction and growth, BATTECH has grown to become a multi-field enterprise with rapid growth."
+    },
+    "introduction": {
+        "title": "ABOUT BATTECH",
+        "content": [
+            "BATTECH was established in early 2009, in the context of our country's economy facing many difficulties and challenges. With the desire for success and strong will of young leaders, BATTECH determined to take real estate investment, M&E construction, fire protection as the core in the first phase.",
+            "After more than a decade of construction and growth, BATTECH has grown to become a multi-industry enterprise with rapid growth.",
+            "With the number of 10 employees since its establishment, it has increased to more than 300 official employees and nearly 400 seasonal employees in domestic and foreign projects. Step by step affirming its stature in the market with a series of large works and projects in Vietnam, Laos, Cambodia, China, and many customers and equipment suppliers from Japan, Taiwan, France, Germany, Italy"
+        ]
+    },
+    "vision": {
+        "title": "VISION AND MISSION",
+        "description": "\"For a society without barriers\"",
+        "content": [
+            "Based on developed technology, everyone's use needs. BATTECH wishes to bring a large virtual world network to the market. So that everyone can share, confide and bond in virtual space, overcoming all barriers of geographical location and epidemics.",
+            "The target in 2022-2023 the company will grow large with a scale of 159 - 200 employees. In addition to developing software for virtual meeting rooms, they also embarked on making 3D games such as golf, fishing, racing... Turning the company into a leading technology company in the development of metaverse in Vietnam."
+        ]
+    },
+    "coreValues": {
+        "bat": ["Dedication to customers", "Dedication to work", "Unity makes strength"],
+        "tech": [
+            "“T” - Technology: Technology",
+            "“E” - Ecosystem: Ecosystem",
+            "“C” - Connect: Connect",
+            "“H” - Happiness: Happiness"
+        ],
+        "core": {
+            "title": "CORE VALUES",
+            "list": [
+                "BATTECH, also known as BATTECH Technology Company, is a company affiliated to BATGROUP born in the core value of the word “MEMBER”",
+                "Technology is developing more and more, with the introduction of the metaverse virtual world to help people connect closer together, BATTECH hopes to open up the interactive online space of users with more multi-dimensionality than current technologies. , instead of just viewing digital content, users in Metaverse will be able to immerse themselves in the space of a virtual digital world."
+            ]
+        }
+    },
+    "workingRelationship": {
+        "title": "WORKING RELATIONSHIP",
+        "list": [
+            {
+                "title": "Teamwork",
+                "content": "Team spirit - each small individual gathers together, supports solidarity for the common goal of building a strong development company."
+            },
+            {
+                "title": "Trust",
+                "content": "Trust - keep credibility, keep promises."
+            },
+            {
+                "title": "Innovation",
+                "content": "Creativity, innovation - always learning, exchanging and updating new knowledge to put into work applications, always improving and applying the latest technologies to create the best products."
+            },
+            {
+                "title": "Ethics",
+                "content": "Ethics - honesty when serving customers, understanding and complying with company regulations, responsibility for work, equality and respect for everyone."
+            },
+            {
+                "title": "Customers",
+                "content": ":Customers - putting customers as the center of development, Battech is always ready to listen and change in a positive direction to come up with suitable products"
+            },
+            {
+                "title": "Goals",
+                "content": "The goal - complete the virtual meeting room product and bring it to market. Widely used by large enterprises."
+            }
+        ]
+    }
+}

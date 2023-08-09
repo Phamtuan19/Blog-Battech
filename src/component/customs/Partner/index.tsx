@@ -32,7 +32,7 @@ export default function Partner() {
                             disableOnInteraction: false
                         }}
                         modules={[Autoplay, Pagination]}
-                        className='relative w-full h-full bg-white pb-10 '
+                        className='relative w-full h-full bg-white pb-12'
                     >
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
                             <SwiperSlide

@@ -1,6 +1,12 @@
 import vectorIntroduction from '~/assets/svg/vectorIntroduction.svg'
+import { useTranslation } from 'react-i18next'
 
 function IntroductionDetail() {
+    const { t } = useTranslation(['introduction'])
+
+    const introductionContent: string[] = t('introduction.content', { returnObjects: true })
+    const vision: string[] = t('vision.content', { returnObjects: true })
+
     return (
         <div className='lg:container mx-auto p-4'>
             <div className='grid grid-cols-12 lg:gap-8 gap-y-8'>
@@ -15,26 +21,12 @@ function IntroductionDetail() {
                 </div>
                 <div className='md:col-span-6 col-span-full'>
                     <h3 className='uppercase text-default text-2xl font-bold leading-7 not-italic mt-3 '>
-                        GIỚI THIỆU VỀ BATTECH
+                        {t('introduction.title')}
                     </h3>
                     <div className='text-base font-medium not-italic flex flex-col gap-6 mt-3'>
-                        <p>
-                            BATTECH được thành lập vào đầu năm 2009, trong bối cảnh nền kinh tế nước ta đang gặp nhiều
-                            khó khăn, thách thức. Với khát vọng thành công và ý chí mạnh mẽ đội ngũ lãnh đạo trẻ,
-                            BATTECH xác định lấy hoạt động đầu tư kinh doanh bất động sản, thi công cơ điện, phòng cháy
-                            chữa cháy làm nòng cốt trong giai đoạn đầu.
-                        </p>
-                        <p>
-                            Sau hơn một thập kỷ xây dựng và trưởng thành, BATTECH đã vươn mình trở thành doanh nghiệp đa
-                            lĩnh vực, có tốc độ phát triển thần tốc.
-                        </p>
-                        <p>
-                            Với số lượng 10 nhân viên từ lúc thành lập đến nay đã tăng lên con số hơn 300 nhân sự chính
-                            thức và gần 400 nhân sự thời vụ tại các dự án trong và ngoài nước. Từng bước khẳng định tầm
-                            vóc trên thương trường với hàng loạt công trình, dự án lớn tại Việt Nam, Lào, Cam-pu-chia,
-                            Trung Quốc, cùng nhiều bạn hàng, đối tác cung ứng thiết bị từ Nhật, Đài Loan, Pháp, Đức,
-                            Italy
-                        </p>
+                        {introductionContent.map((item, index) => (
+                            <p key={index}>{item}</p>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -42,21 +34,13 @@ function IntroductionDetail() {
             <div className='grid grid-cols-12 lg:gap-8 gap-y-8 mt-10'>
                 <div className='md:col-span-6 col-span-full flex flex-col justify-center gap-4'>
                     <h3 className='uppercase text-default text-2xl font-bold leading-7 not-italic mt-3 '>
-                        TẦM NHÌN VÀ SỨ MỆNH
+                        {t('vision.title')}
                     </h3>
                     <div className='text-base font-medium not-italic mt-3'>
-                        <p className='font-bold'>"Vì một xã hội không có rào cản"</p>
-                        <p>
-                            Dựa vào công nghệ phát triển, nhu cầu sử dụng của tất cả mọi người. BATTECH mong muốn đem
-                            tới mạng lưới thế giới ảo rộng lớn ra thị trường. Để cho tất cả mọi người có thể chia sẻ,
-                            tâm sự và gắn kết trong không gian ảo, vượt qua mọi rào cản về vị trí địa lý, dịch bệnh.
-                        </p>
-                        <p>
-                            Mục tiêu năm 2022-2023 công ty sẽ phát triển rộng lớn với quy mô 159 - 200 nhân sự. Ngoài
-                            phát triển xây dựng phần mềm phòng họp ảo còn bắt tay vào làm các games 3D như golf, câu cá,
-                            đua xe... Đưa công ty trở thành công ty công nghệ thuộc top đầu phát triển metaverse tại
-                            Việt Nam.
-                        </p>
+                        <p className='font-bold'>{t('vision.description')}</p>
+                        {vision.map((item, index) => (
+                            <p key={index}>{item}</p>
+                        ))}
                     </div>
                 </div>
                 <div className='md:col-span-6 col-span-full flex lg:justify-start justify-center'>

@@ -2,21 +2,23 @@ import banner from '~/assets/svg/bannerIntroduction.svg'
 import NewBannerItem from '~/component/customs/NewBannerItem'
 import Banner from '~/component/customs/banner'
 import Tabs from './component/Tabs'
+import { useTranslation } from 'react-i18next'
 
-const DATABANNER = {
-    img: banner,
-    title: 'TIN TỨC - SỰ KIỆN',
-    description: 'Cung cấp cập nhật thông tin, sự kiện mới của công ty đến với khách hàng và đối tác'
-}
+// const DATABANNER = {
+//     img: banner,
+//     title: 'TIN TỨC - SỰ KIỆN',
+//     description: 'Cung cấp cập nhật thông tin, sự kiện mới của công ty đến với khách hàng và đối tác'
+// }
 
 function News() {
+    const { t } = useTranslation(['news'])
     return (
         <div className='flex flex-col '>
-            <Banner {...DATABANNER} />
+            <Banner img={banner} title={t('banner.title')} description={t('banner.description')} />
 
             <div className='lg:container max-auto w-full p-4 flex flex-col gap-y-20'>
                 <div className=''>
-                    <h3 className='text-xl font-bold not-italic text-[#444444] mb-4'>Tin tức mới</h3>
+                    <h3 className='text-xl font-bold not-italic text-[#444444] mb-4'>{t('news.title')}</h3>
                     <div className='grid grid-cols-12 gap-2'>
                         <div className='lg:col-span-7 col-span-full'>
                             <NewBannerItem
