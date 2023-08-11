@@ -7,6 +7,7 @@ import Introduction from '~/page/Introduction'
 import JobDetail from '~/page/JobDetail'
 import JobOpportunity from '~/page/JobOpportunity'
 import News from '~/page/News'
+import AddPosts from '~/page/AddPosts'
 
 const routers = [
     {
@@ -34,7 +35,7 @@ const routers = [
         )
     },
     {
-        path: '/article-detail/:id',
+        path: '/article/:id',
         element: (
             <DefaultLayout>
                 <ArticleDetails />
@@ -68,6 +69,14 @@ const routers = [
         element: (
             <DefaultLayout>
                 <Contact />
+            </DefaultLayout>
+        )
+    },
+    {
+        path: 'posts/create',
+        element: (
+            <DefaultLayout>
+                <AddPosts />
             </DefaultLayout>
         )
     }

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useTranslation } from 'react-i18next'
 
 // Import Swiper React components
@@ -16,10 +17,28 @@ import NewBannerItem from '~/component/customs/NewBannerItem'
 import NewItem from '~/component/customs/NewItem'
 import user from '~/assets/svg/user.svg'
 import calendar from '~/assets/svg/calendar.svg'
+import { useEffect, useState } from 'react'
+
+interface TypeLatesNew {
+    _id: string
+    title: string
+    image: string
+    description: string
+    content: string
+    createdAt: string
+}
 
 function LatestNews() {
     const { t } = useTranslation(['home'])
+    const [data, setData] = useState<TypeLatesNew[] | []>([])
 
+    useEffect(() => {
+        ;(async () => {
+            const res = await axios.get('http://localhost:3001/api/posts')
+            setData(res.data.data)
+        })()
+    }, [])
+    console.log(data)
     return (
         <div>
             <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-2'>{t('news.title')}</h3>
@@ -104,23 +123,30 @@ function LatestNews() {
                             pagination={{
                                 clickable: true
                             }}
-                            autoplay={{
-                                delay: 2500,
-                                disableOnInteraction: false
-                            }}
+                            // autoplay={{
+                            //     delay: 2500,
+                            //     disableOnInteraction: false
+                            // }}
                             modules={[Autoplay, Pagination, Grid]}
                             className='relative w-full h-full bg-white pb-10 '
                         >
-                            {[1, 2, 3].map((item) => (
-                                <SwiperSlide key={item}>
-                                    <NewItem
-                                        img='https://s3-alpha-sig.figma.com/img/3f80/fc26/161247dffd6b96d2471005e5ed9021fa?Expires=1692576000&Signature=NX121u-cI3dPw7qSav-OYm66xana7CsFn~KgyzJDoEp5JPIy2EKU2zVPKzw6zvpY5Aa4SYIxhgZKh8-oCM8gn~C5aTF4T~axbIjC3kI-DfHfUJBl3VuuM9xVe-YzSYrmtoLaNMWIMj2l04hPuPUSuK41QJo7JClnJ2mDAuk-ZnTHa093lg6TgLUrg17tYqbYQa8WPgw9yblyTNckwJUqy1PCpyfsfWsw5oOcx~-QjVctb7K0LCR1XtVMhMJKnFZxFhJS-XehrgCSFristgu6dytYVBfH6X9J-tWLtfXg-rbtouJiML2MT0tXGNamIkOszA8ZG~kRQ-yC8P5iBC5LOQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-                                        useName='Le Link'
-                                        date='May 4th 2023'
-                                        title='Chuyển đổi số ngành truyền thông đại chúng: xu hướng mới trong lĩnh vực công nghệ số'
-                                    />
-                                </SwiperSlide>
-                            ))}
+                            {data.length > 0
+                                ? data.map((item) => {
+                                      console.log(item)
+                                      return (
+                                          <SwiperSlide key={item._id}>
+                                              <NewItem
+                                                  img={item.image}
+                                                  date={item.createdAt.toString().slice(0, 10)}
+                                                  _id={item._id}
+                                                  title={item.title}
+                                                  description={item.description}
+                                                  useName='Le Link'
+                                              />
+                                          </SwiperSlide>
+                                      )
+                                  })
+                                : ''}
                         </Swiper>
                     </div>
                 </div>
