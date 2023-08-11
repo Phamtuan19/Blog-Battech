@@ -4,29 +4,6 @@ import Pagination from '~/component/customs/Pagination'
 import useQuery from '~/hook/useQuery'
 import { useTranslation } from 'react-i18next'
 
-// const LIST_TABS_ITEM = [
-//     {
-//         path: 'internal',
-//         title: 'TIN NỘI BỘ'
-//     },
-//     {
-//         path: 'metaverse',
-//         title: 'METAVERSE '
-//     },
-//     {
-//         path: 'blockchanin',
-//         title: 'BLOCKCHAIN'
-//     },
-//     {
-//         path: 'game-nft',
-//         title: 'GAME NFT'
-//     },
-//     {
-//         path: 'software-development',
-//         title: 'PHÁT TRIỂN PHẦN MỀM'
-//     }
-// ]
-
 function Tabs() {
     const query = useQuery()
     const { t } = useTranslation(['news'])
@@ -59,7 +36,8 @@ function Tabs() {
                             useName='Le Link'
                             date='May 4th 2023'
                             title='Chuyển đổi số ngành truyền thông đại chúng: xu hướng mới trong lĩnh vực công nghệ số'
-                            content='Chuyển đổi số đang ảnh hưởng đến mọi ngành công nghiệp và ngành truyền thông cũng không ngoại lệ...'
+                            description='Chuyển đổi số đang ảnh hưởng đến mọi ngành công nghiệp và ngành truyền thông cũng không ngoại lệ...'
+                            _id={''}
                         />
                     </div>
                 ))}

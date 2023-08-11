@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
@@ -45,10 +46,10 @@ const resources = {
 const defaultNS = 'home'
 
 i18next.use(initReactI18next).init({
-    lng: 'en', // if you're using a language detector, do not define the lng option
+    lng: 'vi', // if you're using a language detector, do not define the lng option
     defaultNS,
     ns: ['layout'],
-    fallbackLng: 'en',
+    fallbackLng: 'vi',
     resources,
     interpolation: {
         escapeValue: false
