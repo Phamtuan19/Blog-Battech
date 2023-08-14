@@ -5,9 +5,11 @@ function RegisterInformation() {
     const { t } = useTranslation(['home'])
 
     return (
-        <div className='relative bg-no-repeat min-h-[400px] flex justify-center items-center'>
-            <img src={vector17} alt='' className='w-full min-h-[400px] object-cover' />
-            <div className='absolute w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+        <div
+            className='flex justify-center items-center lg:h-[520px] xl:h-[650px]  h-[400px]'
+            style={{ backgroundImage: `url(${vector17})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}
+        >
+            <div className=''>
                 <h3 className='lg:text-2xl text-lg text-white text-center left-7 font-bold not-italic lg:mb-10 mb-5 '>
                     {t('form.title')}
                 </h3>

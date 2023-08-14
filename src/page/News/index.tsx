@@ -4,12 +4,6 @@ import Banner from '~/component/customs/banner'
 import Tabs from './component/Tabs'
 import { useTranslation } from 'react-i18next'
 
-// const DATABANNER = {
-//     img: banner,
-//     title: 'TIN TỨC - SỰ KIỆN',
-//     description: 'Cung cấp cập nhật thông tin, sự kiện mới của công ty đến với khách hàng và đối tác'
-// }
-
 function News() {
     const { t } = useTranslation(['news'])
     return (

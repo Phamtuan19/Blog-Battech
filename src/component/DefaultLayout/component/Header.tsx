@@ -7,6 +7,7 @@ import logo from '~/assets/svg/logo.svg'
 
 import { LANGUAGE } from '~/i18n/i18n'
 import { useLanguage } from '~/redux/slices/language.slice'
+import LazyImage from '~/component/customs/LazyImage'
 
 function Header() {
     const [openLng, setOpenLng] = useState<boolean>(false)
@@ -30,8 +31,8 @@ function Header() {
     return (
         <div className={`fixed top-0 left-0 w-full bg-white shadow-header z-[99] `}>
             <div className={`md:px-8 px-1 w-full h-header flex justify-between items-center`}>
-                <div className=''>
-                    <img src={logo} alt='' />
+                <div className='max-w-[150px] max-h-[50px]'>
+                    <LazyImage src={logo} />
                 </div>
                 {/* nav item */}
 
@@ -67,10 +68,12 @@ function Header() {
                         {openLng && (
                             <div className='absolute left-0 -bottom-8'>
                                 <button
-                                    className='flex justify-between items-center gap-3 text-xl font-normal not-italic w-[70px]'
+                                    className='flex justify-between items-center gap-1 text-xl font-normal not-italic w-[70px]'
                                     onClick={handleChangeLanguage}
                                 >
-                                    <img src={lng.img} alt='' />
+                                    <div className='max-w-[30px]'>
+                                        <LazyImage src={lng.img} />
+                                    </div>
                                     <span className='uppercase'>{lng.name}</span>
                                 </button>
                             </div>

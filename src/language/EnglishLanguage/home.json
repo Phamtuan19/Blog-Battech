@@ -15,10 +15,7 @@
         ]
     },
     "difference": {
-        "title": {
-            "item": "DIFFERENCE ",
-            "item2": " AND PORIONAL"
-        },
+        "title": "<span style='color: #F57A21;'>DIFFERENCE </span> AND PORIONAL",
         "listDifference": [
             {
                 "title": "Product development",

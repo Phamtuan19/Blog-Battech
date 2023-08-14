@@ -13,7 +13,7 @@ import './style.css'
 import store, { persistor } from './redux/store.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
+    <>
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
                 <BrowserRouter>
@@ -22,5 +22,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             </PersistGate>
         </Provider>
         <ToastContainer autoClose={3000} />
-    </React.StrictMode>
+    </>
 )

@@ -10,8 +10,8 @@ function Contact() {
         <div>
             <Banner img={banner} title={t('banner.title')} description={t('banner.description')} />
             <div className='lg:container mx-auto px-4'>
-                <div className='grid grid-cols-12 gap-x-3 gap-y-32'>
-                    <div className='col-span-6 '>
+                <div className='grid grid-cols-12 lg:gap-x-3 lg:gap-y-32 gap-y-10'>
+                    <div className='lg:col-span-6 col-span-full'>
                         <iframe
                             src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14902.978965078186!2d105.81467728715822!3d20.962763600000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad2838c1faed%3A0x22f08f742bc365f6!2sBAT%20GROUP!5e0!3m2!1svi!2s!4v1691544457890!5m2!1svi!2s'
                             width='600'
@@ -19,10 +19,10 @@ function Contact() {
                             style={{ border: 0 }}
                             loading='lazy'
                             referrerPolicy='no-referrer-when-downgrade'
-                            className='rounded-xl overflow-hidden'
+                            className='rounded-xl overflow-hidden w-full min-w-[300px]'
                         ></iframe>
                     </div>
-                    <div className='col-span-6 mb-2 flex flex-col '>
+                    <div className='lg:col-span-6 col-span-full mb-2 flex flex-col '>
                         <div className=''>
                             <h1 className='text-2xl font-bold not-italic text-default'>{t('contactUs.title')}</h1>
                             <p className='text-base mb-3 mt-2 font-medium not-italic'>{t('contactUs.content')}</p>

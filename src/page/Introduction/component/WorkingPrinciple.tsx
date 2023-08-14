@@ -5,6 +5,7 @@ import ethics from '~/assets/svg/ethics.svg'
 import customers from '~/assets/svg/customers.svg'
 import goals from '~/assets/svg/goals.svg'
 import { useTranslation } from 'react-i18next'
+import LazyImage from '~/component/customs/LazyImage'
 
 const IMG = [teamwork, trust, innovation, ethics, customers, goals]
 
@@ -23,7 +24,7 @@ function WorkingPrinciple() {
                     <div key={index} className='lg:col-span-4 md:col-span-6 col-span-full '>
                         <div className='h-full flex items-center flex-col py-6 shadow-baseShadow rounded-3xl'>
                             <div className='w-[100px] h-[100px] rounded-full flex justify-center items-center shadow-baseShadow'>
-                                <img src={IMG[index]} alt='' />
+                                <LazyImage src={IMG[index]} />
                             </div>
                             <div className='mt-5 px-5 text-center'>
                                 <h4 className='text-xl font-bold not-italic'>{item.title}</h4>

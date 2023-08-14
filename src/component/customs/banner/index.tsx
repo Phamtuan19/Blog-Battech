@@ -1,3 +1,5 @@
+import LazyImage from '../LazyImage'
+
 interface TypeBanner {
     img: string
     title: string
@@ -14,9 +16,10 @@ function Banner(props: TypeBanner) {
     return (
         <div className={`relative w-full flex flex-col justify-end ${sx || ''}`}>
             <p className='pb-[40%]'></p>
-            <img src={img} alt='' className='absolute lg:-top-[12%] -top-[5%] right-0' />
+            <div className='absolute lg:-top-[12%] -top-[5%] right-0'>
+                <LazyImage src={img} />
+            </div>
 
-            {/* {!isDesktopOrLaptop && ( */}
             <div className='lg:absolute lg:left-0 lg:top-0 w-full h-full lg:mt-0 md:mt-14 mt-5'>
                 <div className='lg:container lg:mx-auto p-4 w-full h-full flex items-center'>
                     <div className='lg:flex-1 w-full'>
@@ -35,7 +38,6 @@ function Banner(props: TypeBanner) {
                     <div className='flex-1'></div>
                 </div>
             </div>
-            {/* )} */}
         </div>
     )
 }

@@ -27,7 +27,7 @@ function Home() {
 
     return (
         <div
-            className='mt-header lg:bg-vector16 lg:bg-no-repeat flex flex-col lg:gap-24 gap-10'
+            className='mt-header lg:bg-vector16 lg:bg-no-repeat flex flex-col lg:gap-y-[220px] gap-10'
             style={{ backgroundPosition: '100% 850px', backgroundSize: '847px 1113px' }}
         >
             <Banner {...DATABANNER}>
@@ -75,13 +75,13 @@ function Home() {
                     </div>
 
                     <div className=''>
-                        <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-[76px] '>
-                            <span className='text-orange'>{t('difference.title.item')}</span>
-                            {t('difference.title.item2')}
-                        </h3>
-                        <div className='grid grid-cols-12 md:gap-8 gap-x-4 gap-y-10'>
+                        <h3
+                            className='text-2xl text-default text-center left-7 font-bold not-italic mb-[76px] uppercase'
+                            dangerouslySetInnerHTML={{ __html: t('difference.title') }}
+                        ></h3>
+                        <div className='grid grid-cols-4 md:gap-8 gap-x-4 gap-y-10'>
                             {LIST_DIFFERENCE.map((item, index) => (
-                                <div className='lg:col-span-3 sm:col-span-6 col-span-12 ' key={index}>
+                                <div className='lg:col-span-1 sm:col-span-2 col-span-full ' key={index}>
                                     <div className='relative pt-11 px-3 pb-4 bg-white shadow-baseShadow rounded-2xl h-full'>
                                         <h5 className='text-xl leading-6 font-bold text-center mb-3'>
                                             <span className='block'>{item.title}</span>

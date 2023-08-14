@@ -1,5 +1,6 @@
 import vectorIntroduction from '~/assets/svg/vectorIntroduction.svg'
 import { useTranslation } from 'react-i18next'
+import LazyImage from '~/component/customs/LazyImage'
 
 function IntroductionDetail() {
     const { t } = useTranslation(['introduction'])
@@ -12,11 +13,9 @@ function IntroductionDetail() {
             <div className='grid grid-cols-12 lg:gap-8 gap-y-8'>
                 <div className='md:col-span-6 col-span-full flex lg:justify-start justify-center'>
                     <div className=' max-w-[500px] max-h-[500px]'>
-                        <img
-                            className='rounded-3xl w-full h-full object-cover'
-                            src='https://s3-alpha-sig.figma.com/img/c3f0/c059/541ff2251e6a99cd07ef8ffbf829efe1?Expires=1691971200&Signature=UevNfG9lL5nbMzYKMNCTe4GGvvtInGzZY2pUDF~vUzUILMQZZML9~PVCiitc1je7103XIcsnrCkd5CYNFR~mz5IRMfqAgyykHOnZhOXpvdIUCZb244pbgP7jjahoAQ87mnrGO99D1WIINR7U9mjz2ZvOD4Qv8j4ylzN29xQTq~tLcMcZzzYW7uHmnNn5JFHDE3tlgt97Clhw-0p~HHVB~4sf8kFrq~~tzeoRsYjn9KvWHNiVKokFc2ypfU1Rm57wc77JnDL8TqOupUHm~tb5aPtL03a5Ecpwje9B46EquT9qXWmtyUyI2J6~UnBUIZFx-HbA34OE0S9lwrg6bfescg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-                            alt=''
-                        />
+                        <div className='rounded-3xl w-full h-full object-cover overflow-hidden'>
+                            <LazyImage src='https://s3-alpha-sig.figma.com/img/c3f0/c059/541ff2251e6a99cd07ef8ffbf829efe1?Expires=1691971200&Signature=UevNfG9lL5nbMzYKMNCTe4GGvvtInGzZY2pUDF~vUzUILMQZZML9~PVCiitc1je7103XIcsnrCkd5CYNFR~mz5IRMfqAgyykHOnZhOXpvdIUCZb244pbgP7jjahoAQ87mnrGO99D1WIINR7U9mjz2ZvOD4Qv8j4ylzN29xQTq~tLcMcZzzYW7uHmnNn5JFHDE3tlgt97Clhw-0p~HHVB~4sf8kFrq~~tzeoRsYjn9KvWHNiVKokFc2ypfU1Rm57wc77JnDL8TqOupUHm~tb5aPtL03a5Ecpwje9B46EquT9qXWmtyUyI2J6~UnBUIZFx-HbA34OE0S9lwrg6bfescg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4' />
+                        </div>
                     </div>
                 </div>
                 <div className='md:col-span-6 col-span-full'>
@@ -45,7 +44,9 @@ function IntroductionDetail() {
                 </div>
                 <div className='md:col-span-6 col-span-full flex lg:justify-start justify-center'>
                     <div className='max-w-[500px] max-h-[500px]'>
-                        <img className='rounded-3xl w-full h-full object-cover' src={vectorIntroduction} alt='' />
+                        <div className='rounded-3xl w-full h-full object-cover'>
+                            <LazyImage src={vectorIntroduction} />
+                        </div>
                     </div>
                 </div>
             </div>

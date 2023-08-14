@@ -1,11 +1,17 @@
+import { useTranslation } from 'react-i18next'
+
 import phone from '~/assets/svg/phone.svg'
 import email from '~/assets/svg/email.svg'
 import home from '~/assets/svg/home.svg'
 import address from '~/assets/svg/address.svg'
 import right from '~/assets/svg/right.svg'
-import { useTranslation } from 'react-i18next'
-
 import footerSvg from '~/assets/svg/footerSvg.svg'
+import facebook from '~/assets/svg/facebook.svg'
+import youtube from '~/assets/svg/youtube.svg'
+import twitter from '~/assets/svg/twitter.svg'
+import linkedin from '~/assets/svg/linkedin.svg'
+import discord from '~/assets/svg/discord.svg'
+import LazyImage from '~/component/customs/LazyImage'
 
 function Footer() {
     const { t } = useTranslation(['layout'])
@@ -13,16 +19,33 @@ function Footer() {
     const LINK: string[] = t('footer.link', { returnObjects: true })
     return (
         <footer
-            className='relative w-full pt-12 bg-default'
+            className='relative w-full pt-12 bg-default pb-5'
             style={{ backgroundImage: `url(${footerSvg})`, backgroundRepeat: 'no-repeat', backgroundSize: '100%' }}
         >
-            <div className='lg:container w-full px-4 mx-auto h-full z-10 pt-24'>
+            <div className='lg:container w-full px-4 mx-auto h-full z-10 pt-28 '>
                 <div className='grid grid-cols-12 lg:gap-5 gap-y-20 '>
                     <div className='lg:col-span-4 col-span-full'>
                         <div className='mb-2'>
                             <LogoSvg />
                         </div>
                         <p className='text-base not-italic font-medium text-white'>{t('footer.company')}</p>
+                        <div className='mt-4 flex gap-3 flex-wrap '>
+                            <div className='bg-white px-4 py-[12.5px] flex items-center justify-center rounded-full'>
+                                <LazyImage src={facebook} />
+                            </div>
+                            <div className='bg-white px-3 py-[12.5px] flex items-center justify-center rounded-full'>
+                                <LazyImage src={twitter} />
+                            </div>
+                            <div className='bg-white px-[11px] py-[12.5px] flex items-center justify-center rounded-full'>
+                                <LazyImage src={youtube} />
+                            </div>
+                            <div className='bg-white px-3 py-[12.5px] flex items-center justify-center rounded-full'>
+                                <LazyImage src={linkedin} />
+                            </div>
+                            <div className='bg-white px-[11px] py-[12.5px] flex items-center justify-center rounded-full'>
+                                <LazyImage src={discord} />
+                            </div>
+                        </div>
                     </div>
                     <div className='lg:col-span-4 col-span-full'>
                         <h3 className='text-2xl leading-7 font-bold uppercase not-italic text-white lg:h-[56px] mb-2'>

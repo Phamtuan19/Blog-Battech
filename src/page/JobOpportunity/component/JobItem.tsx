@@ -1,21 +1,14 @@
-import React from 'react'
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useTranslation } from 'react-i18next'
+import { FormAddJob } from '..'
 
-interface TypeJobItem {
-    money: string
-    address: string
-    date: string
-    jobName: string
-    jobTitle: string
-}
-
-function JobItem(props: TypeJobItem) {
+function JobItem(props: FormAddJob) {
     const { t } = useTranslation(['jobOpportunity'])
-    const { money, address, date, jobName, jobTitle } = props
+    const { addressId, content, name, quantity, salaryLevel, technology, workGroupId, createdAt } = props
 
     return (
-        <div className='bg-[#EEEEEE] p-4 rounded-md flex justify-between'>
-            <div className='w-full'>
+        <div className='bg-[#EEEEEE] p-4 rounded-md flex sm:flex-row flex-col justify-between gap-y-3 w-full'>
+            <div className='flex-1'>
                 <h4
                     className='text-xl font-bold not-italic'
                     style={{
@@ -25,7 +18,7 @@ function JobItem(props: TypeJobItem) {
                         overflow: 'hidden'
                     }}
                 >
-                    {jobName || 'Product Design'}
+                    {name}
                 </h4>
                 <p
                     className='text-base font-normal not-italic leading-normal'
@@ -36,11 +29,11 @@ function JobItem(props: TypeJobItem) {
                         overflow: 'hidden'
                     }}
                 >
-                    {jobTitle || 'Product Designer (Commercial)'}
+                    {technology}
                 </p>
                 <div className='flex justify-between items-center'>
-                    <div className='flex gap-8'>
-                        <div className='flex items-center gap-1'>
+                    <div className='flex justify-between sm:flex-row flex-col'>
+                        <div className='flex items-center gap-1 '>
                             <span>
                                 <svg
                                     xmlns='http://www.w3.org/2000/svg'
@@ -56,10 +49,10 @@ function JobItem(props: TypeJobItem) {
                                 </svg>
                             </span>
                             <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>
-                                {money || 'Thỏa thuận'}
+                                {salaryLevel}
                             </span>
                         </div>
-                        <div className='flex items-center gap-1'>
+                        <div className='flex items-center gap-1 '>
                             <span>
                                 <svg
                                     xmlns='http://www.w3.org/2000/svg'
@@ -75,10 +68,10 @@ function JobItem(props: TypeJobItem) {
                                 </svg>
                             </span>
                             <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>
-                                {address || 'Hà Nội'}
+                                {addressId.name}
                             </span>
                         </div>
-                        <div className='flex items-center gap-1'>
+                        <div className='flex items-center gap-1 '>
                             <span>
                                 <svg
                                     xmlns='http://www.w3.org/2000/svg'
@@ -94,14 +87,16 @@ function JobItem(props: TypeJobItem) {
                                 </svg>
                             </span>
                             <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>
-                                {date || '28/10/2022'}
+                                {createdAt.toString().slice(0, 10)}
                             </span>
                         </div>
                     </div>
-                    <button className='rounded-md bg-default text-xs leading-6 uppercase not-italic font-semibold text-white py-2 px-5'>
-                        {t('job.btnApply')}
-                    </button>
                 </div>
+            </div>
+            <div className='w-28 flex items-end justify-end'>
+                <button className='w-28 block rounded-md bg-default text-xs leading-6 uppercase not-italic font-semibold text-white py-2 px-5'>
+                    {t('job.btnApply')}
+                </button>
             </div>
         </div>
     )

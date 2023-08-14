@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next'
 function Form() {
     const { t } = useTranslation(['contact'])
     return (
-        <div className='grid grid-cols-12 gap-11'>
-            <div className='col-span-6 flex flex-col justify-center gap-y-3'>
+        <div className='grid grid-cols-12 lg:gap-x-11'>
+            <div className='lg:col-span-6 col-span-full flex flex-col justify-center gap-y-3'>
                 <div className=''>
                     <label htmlFor='name'>
                         {t('form.formInput.name.label')} <span className='text-red-500'>*</span>
@@ -70,7 +70,7 @@ function Form() {
                     </div>
                 </div>
             </div>
-            <div className='col-span-6 flex flex-col justify-between'>
+            <div className='lg:col-span-6 col-span-full flex flex-col justify-between'>
                 <div className='flex flex-col items-center gap-3 '>
                     <label htmlFor='' className='block mb-3'></label>
                     <textarea

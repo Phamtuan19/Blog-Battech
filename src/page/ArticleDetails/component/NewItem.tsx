@@ -3,9 +3,10 @@ import React from 'react'
 import userBlue from '~/assets/svg/userBlue.svg'
 import calendar from '~/assets/svg/calendar-2.svg'
 import { Link } from 'react-router-dom'
+import { PostType } from '~/types/post.type'
 
-function NewItem(props: { id: string; image: string; title: string; createdAt: string }) {
-    const { id, image, title, createdAt } = props
+function NewItem(props: PostType) {
+    const { _id, image, title, createdAt } = props
     return (
         <div className='grid grid-cols-3 gap-3 bg-white rounded-xl shadow-baseShadow overflow-hidden h-28 '>
             <div className='relative'>
@@ -17,7 +18,7 @@ function NewItem(props: { id: string; image: string; title: string; createdAt: s
             <div className='col-span-2 py-3 pe-3'>
                 <div className='flex flex-col justify-between h-full'>
                     <Link
-                        to={`/article/${id}`}
+                        to={`/article/${_id}`}
                         style={{
                             display: '-webkit-box',
                             WebkitLineClamp: 3,

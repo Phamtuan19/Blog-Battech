@@ -15,10 +15,7 @@
         ]
     },
     "difference": {
-        "title": {
-            "item": "KHÁC BIỆT",
-            "item2": "VÀ TIÊN PHONG"
-        },
+        "title": "<span style='color: #F57A21;'>khác biệt </span> và tiên phong",
         "listDifference": [
             {
                 "title": "Tư duy phát triển",

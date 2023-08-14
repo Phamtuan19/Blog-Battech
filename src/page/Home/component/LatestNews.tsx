@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios'
 import { useTranslation } from 'react-i18next'
 
@@ -17,28 +18,22 @@ import NewBannerItem from '~/component/customs/NewBannerItem'
 import NewItem from '~/component/customs/NewItem'
 import user from '~/assets/svg/user.svg'
 import calendar from '~/assets/svg/calendar.svg'
-import { useEffect, useState } from 'react'
-
-interface TypeLatesNew {
-    _id: string
-    title: string
-    image: string
-    description: string
-    content: string
-    createdAt: string
-}
+import useRequest from '@ahooksjs/use-request'
+import { PostType } from '~/types/post.type'
+import LazyImage from '~/component/customs/LazyImage'
 
 function LatestNews() {
     const { t } = useTranslation(['home'])
-    const [data, setData] = useState<TypeLatesNew[] | []>([])
 
-    useEffect(() => {
-        ;(async () => {
+    const { data: NewsEvents } = useRequest(async () => {
+        try {
             const res = await axios.get('http://localhost:3001/api/posts')
-            setData(res.data.data)
-        })()
-    }, [])
-    console.log(data)
+            return res.data.data
+        } catch (err) {
+            console.log(err)
+        }
+    })
+
     return (
         <div>
             <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-2'>{t('news.title')}</h3>
@@ -87,11 +82,15 @@ function LatestNews() {
                                     </p>
                                     <div className='mt-2 flex items-center gap-10'>
                                         <div className='flex items-center text-white'>
-                                            <img src={user} alt='' width={14} height={16} />
+                                            <div className=''>
+                                                <LazyImage src={user} />
+                                            </div>
                                             <p className='text-sm not-italic ms-2'>Le Link</p>
                                         </div>
                                         <div className='flex items-center text-white'>
-                                            <img src={calendar} alt='' />
+                                            <div className=''>
+                                                <LazyImage src={calendar} />
+                                            </div>
                                             <p className='text-sm not-italic ms-2'>May 4th 2023</p>
                                         </div>
                                     </div>
@@ -130,23 +129,18 @@ function LatestNews() {
                             modules={[Autoplay, Pagination, Grid]}
                             className='relative w-full h-full bg-white pb-10 '
                         >
-                            {data.length > 0
-                                ? data.map((item) => {
-                                      console.log(item)
-                                      return (
-                                          <SwiperSlide key={item._id}>
-                                              <NewItem
-                                                  img={item.image}
-                                                  date={item.createdAt.toString().slice(0, 10)}
-                                                  _id={item._id}
-                                                  title={item.title}
-                                                  description={item.description}
-                                                  useName='Le Link'
-                                              />
-                                          </SwiperSlide>
-                                      )
-                                  })
-                                : ''}
+                            {NewsEvents?.map((item: PostType) => (
+                                <SwiperSlide key={item._id}>
+                                    <NewItem
+                                        img={item.image}
+                                        date={item.createdAt.toString().slice(0, 10)}
+                                        _id={item._id}
+                                        title={item.title}
+                                        description={item.description}
+                                        useName='Le Link'
+                                    />
+                                </SwiperSlide>
+                            ))}
                         </Swiper>
                     </div>
                 </div>

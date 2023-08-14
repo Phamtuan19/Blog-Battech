@@ -4,81 +4,55 @@ import DefaultLayout from '~/component/DefaultLayout'
 import ArticleDetails from '~/page/ArticleDetails'
 import Home from '~/page/Home'
 import Introduction from '~/page/Introduction'
-import JobDetail from '~/page/JobDetail'
 import JobOpportunity from '~/page/JobOpportunity'
 import News from '~/page/News'
 import AddPosts from '~/page/AddPosts'
+import AddJob from '~/page/AddJob'
 
 const routers = [
     {
         path: '/',
-        element: (
-            <DefaultLayout>
-                <Home />
-            </DefaultLayout>
-        )
-    },
-    {
-        path: '/introduction',
-        element: (
-            <DefaultLayout>
-                <Introduction />
-            </DefaultLayout>
-        )
-    },
-    {
-        path: '/news',
-        element: (
-            <DefaultLayout>
-                <News />
-            </DefaultLayout>
-        )
-    },
-    {
-        path: '/article/:id',
-        element: (
-            <DefaultLayout>
-                <ArticleDetails />
-            </DefaultLayout>
-        )
-    },
-    {
-        path: '/',
-        element: <Outlet />,
+        element: <DefaultLayout />,
         children: [
             {
-                path: 'job',
-                element: (
-                    <DefaultLayout>
-                        <JobOpportunity />
-                    </DefaultLayout>
-                )
+                index: true,
+                element: <Home />
             },
             {
-                path: 'job/:id',
-                element: (
-                    <DefaultLayout>
-                        <JobDetail />
-                    </DefaultLayout>
-                )
+                path: 'introduction',
+                element: <Introduction />
+            },
+            {
+                path: 'news',
+                element: <News />
+            },
+            {
+                path: 'article/:id',
+                element: <ArticleDetails />
+            },
+            {
+                path: '/',
+                element: <Outlet />,
+                children: [
+                    {
+                        path: 'job',
+                        element: <JobOpportunity />
+                    },
+                    {
+                        path: 'job/create',
+                        element: <AddJob />
+                    }
+                ]
+            },
+            {
+                path: 'contact',
+                element: <Contact />
+            },
+            {
+                path: 'posts/create',
+                element: <AddPosts />
             }
         ]
-    },
-    {
-        path: '/contact',
-        element: (
-            <DefaultLayout>
-                <Contact />
-            </DefaultLayout>
-        )
-    },
-    {
-        path: 'posts/create',
-        element: (
-            <DefaultLayout>
-                <AddPosts />
-            </DefaultLayout>
-        )
     }
 ]
 
