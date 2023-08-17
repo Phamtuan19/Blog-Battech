@@ -8,33 +8,29 @@
         "title": "ABOUT BATTECH",
         "content": "With nearly 15 years of experience, BATTECH International Joint Stock Company is a professional provider of enterprise resource management solutions. Support the Board of Directors in planning and operating all resources of the business including Goods - Finance - Human Resources - Communication and connecting departments to operate effectively through designed processes. according to international standards.",
         "listItem": [
-            { "title": "Quick response", "title2": "" },
-            { "title": "Development", "title2": "system" },
-            { "title": "information", "title2": "security" },
-            { "title": "automation", "title2": "" }
+            "Quick <br/> response",
+            "Development <br/> system",
+            "Information <br/> security",
+            "Automation <br/> "
         ]
     },
     "difference": {
         "title": "<span style='color: #F57A21;'>DIFFERENCE </span> AND PORIONAL",
         "listDifference": [
             {
-                "title": "Product development",
-                "title2": "mindset",
+                "title": "Product development <br/> mindset",
                 "content": "Create an online working environment for businesses. All members are provided with tools and digital resources to serve their work."
             },
             {
-                "title": "The ability to integrate",
-                "title2": "and expand",
+                "title": "The ability to integrate <br/> and expand",
                 "content": "Provide solutions, expand more software according to the requirements of businesses."
             },
             {
-                "title": "Customization",
-                "title2": "and automation",
+                "title": "Customization <br/> and automation",
                 "content": "Battech always researches the different characteristics of each business to come up with a solution to the general problem."
             },
             {
-                "title": "Reasonable",
-                "title2": "and flexible cost",
+                "title": "Reasonable <br/> and flexible cost",
                 "content": "Customers only pay for the services they use. Commitment to not incur additional surcharges."
             }
         ]

@@ -55,18 +55,19 @@ function NewItem(props: TypeNewItem) {
                         {title}
                     </Link>
                 </div>
-
-                <div
-                    className='flex text-base font-medium leading-6 not-italic text-start mt-2 text-[#929292]'
-                    style={{
-                        display: '-webkit-box',
-                        WebkitLineClamp: 3,
-                        WebkitBoxOrient: 'vertical',
-                        overflow: 'hidden'
-                    }}
-                >
-                    {description}
-                </div>
+                {description && (
+                    <div
+                        className='h-[72px] flex text-base font-medium leading-6 not-italic text-start mt-2 text-[#929292]'
+                        style={{
+                            display: '-webkit-box',
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden'
+                        }}
+                    >
+                        {description}
+                    </div>
+                )}
             </div>
         </div>
     )

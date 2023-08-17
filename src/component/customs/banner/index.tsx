@@ -1,3 +1,5 @@
+/* eslint-disable react-refresh/only-export-components */
+import React from 'react'
 import LazyImage from '../LazyImage'
 
 interface TypeBanner {
@@ -7,28 +9,29 @@ interface TypeBanner {
     content?: string
     description: string
     sx?: string
+    pb: string
+    sxItem?: string
     children?: React.ReactElement
 }
 
 function Banner(props: TypeBanner) {
-    const { img, title, title2, content, description, sx, children } = props
-
+    const { img, title, content, description, sx, pb, sxItem, children } = props
     return (
         <div className={`relative w-full flex flex-col justify-end ${sx || ''}`}>
-            <p className='pb-[40%]'></p>
-            <div className='absolute lg:-top-[12%] -top-[5%] right-0'>
+            <p className={`${pb}`}></p>
+            <div className='absolute -top-5 right-0'>
                 <LazyImage src={img} />
             </div>
 
-            <div className='lg:absolute lg:left-0 lg:top-0 w-full h-full lg:mt-0 md:mt-14 mt-5'>
-                <div className='lg:container lg:mx-auto p-4 w-full h-full flex items-center'>
+            <div className={`lg:absolute lg:left-0 top-0 w-full h-full lg:mt-0`}>
+                <div className={`xl:container lg:mx-auto p-4 w-full h-full flex items-center  ${sxItem || ''}`}>
                     <div className='lg:flex-1 w-full'>
                         <div className='lg:text-start text-center'>
-                            <h2 className='lg:text-3xl md:text-2xl text-xl font-bold not-italic text-orange lg:mb-7 mb-3 uppercase'>
-                                {title}
-                                <span className='text-default me-2'>{title2}</span>
-                            </h2>
-                            <p className='lg:text-xl text-lg leading-7 font-bold not-italic text-default lg:mb-6 mb-3'>
+                            <h2
+                                className='text-3xl font-bold not-italic leading-normal text-default lg:mb-7 mb-3 uppercase'
+                                dangerouslySetInnerHTML={{ __html: title }}
+                            ></h2>
+                            <p className='lg:text-2xl text-lg leading-7 font-bold not-italic text-default mb-3 uppercase'>
                                 {content}
                             </p>
                             <p className='text-base not-italic font-medium leading-6 text-start'>{description}</p>
@@ -42,4 +45,4 @@ function Banner(props: TypeBanner) {
     )
 }
 
-export default Banner
+export default React.memo(Banner)

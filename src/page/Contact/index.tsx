@@ -1,14 +1,16 @@
 import React from 'react'
-import Banner from '../../component/customs/banner'
-import banner from '~/assets/svg/banner-7.svg'
+import bannerSvg from '~/assets/svg/banner-7.svg'
 import Form from './component/Form'
 import { useTranslation } from 'react-i18next'
+import Banner from '~/component/customs/banner'
 
 function Contact() {
     const { t } = useTranslation(['contact'])
     return (
-        <div>
-            <Banner img={banner} title={t('banner.title')} description={t('banner.description')} />
+        <>
+            <div className=''>
+                <Banner img={bannerSvg} title={t('banner.title')} description={t('banner.description')} pb='pb-[45%]' />
+            </div>
             <div className='lg:container mx-auto px-4'>
                 <div className='grid grid-cols-12 lg:gap-x-3 lg:gap-y-32 gap-y-10'>
                     <div className='lg:col-span-6 col-span-full'>
@@ -136,7 +138,7 @@ function Contact() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 export default Contact

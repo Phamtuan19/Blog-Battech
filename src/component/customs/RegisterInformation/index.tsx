@@ -7,7 +7,7 @@ function RegisterInformation() {
     return (
         <div
             className='flex justify-center items-center lg:h-[520px] xl:h-[650px]  h-[400px]'
-            style={{ backgroundImage: `url(${vector17})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}
+            style={{ backgroundImage: `url(${vector17})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%' }}
         >
             <div className=''>
                 <h3 className='lg:text-2xl text-lg text-white text-center left-7 font-bold not-italic lg:mb-10 mb-5 '>

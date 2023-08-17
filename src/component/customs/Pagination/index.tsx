@@ -5,7 +5,8 @@ import ReactPaginate from 'react-paginate'
 interface PaginationType {
     pageCount: number
     page: number
-    setPage: React.Dispatch<React.SetStateAction<number>> | undefined
+    methodCallApi?: () => void
+    setPage: React.Dispatch<React.SetStateAction<number>>
 }
 
 function Pagination(props: PaginationType) {

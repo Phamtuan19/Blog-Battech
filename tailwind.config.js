@@ -37,6 +37,7 @@ export default {
             },
             backgroundImage: {
                 'vector16': "url('~/assets/svg/vector16.svg')",
+                'vector17': "url('~/assets/svg/vector17.svg')",
             }
         },
         

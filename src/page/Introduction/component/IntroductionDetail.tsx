@@ -10,11 +10,14 @@ function IntroductionDetail() {
 
     return (
         <div className='lg:container mx-auto p-4'>
-            <div className='grid grid-cols-12 lg:gap-8 gap-y-8'>
+            <div className='grid grid-cols-12 lg:gap-8 gap-y-8 md:gap-x-5'>
                 <div className='md:col-span-6 col-span-full flex lg:justify-start justify-center'>
-                    <div className=' max-w-[500px] max-h-[500px]'>
-                        <div className='rounded-3xl w-full h-full object-cover overflow-hidden'>
-                            <LazyImage src='https://s3-alpha-sig.figma.com/img/c3f0/c059/541ff2251e6a99cd07ef8ffbf829efe1?Expires=1691971200&Signature=UevNfG9lL5nbMzYKMNCTe4GGvvtInGzZY2pUDF~vUzUILMQZZML9~PVCiitc1je7103XIcsnrCkd5CYNFR~mz5IRMfqAgyykHOnZhOXpvdIUCZb244pbgP7jjahoAQ87mnrGO99D1WIINR7U9mjz2ZvOD4Qv8j4ylzN29xQTq~tLcMcZzzYW7uHmnNn5JFHDE3tlgt97Clhw-0p~HHVB~4sf8kFrq~~tzeoRsYjn9KvWHNiVKokFc2ypfU1Rm57wc77JnDL8TqOupUHm~tb5aPtL03a5Ecpwje9B46EquT9qXWmtyUyI2J6~UnBUIZFx-HbA34OE0S9lwrg6bfescg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4' />
+                    <div className=''>
+                        <div className='rounded-3xl w-full h-full object-cover'>
+                            <LazyImage
+                                sx='rounded-3xl'
+                                src='https://s3-alpha-sig.figma.com/img/c3f0/c059/541ff2251e6a99cd07ef8ffbf829efe1?Expires=1693180800&Signature=XkWKFh4ch7F508ZlZYV8d4Oi~-1TOAk5HxcbuAHdS08zhWDPuQmt~eilg0HqcVSJJZF1DDEYzzf4Tf5YfX1Ns5K3NbLBcTtrcKccsoaEOsozmPrc-soY0XYyQtQW5qbxjyWVKfeCPaLF1GkgRsEK0OwWrf~OhqjlRMNXJOmYLgJM6VU6vL0OiFiQmXblooKcNUeDzmwKuKK24SKYgaRJ4UE3kT5wdB227f~LTfmW0wqMxVLxumZP~6YQrhVMZoUryc9OV-9ddcmjTr1TjEciwcQ10Uz-yag9d7NH0Cvxy8hOU3AVV00ebsYcnzW4~d6RrFMZ01uBsMGphEuMoMkuKA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+                            />
                         </div>
                     </div>
                 </div>

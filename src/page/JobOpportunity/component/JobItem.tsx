@@ -1,15 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useTranslation } from 'react-i18next'
 import { FormAddJob } from '..'
+import { Link } from 'react-router-dom'
 
 function JobItem(props: FormAddJob) {
     const { t } = useTranslation(['jobOpportunity'])
-    const { addressId, content, name, quantity, salaryLevel, technology, workGroupId, createdAt } = props
+    const { _id, addressId, content, name, quantity, salaryLevel, technology, workGroupId, createdAt } = props
 
     return (
         <div className='bg-[#EEEEEE] p-4 rounded-md flex sm:flex-row flex-col justify-between gap-y-3 w-full'>
             <div className='flex-1'>
-                <h4
+                <Link
+                    to={`/job/${_id}`}
                     className='text-xl font-bold not-italic'
                     style={{
                         display: '-webkit-box',
@@ -19,7 +21,7 @@ function JobItem(props: FormAddJob) {
                     }}
                 >
                     {name}
-                </h4>
+                </Link>
                 <p
                     className='text-base font-normal not-italic leading-normal'
                     style={{

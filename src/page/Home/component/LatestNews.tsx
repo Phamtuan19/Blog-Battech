@@ -16,11 +16,8 @@ import { Autoplay, Pagination, Grid } from 'swiper/modules'
 import './style.css'
 import NewBannerItem from '~/component/customs/NewBannerItem'
 import NewItem from '~/component/customs/NewItem'
-import user from '~/assets/svg/user.svg'
-import calendar from '~/assets/svg/calendar.svg'
 import useRequest from '@ahooksjs/use-request'
 import { PostType } from '~/types/post.type'
-import LazyImage from '~/component/customs/LazyImage'
 
 function LatestNews() {
     const { t } = useTranslation(['home'])
@@ -39,7 +36,7 @@ function LatestNews() {
             <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-2'>{t('news.title')}</h3>
             <div className=''>
                 <h6 className='text-xl font-bold not-italic text-[#444444] mb-4'>{t('news.title2')}</h6>
-                <div className='grid grid-cols-12 gap-3'>
+                <div className='grid grid-cols-11 lg:gap-x-8 gap-y-5'>
                     <div className='lg:col-span-7 col-span-12 max-h-[358px]'>
                         <NewBannerItem
                             img='https://s3-alpha-sig.figma.com/img/77ef/c6b7/08345b0e32542e2ae3678931f63d980d?Expires=1691971200&Signature=H6dMTWS8h6LjxMT7ZCQzEnzsbDOk2r1AzAAjlL6iEGdFw5Rypebk9k7Hau1kazwwAkauW7MuhGBypRs1prag9ea6Wm49zwSNmL7qa286KrpOafHACXb1W7CJDIUwfR6tB6~39VrkI0X7klpiCsBPH50s8Ts3YfjCGGqxcK49t3ZT1JTvP-LkSiyYGS8VMY6EYj9s0WFfmIlozxAmJmtMMWyAAG11lPcyC8SnKJLSLA-OCIrjr7QLmegskr75WFySfn1jPKHttX9UhOlZ~edsCyxiWKwuhW7qly9E3p78oVw1iI83VCgXSPrqTftijCuBkL8h761G~P10ypptRYHstg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
@@ -49,54 +46,14 @@ function LatestNews() {
                             date='May 4th 2023'
                         />
                     </div>
-                    <div className='lg:col-span-5 col-span-12'>
-                        <div className='col-span-12'>
-                            <div
-                                className='relative rounded-xl w-full max-h-[358px]'
-                                style={{
-                                    backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(https://s3-alpha-sig.figma.com/img/77ef/c6b7/08345b0e32542e2ae3678931f63d980d?Expires=1691971200&Signature=H6dMTWS8h6LjxMT7ZCQzEnzsbDOk2r1AzAAjlL6iEGdFw5Rypebk9k7Hau1kazwwAkauW7MuhGBypRs1prag9ea6Wm49zwSNmL7qa286KrpOafHACXb1W7CJDIUwfR6tB6~39VrkI0X7klpiCsBPH50s8Ts3YfjCGGqxcK49t3ZT1JTvP-LkSiyYGS8VMY6EYj9s0WFfmIlozxAmJmtMMWyAAG11lPcyC8SnKJLSLA-OCIrjr7QLmegskr75WFySfn1jPKHttX9UhOlZ~edsCyxiWKwuhW7qly9E3p78oVw1iI83VCgXSPrqTftijCuBkL8h761G~P10ypptRYHstg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4)`,
-                                    backgroundPosition: '50% 50%',
-                                    backgroundSize: 'cover',
-                                    backgroundRepeat: 'no-repeat',
-                                    backgroundColor: 'lightgray'
-                                }}
-                            >
-                                <p className='pb-[100%]'></p>
-                                <div className='absolute left-0 bottom-6 right-0 px-4'>
-                                    <button className='py-[6px] px-3 text-center rounded-lg bg-[#FD4848] mb-3'>
-                                        <span className='text-white lg:text-xl text-lg text-center not-italic font-bold'>
-                                            Phát triển phần mềm
-                                        </span>
-                                    </button>
-                                    <p
-                                        className='lg:text-2xl text-xl leading-7 font-bold not-italic text-white'
-                                        style={{
-                                            display: '-webkit-box',
-                                            WebkitLineClamp: 2,
-                                            WebkitBoxOrient: 'vertical',
-                                            overflow: 'hidden'
-                                        }}
-                                    >
-                                        Chuyển đổi số ngành sản xuất: Làm thế nào để doanh nghiệp tối ưu lợi thế trong
-                                        thị trường siêu cạnh tranh?
-                                    </p>
-                                    <div className='mt-2 flex items-center gap-10'>
-                                        <div className='flex items-center text-white'>
-                                            <div className=''>
-                                                <LazyImage src={user} />
-                                            </div>
-                                            <p className='text-sm not-italic ms-2'>Le Link</p>
-                                        </div>
-                                        <div className='flex items-center text-white'>
-                                            <div className=''>
-                                                <LazyImage src={calendar} />
-                                            </div>
-                                            <p className='text-sm not-italic ms-2'>May 4th 2023</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div className='lg:col-span-4 col-span-12'>
+                        <NewBannerItem
+                            img='https://s3-alpha-sig.figma.com/img/7ce7/2014/ba2ca0ab1c516b94cf15cb79d78d5b40?Expires=1693180800&Signature=Q-1TM3uackZuMwXlddmV7~zrqJiwHkxJurpHNHbL-aPIxAkgRTxzAUysu36JzZxSsz8EYYMWChahk69TZYeZqOSODyFXqBgw-FSiVs8bGDclM74UMR7LrjqGe3zyIK07BPhcAEsTciCwopxKwn6LGX5yeoBQdU9oVDZ7IdBBWwafoxNxZYaonhp5F95XPWuUbCgUHcJd2eD2rj7ZexCXOFDZxwsgpYb1~3H86Wo6MwbVvsE44lhKM0oxuMtdRCEQzorxoS89263krl4fkztpPKlILGfl~xED1XvEYZK-vAuXS6a7KNAiSc-uyiNN2iReXIF1py1XMtt321mUnLQRiA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+                            btnName='BLOCKCHAIN'
+                            content='Blockchain là gì? Hoạt động và ứng dụng của Blockchain'
+                            useName='Le Link'
+                            date='May 4th 2023'
+                        />
                     </div>
                 </div>
 
@@ -107,27 +64,26 @@ function LatestNews() {
                             breakpoints={{
                                 320: {
                                     slidesPerView: 1,
-                                    spaceBetween: 20
+                                    spaceBetween: 5
                                 },
                                 550: {
                                     slidesPerView: 2,
-                                    spaceBetween: 30
+                                    spaceBetween: 5
                                 },
                                 768: {
                                     slidesPerView: 3,
-                                    spaceBetween: 40
+                                    spaceBetween: 30
                                 }
                             }}
-                            spaceBetween={30}
                             pagination={{
                                 clickable: true
                             }}
-                            // autoplay={{
-                            //     delay: 2500,
-                            //     disableOnInteraction: false
-                            // }}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false
+                            }}
                             modules={[Autoplay, Pagination, Grid]}
-                            className='relative w-full h-full bg-white pb-10 '
+                            className='relative w-full h-full pb-10 bg-[transparent]'
                         >
                             {NewsEvents?.map((item: PostType) => (
                                 <SwiperSlide key={item._id}>
@@ -136,7 +92,6 @@ function LatestNews() {
                                         date={item.createdAt.toString().slice(0, 10)}
                                         _id={item._id}
                                         title={item.title}
-                                        description={item.description}
                                         useName='Le Link'
                                     />
                                 </SwiperSlide>

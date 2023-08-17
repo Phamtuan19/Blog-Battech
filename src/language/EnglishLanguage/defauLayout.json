@@ -9,7 +9,7 @@
             "title": "Introduction"
         },
         {
-            "path": "/news?q=internal",
+            "path": "/news",
             "title": "News"
         },
         {

@@ -1,6 +1,6 @@
 {
     "banner": {
-        "title": "ABOUT ",
+        "title": "ABOUT <small class='text-orange text-3xl font-bold not-italic leading-normal lg:mb-7 mb-3 uppercase'>BattECH</small> ",
         "title2": "BattECH",
         "description": "After more than a decade of construction and growth, BATTECH has grown to become a multi-field enterprise with rapid growth."
     },

@@ -44,17 +44,15 @@ function Header() {
                                     <NavLink
                                         key={index}
                                         className={({ isActive }) =>
-                                            isActive
-                                                ? 'text-2xl not-italic font-bold leading-normal text-default'
-                                                : 'text-2xl not-italic font-normal leading-normal'
+                                            isActive ? ' font-bold text-default' : 'border-[#9CA3AF]'
                                         }
                                         to={item.path}
                                     >
-                                        <span>{item.title}</span>
+                                        <span className='px-1 text-2xl not-italic leading-normal'>{item.title}</span>
                                     </NavLink>
                                 ))}
                             </div>
-                            <span className='w-[1px] h-8 border border-solid border-[#9CA3AF] mx-3'></span>
+                            <span className='w-[1px] h-8 border border-solid mx-3'></span>
                         </>
                     )}
                     <div className='relative'>
@@ -127,7 +125,5 @@ function Header() {
         </div>
     )
 }
-
-// flex items-center justify-start
 
 export default Header

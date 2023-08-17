@@ -1,7 +1,7 @@
 {
     "banner": {
-        "title": "GIỚI THIỆU VỀ ",
-        "title2": "BattECH",
+        "title": "GIỚI THIỆU VỀ <small class='text-orange text-3xl font-bold not-italic leading-normal lg:mb-7 mb-3 uppercase'>BattECH</small>",
+        "title2": "",
         "description": "Sau hơn một thập kỷ xây dựng và trưởng thành, BATTECH đã vươn mình trở thành doanh nghiệp đa lĩnh vực, có tốc độ phát triển thần tốc."
     },
     "introduction": {

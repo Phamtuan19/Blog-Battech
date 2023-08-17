@@ -8,8 +8,9 @@ import JobOpportunity from '~/page/JobOpportunity'
 import News from '~/page/News'
 import AddPosts from '~/page/AddPosts'
 import AddJob from '~/page/AddJob'
+import JobDetail from '~/page/JobDetail'
 
-const routers = [
+const routes = [
     {
         path: '/',
         element: <DefaultLayout />,
@@ -35,12 +36,22 @@ const routers = [
                 element: <Outlet />,
                 children: [
                     {
-                        path: 'job',
-                        element: <JobOpportunity />
-                    },
-                    {
-                        path: 'job/create',
-                        element: <AddJob />
+                        path: 'job/',
+                        element: <Outlet />,
+                        children: [
+                            {
+                                index: true,
+                                element: <JobOpportunity />
+                            },
+                            {
+                                path: '/job/:id',
+                                element: <JobDetail />
+                            },
+                            {
+                                path: 'create',
+                                element: <AddJob />
+                            }
+                        ]
                     }
                 ]
             },
@@ -57,5 +68,5 @@ const routers = [
 ]
 
 export default function Routers() {
-    return useRoutes(routers)
+    return useRoutes(routes)
 }
