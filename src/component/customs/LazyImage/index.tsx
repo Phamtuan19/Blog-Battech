@@ -18,7 +18,7 @@ function LazyImage(props: LazyImageProps) {
             effect='blur'
             width='100%'
             height='100%'
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'cover', with: '100%', height: '100%' }}
         />
     )
 }

@@ -1,0 +1,22 @@
+{
+    "name": {
+        "required": "Tên không được để trống."
+    },
+    "email": {
+        "required": "Email không được để trống.",
+        "typeEmail": "Email không đúng định dạng."
+    },
+    "phone": {
+        "required": "Số điện thoại không được để trống.",
+        "typePhone": "Số điện thoại không đúng định dạng."
+    },
+    "cv": {
+        "required": "Số CV được để trống."
+    },
+    "address": {
+        "required": "Địa chỉ không được để trống."
+    },
+    "question": {
+        "required": "Câu hỏi không được để trống."
+    }
+}

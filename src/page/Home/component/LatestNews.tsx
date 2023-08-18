@@ -78,10 +78,10 @@ function LatestNews() {
                             pagination={{
                                 clickable: true
                             }}
-                            autoplay={{
-                                delay: 3000,
-                                disableOnInteraction: false
-                            }}
+                            // autoplay={{
+                            //     delay: 3000,
+                            //     disableOnInteraction: false
+                            // }}
                             modules={[Autoplay, Pagination, Grid]}
                             className='relative w-full h-full pb-10 bg-[transparent]'
                         >

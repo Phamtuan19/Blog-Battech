@@ -1,14 +1,29 @@
+import { lazy } from 'react'
 import { Outlet, useRoutes } from 'react-router-dom'
-import Contact from '~/page/Contact'
 import DefaultLayout from '~/component/DefaultLayout'
-import ArticleDetails from '~/page/ArticleDetails'
-import Home from '~/page/Home'
-import Introduction from '~/page/Introduction'
-import JobOpportunity from '~/page/JobOpportunity'
-import News from '~/page/News'
-import AddPosts from '~/page/AddPosts'
-import AddJob from '~/page/AddJob'
-import JobDetail from '~/page/JobDetail'
+
+// import Contact from '~/page/Contact'
+// import ArticleDetails from '~/page/ArticleDetails'
+// import Home from '~/page/Home'
+// import Introduction from '~/page/Introduction'
+// import JobOpportunity from '~/page/JobOpportunity'
+// import News from '~/page/News'
+// import AddPosts from '~/page/AddPosts'
+// import AddJob from '~/page/AddJob'
+// import JobDetail from '~/page/JobDetail'
+
+import ChatSocialNetwork from '~/component/DefaultLayout/component/ChatSocialNetwork'
+import Loadable from '~/hook/Loadable'
+
+const Home = Loadable(lazy(() => import('~/page/Home')))
+const Contact = Loadable(lazy(() => import('~/page/Contact')))
+const ArticleDetails = Loadable(lazy(() => import('~/page/ArticleDetails')))
+const JobOpportunity = Loadable(lazy(() => import('~/page/JobOpportunity')))
+const News = Loadable(lazy(() => import('~/page/News')))
+const AddPosts = Loadable(lazy(() => import('~/page/AddPosts')))
+const AddJob = Loadable(lazy(() => import('~/page/AddJob')))
+const JobDetail = Loadable(lazy(() => import('~/page/JobDetail')))
+const Introduction = Loadable(lazy(() => import('~/page/Introduction')))
 
 const routes = [
     {
@@ -17,15 +32,30 @@ const routes = [
         children: [
             {
                 index: true,
-                element: <Home />
+                element: (
+                    <>
+                        <Home />
+                        <ChatSocialNetwork />
+                    </>
+                )
             },
             {
                 path: 'introduction',
-                element: <Introduction />
+                element: (
+                    <>
+                        <Introduction />
+                        <ChatSocialNetwork />
+                    </>
+                )
             },
             {
                 path: 'news',
-                element: <News />
+                element: (
+                    <>
+                        <News />
+                        <ChatSocialNetwork />
+                    </>
+                )
             },
             {
                 path: 'article/:id',
@@ -57,7 +87,12 @@ const routes = [
             },
             {
                 path: 'contact',
-                element: <Contact />
+                element: (
+                    <>
+                        <Contact />
+                        <ChatSocialNetwork />
+                    </>
+                )
             },
             {
                 path: 'posts/create',

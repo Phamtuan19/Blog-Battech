@@ -34,7 +34,7 @@ function JobItem(props: FormAddJob) {
                     {technology}
                 </p>
                 <div className='flex justify-between items-center'>
-                    <div className='flex justify-between sm:flex-row flex-col'>
+                    <div className='flex justify-between sm:flex-row flex-col gap-3'>
                         <div className='flex items-center gap-1 '>
                             <span>
                                 <svg
@@ -96,9 +96,12 @@ function JobItem(props: FormAddJob) {
                 </div>
             </div>
             <div className='w-28 flex items-end justify-end'>
-                <button className='w-28 block rounded-md bg-default text-xs leading-6 uppercase not-italic font-semibold text-white py-2 px-5'>
+                <Link
+                    to={`/job/${_id}`}
+                    className='w-28 block rounded-md bg-default hover:bg-hoverDefault text-xs leading-6 uppercase not-italic font-semibold text-white py-2 px-5'
+                >
                     {t('job.btnApply')}
-                </button>
+                </Link>
             </div>
         </div>
     )

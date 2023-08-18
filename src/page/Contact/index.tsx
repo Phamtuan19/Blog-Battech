@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import Banner from '~/component/customs/banner'
 
 function Contact() {
-    const { t } = useTranslation(['contact'])
+    const { t } = useTranslation(['contact', 'validationMessage'])
     return (
         <>
             <div className=''>
@@ -43,7 +43,7 @@ function Contact() {
                                             viewBox='0 0 24 24'
                                             fill='none'
                                         >
-                                            <g id='pin_drop' clip-path='url(#clip0_1_1288)'>
+                                            <g id='pin_drop' clipPath='url(#clip0_1_1288)'>
                                                 <path
                                                     id='Vector'
                                                     d='M18 8C18 4.69 15.31 2 12 2C8.69 2 6 4.69 6 8C6 12.5 12 19 12 19C12 19 18 12.5 18 8ZM10 8C10 6.9 10.9 6 12 6C13.1 6 14 6.9 14 8C14 9.1 13.11 10 12 10C10.9 10 10 9.1 10 8ZM5 20V22H19V20H5Z'
@@ -76,7 +76,7 @@ function Contact() {
                                             viewBox='0 0 24 24'
                                             fill='none'
                                         >
-                                            <g clip-path='url(#clip0_1_1296)'>
+                                            <g clipPath='url(#clip0_1_1296)'>
                                                 <path
                                                     d='M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z'
                                                     fill='#008345'
@@ -106,7 +106,7 @@ function Contact() {
                                             viewBox='0 0 24 24'
                                             fill='none'
                                         >
-                                            <g clip-path='url(#clip0_1_1302)'>
+                                            <g clipPath='url(#clip0_1_1302)'>
                                                 <path
                                                     d='M20.01 15.38C18.78 15.38 17.59 15.18 16.48 14.82C16.13 14.7 15.74 14.79 15.47 15.06L13.9 17.03C11.07 15.68 8.42 13.13 7.01 10.2L8.96 8.54C9.23 8.26 9.31 7.87 9.2 7.52C8.83 6.41 8.64 5.22 8.64 3.99C8.64 3.45 8.19 3 7.65 3H4.19C3.65 3 3 3.24 3 3.99C3 13.28 10.73 21 20.01 21C20.72 21 21 20.37 21 19.82V16.37C21 15.83 20.55 15.38 20.01 15.38Z'
                                                     fill='#008345'

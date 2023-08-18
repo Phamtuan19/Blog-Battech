@@ -12,8 +12,6 @@ import axios from 'axios'
 function JobDetail() {
     const { id } = useParams()
 
-    console.log(id)
-
     const { loading, data: jobDetail } = useRequest(async () => {
         try {
             const res = await axios.get(`http://localhost:3001/api/job/${id}`)
@@ -21,7 +19,6 @@ function JobDetail() {
         } catch (error) {}
     })
 
-    console.log(jobDetail)
     return (
         <>
             <Banner

@@ -9,6 +9,7 @@ import RegisterInformation from '~/component/customs/RegisterInformation'
 import Partner from '~/component/customs/Partner'
 import { useTranslation } from 'react-i18next'
 import LazyImage from '~/component/customs/LazyImage'
+import Button from '~/component/customs/Button'
 
 const INTRODUCTION_IMG = [clock, development, padlock, padlock]
 
@@ -30,14 +31,18 @@ function Home() {
         <>
             <Banner {...DATABANNER} pb='pb-[50%]' sx='lg:-top-16' sxItem='lg:items-center xl:pb-32 lg:pb-20'>
                 <div className='lg:mt-[52px] mt-8 lg:text-start text-center'>
-                    <button className='bg-default rounded-lg text-white px-6 py-[10px]'>
+                    {/* <button className='bg-default hover:bg-[#186e25] rounded-lg text-white px-6 py-[10px]'>
                         <span
                             className='lg:text-2xl md:text-xl text-lg font-bold not-italic'
                             style={{ textShadow: '4px 2px 15px rgba(0, 0, 0, 0.05)' }}
                         >
                             {t('banner.btnTitle')}
                         </span>
-                    </button>
+                    </button> */}
+
+                    <div className='flex justify-center items-center'>
+                        <Button>{t('banner.btnTitle')}</Button>
+                    </div>
                 </div>
             </Banner>
             <div
