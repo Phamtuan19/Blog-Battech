@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react-refresh/only-export-components */
 import { Link } from 'react-router-dom'
 
@@ -43,7 +44,7 @@ function NewItem(props: TypeNewItem) {
                 </div>
                 <div className='min-h-[64px]'>
                     <Link
-                        to={`/article/${_id}`}
+                        to={`/news/${_id}`}
                         className='flex lg:text-xl text-lg font-bold not-italic mt-2 text-start hover:text-default'
                         style={{
                             display: '-webkit-box',

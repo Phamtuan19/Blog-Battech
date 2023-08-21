@@ -1,5 +1,8 @@
-import React from 'react'
+/* eslint-disable import/no-unresolved */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import Modal from '~/component/customs/Modal'
 
 interface TypeFormApp {
     name: string
@@ -15,16 +18,19 @@ function ApplyDirectly() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
+        reset
     } = useForm<TypeFormApp>({})
 
+    const [open, setOpen] = useState<boolean>(false)
     const handleSubmitForm = (data: TypeFormApp) => {
-        console.log(data)
+        reset()
+        setOpen(true)
     }
 
     return (
         <div className='p-3 border border-solid border-default rounded-xl'>
-            <h1 className='text-2xl font-bold not-italic'>Lập trình viên NodeJS</h1>
+            <h1 className='text-2xl font-bold not-italic'>Ứng tuyển trực tiếp</h1>
             <div className='mt-4 flex flex-col gap-y-4'>
                 <form onSubmit={handleSubmit(handleSubmitForm)}>
                     <div className='mb-3'>
@@ -223,6 +229,12 @@ function ApplyDirectly() {
                     </div>
                 </form>
             </div>
+            <Modal
+                open={open}
+                setOpen={setOpen}
+                title='Apply thành công.'
+                content='chúng tôi sẽ liên hệ với bạn sau 2 - 3 ngày làm việc sau khi tiếp nhận CV của bạn! '
+            />
         </div>
     )
 }

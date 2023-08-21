@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable import/no-unresolved */
+import { useState } from 'react'
 import vector17 from '~/assets/svg/viector17.svg'
 import { useTranslation } from 'react-i18next'
 import { useForm } from 'react-hook-form'
+import Modal from '../Modal'
 
 interface TypeFormRegister {
     name: string
@@ -9,15 +13,17 @@ interface TypeFormRegister {
 
 function RegisterInformation() {
     const { t } = useTranslation(['home'])
-
+    const [open, setOpen] = useState<boolean>(false)
     const {
+        reset,
         register,
         handleSubmit,
         formState: { errors }
     } = useForm<TypeFormRegister>({})
 
     const handleSubmitForm = (data: TypeFormRegister): void => {
-        console.log(data)
+        reset()
+        setOpen(true)
     }
     return (
         <div
@@ -63,6 +69,12 @@ function RegisterInformation() {
                     </div>
                 </form>
             </div>
+            <Modal
+                open={open}
+                setOpen={setOpen}
+                title='Đăng ký nhận thông tin thành công'
+                content='Chúng tôi sẽ gửi đến bạn những thông tin mới nhất!'
+            />
         </div>
     )
 }

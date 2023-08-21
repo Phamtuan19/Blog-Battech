@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios'
 import { useTranslation } from 'react-i18next'
@@ -72,7 +73,7 @@ function LatestNews() {
                                 },
                                 768: {
                                     slidesPerView: 3,
-                                    spaceBetween: 30
+                                    spaceBetween: 10
                                 }
                             }}
                             pagination={{
@@ -86,7 +87,7 @@ function LatestNews() {
                             className='relative w-full h-full pb-10 bg-[transparent]'
                         >
                             {NewsEvents?.map((item: PostType) => (
-                                <SwiperSlide key={item._id}>
+                                <SwiperSlide key={item._id} className='px-1'>
                                     <NewItem
                                         img={item.image}
                                         date={item.createdAt.toString().slice(0, 10)}

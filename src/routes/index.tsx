@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { lazy } from 'react'
 import { Outlet, useRoutes } from 'react-router-dom'
 import DefaultLayout from '~/component/DefaultLayout'
@@ -50,16 +51,21 @@ const routes = [
             },
             {
                 path: 'news',
-                element: (
-                    <>
-                        <News />
-                        <ChatSocialNetwork />
-                    </>
-                )
-            },
-            {
-                path: 'article/:id',
-                element: <ArticleDetails />
+                children: [
+                    {
+                        index: true,
+                        element: (
+                            <>
+                                <News />
+                                <ChatSocialNetwork />
+                            </>
+                        )
+                    },
+                    {
+                        path: '/news/:id',
+                        element: <ArticleDetails />
+                    }
+                ]
             },
             {
                 path: '/',

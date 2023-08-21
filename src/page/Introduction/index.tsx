@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import banner from '~/assets/svg/bannerIntroduction.svg'
 import IntroductionDetail from './component/IntroductionDetail'
 import CoreValues from './component/CoreValues'
@@ -21,8 +22,8 @@ function Introduction() {
                 sxItem='lg:-top-10'
             />
             <div
-                className='xl:bg-vector17 xl:bg-no-repeat flex flex-col gap-14'
-                style={{ backgroundPosition: '100% 5%' }}
+                className={`xl:bg-vector17 xl:bg-no-repeat flex flex-col gap-14`}
+                style={{ backgroundPosition: '100% 5%', backgroundSize: '45 %' }}
             >
                 <IntroductionDetail />
                 <CoreValues />

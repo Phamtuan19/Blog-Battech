@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable no-empty */
 import React from 'react'
 import Banner from '~/component/customs/banner'
@@ -25,9 +26,9 @@ function JobDetail() {
                 img={banner6}
                 title='Công việc giấc mơ của bạn là đây'
                 description='BATTECH tin tưởng vào tiềm năng và sự vĩ đại của mỗi người. Chúng tôi coi trọng việc học hỏi, hợp tác và hỗ trợ lẫn nhau. Khám phá bản thân. Hãy cho chúng tôi biết bạn đã có những gì và chúng tôi sẽ liên hệ với bạn nếu có một vai trò nào đó có vẻ phù hợp.'
-                pb='pb-[32%]'
+                pb='xl:pb-[35%] pb-[40%]'
                 sx='lg:-top-16'
-                sxItem='lg:items-end'
+                sxItem='lg:items-end xl:pb-20'
             />
             <div>
                 <div className='lg:container mx-auto p-4'>
@@ -87,13 +88,14 @@ function JobDetail() {
                                 <div className='mt-3' dangerouslySetInnerHTML={{ __html: jobDetail?.content }}></div>
                             </div>
                         )}
-                        <div className='lg:col-span-4 col-span-full lg:mt-7 mt-10'>
+                        <div className='lg:col-span-4 col-span-full lg:mt-7 mt-10 '>
                             <ApplyDirectly />
 
-                            <div className='mt-5 p-3 border border-solid border-default rounded-xl'>
-                                <h1 className='text-2xl font-bold not-italic'>Công việc tương tự</h1>
-
-                                <div className=''>
+                            <div className='mt-5  border border-solid border-[#008345] rounded-xl overflow-hidden'>
+                                <div className='border-solid border-b-[1px] p-3 border-default'>
+                                    <h1 className='text-2xl font-bold not-italic'>Công việc tương tự</h1>
+                                </div>
+                                <div className='p-3'>
                                     <JobItem />
                                 </div>
                             </div>

@@ -1,7 +1,7 @@
+/* eslint-disable import/no-unresolved */
 import user from '~/assets/svg/user.svg'
 import calendar from '~/assets/svg/calendar.svg'
 import { Link } from 'react-router-dom'
-import Button from '../Button'
 
 interface TypeNewsItems {
     img: string
@@ -28,11 +28,11 @@ function NewBannerItem(props: TypeNewsItems) {
             <p className='xl:pb-[50%] md:pb-[40%] sm:pb-[50%] pb-[100%]'></p>
             <div className='absolute left-0 bottom-0 w-full h-full py-2 px-4 flex flex-col justify-end'>
                 <div className=''>
-                    <Button sx='up mb-3' background='#FD4848' hover='#7F1D1D'>
+                    <button className='flex justify-center items-center py-[8px] px-[18px] text-xl font-normal text-white rounded-xl mb-3 bg-[#FD4848] hover:bg-[#7F1D1D]'>
                         <Link to='' className='text-white lg:text-xl text-lg text-center not-italic font-bold'>
                             {btnName}
                         </Link>
-                    </Button>
+                    </button>
                 </div>
                 <Link
                     to=''

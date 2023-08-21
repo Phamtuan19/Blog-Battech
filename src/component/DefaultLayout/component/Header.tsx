@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
@@ -7,7 +8,6 @@ import logo from '~/assets/svg/logo.svg'
 
 import { LANGUAGE } from '~/i18n/i18n'
 import LazyImage from '~/component/customs/LazyImage'
-import { useLanguage } from '~/redux/slices/language.slice'
 
 function Header() {
     const [openLng, setOpenLng] = useState<boolean>(false)
@@ -17,11 +17,8 @@ function Header() {
         query: '(min-width: 1280px)'
     })
 
-    const { actionSetLanguage } = useLanguage()
-
     const handleChangeLanguage = () => {
         i18n.changeLanguage(lng.name)
-        actionSetLanguage(lng.name)
     }
 
     const HEADER: { path: string; title: string }[] = t('header', { returnObjects: true })

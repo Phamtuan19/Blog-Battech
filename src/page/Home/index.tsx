@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+import { useEffect } from 'react'
 import banner from '~/assets/svg/bannerHome.svg'
 import clock from '~/assets/svg/clock.svg'
 import development from '~/assets/svg/development.svg'
@@ -11,10 +13,27 @@ import { useTranslation } from 'react-i18next'
 import LazyImage from '~/component/customs/LazyImage'
 import Button from '~/component/customs/Button'
 
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+
 const INTRODUCTION_IMG = [clock, development, padlock, padlock]
+
+const boxVariant = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+    hidden: { opacity: 0, scale: 0 }
+}
 
 function Home() {
     const { t } = useTranslation(['home'])
+
+    const control = useAnimation()
+    const [ref, inView] = useInView()
+
+    useEffect(() => {
+        if (inView) {
+            control.start('visible')
+        }
+    }, [control, inView])
 
     const DATABANNER = {
         img: banner,
@@ -31,16 +50,7 @@ function Home() {
         <>
             <Banner {...DATABANNER} pb='pb-[50%]' sx='lg:-top-16' sxItem='lg:items-center xl:pb-32 lg:pb-20'>
                 <div className='lg:mt-[52px] mt-8 lg:text-start text-center'>
-                    {/* <button className='bg-default hover:bg-[#186e25] rounded-lg text-white px-6 py-[10px]'>
-                        <span
-                            className='lg:text-2xl md:text-xl text-lg font-bold not-italic'
-                            style={{ textShadow: '4px 2px 15px rgba(0, 0, 0, 0.05)' }}
-                        >
-                            {t('banner.btnTitle')}
-                        </span>
-                    </button> */}
-
-                    <div className='flex justify-center items-center'>
+                    <div className='flex lg:justify-start justify-center items-center'>
                         <Button>{t('banner.btnTitle')}</Button>
                     </div>
                 </div>
@@ -54,9 +64,15 @@ function Home() {
                         <div className='grid grid-cols-8 lg:gap-10 gap-y-10'>
                             <div className='lg:col-span-4 col-span-full '>
                                 <div className='relative flex justify-center'>
-                                    <div className='lg:w-[540px] lg:h-[410px] md:w-1/2 md:h1/2 w-4/5 h-4w-4/5 object-center block'>
+                                    <motion.div
+                                        className='lg:w-[540px] lg:h-[410px] md:w-1/2 md:h1/2 w-4/5 h-4w-4/5 object-center block'
+                                        ref={ref}
+                                        initial='hidden'
+                                        variants={boxVariant}
+                                        animate={control}
+                                    >
                                         <LazyImage src={amico} />
-                                    </div>
+                                    </motion.div>
                                 </div>
                             </div>
                             <div className='lg:col-span-4 col-span-full lg:pl-10'>

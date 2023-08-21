@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react'
 import bannerSvg from '~/assets/svg/banner-7.svg'
 import Form from './component/Form'
@@ -9,7 +10,15 @@ function Contact() {
     return (
         <>
             <div className=''>
-                <Banner img={bannerSvg} title={t('banner.title')} description={t('banner.description')} pb='pb-[45%]' />
+                <Banner
+                    img={bannerSvg}
+                    title={t('banner.title')}
+                    title2={t('banner.title2')}
+                    description={t('banner.description')}
+                    pb='pb-[45%] '
+                    sx='-top-12'
+                    sxItem='lg:-top-10'
+                />
             </div>
             <div className='lg:container mx-auto px-4'>
                 <div className='grid grid-cols-12 lg:gap-x-3 lg:gap-y-32 gap-y-10'>

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { useTranslation } from 'react-i18next'
 
 // Import Swiper React components
@@ -24,7 +25,7 @@ export default function Partner() {
                     <Swiper
                         slidesPerView={4}
                         breakpoints={breakpoints}
-                        spaceBetween={30}
+                        spaceBetween={20}
                         pagination={{
                             clickable: true
                         }}

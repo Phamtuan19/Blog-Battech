@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react-hooks/rules-of-hooks */
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'

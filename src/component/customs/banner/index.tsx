@@ -1,6 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
 import React from 'react'
+// eslint-disable-next-line import/no-unresolved
 import LazyImage from '../LazyImage'
+import { motion } from 'framer-motion'
 
 interface TypeBanner {
     img: string
@@ -16,14 +18,25 @@ interface TypeBanner {
 
 function Banner(props: TypeBanner) {
     const { img, title, content, description, sx, pb, sxItem, children } = props
-    return (
-        <div className={`relative w-full flex flex-col justify-end ${sx || ''}`}>
-            <p className={`${pb}`}></p>
-            <div className='absolute -top-5 right-0'>
-                <LazyImage src={img} />
-            </div>
 
-            <div className={`lg:absolute lg:left-0 top-0 w-full h-full lg:mt-0`}>
+    return (
+        <div className={`relative w-full flex flex-col justify-end ${sx || ''} overflow-hidden`}>
+            <p className={`${pb}`}></p>
+            <motion.div
+                className='absolute -top-5 right-0'
+                initial={{ x: 100 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <LazyImage src={img} />
+            </motion.div>
+
+            <motion.div
+                className={`lg:absolute lg:left-0 top-0 w-full h-full lg:mt-0`}
+                initial={{ x: -100 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 0.5 }}
+            >
                 <div className={`xl:container lg:mx-auto p-4 w-full h-full flex items-center  ${sxItem || ''}`}>
                     <div className='lg:flex-1 w-full'>
                         <div className='lg:text-start text-center'>
@@ -40,7 +53,7 @@ function Banner(props: TypeBanner) {
                     </div>
                     <div className='flex-1'></div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }

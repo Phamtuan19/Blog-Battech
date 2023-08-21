@@ -1,6 +1,16 @@
+/* eslint-disable import/no-unresolved */
+import { useEffect } from 'react'
 import vectorIntroduction from '~/assets/svg/vectorIntroduction.svg'
 import { useTranslation } from 'react-i18next'
 import LazyImage from '~/component/customs/LazyImage'
+
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+
+const boxVariant = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+    hidden: { opacity: 0, scale: 0 }
+}
 
 function IntroductionDetail() {
     const { t } = useTranslation(['introduction'])
@@ -8,17 +18,32 @@ function IntroductionDetail() {
     const introductionContent: string[] = t('introduction.content', { returnObjects: true })
     const vision: string[] = t('vision.content', { returnObjects: true })
 
+    const control = useAnimation()
+    const [ref, inView] = useInView()
+
+    useEffect(() => {
+        if (inView) {
+            control.start('visible')
+        }
+    }, [control, inView])
+
     return (
         <div className='lg:container mx-auto p-4'>
             <div className='grid grid-cols-12 lg:gap-8 gap-y-8 md:gap-x-5'>
                 <div className='md:col-span-6 col-span-full flex lg:justify-start justify-center'>
                     <div className=''>
-                        <div className='rounded-3xl w-full h-full object-cover'>
+                        <motion.div
+                            className='rounded-3xl w-full h-full object-cover'
+                            ref={ref}
+                            initial='hidden'
+                            variants={boxVariant}
+                            animate={control}
+                        >
                             <LazyImage
                                 sx='rounded-3xl'
                                 src='https://s3-alpha-sig.figma.com/img/c3f0/c059/541ff2251e6a99cd07ef8ffbf829efe1?Expires=1693180800&Signature=XkWKFh4ch7F508ZlZYV8d4Oi~-1TOAk5HxcbuAHdS08zhWDPuQmt~eilg0HqcVSJJZF1DDEYzzf4Tf5YfX1Ns5K3NbLBcTtrcKccsoaEOsozmPrc-soY0XYyQtQW5qbxjyWVKfeCPaLF1GkgRsEK0OwWrf~OhqjlRMNXJOmYLgJM6VU6vL0OiFiQmXblooKcNUeDzmwKuKK24SKYgaRJ4UE3kT5wdB227f~LTfmW0wqMxVLxumZP~6YQrhVMZoUryc9OV-9ddcmjTr1TjEciwcQ10Uz-yag9d7NH0Cvxy8hOU3AVV00ebsYcnzW4~d6RrFMZ01uBsMGphEuMoMkuKA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
                             />
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
                 <div className='md:col-span-6 col-span-full'>
@@ -47,9 +72,15 @@ function IntroductionDetail() {
                 </div>
                 <div className='md:col-span-6 col-span-full flex lg:justify-start justify-center'>
                     <div className='max-w-[500px] max-h-[500px]'>
-                        <div className='rounded-3xl w-full h-full object-cover'>
+                        <motion.div
+                            className='rounded-3xl w-full h-full object-cover'
+                            ref={ref}
+                            initial='hidden'
+                            variants={boxVariant}
+                            animate={control}
+                        >
                             <LazyImage src={vectorIntroduction} />
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>
