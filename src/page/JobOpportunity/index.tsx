@@ -66,7 +66,11 @@ function JobOpportunity() {
         } catch (error) {}
     })
 
-    const { data: listJob, run: runGetJob } = useRequest(async () => {
+    const {
+        loading,
+        data: listJob,
+        run: runGetJob
+    } = useRequest(async () => {
         try {
             const res = await axios.get(
                 `http://localhost:3001/api/job?q=${search}&addressId=${addressId}&workGroupId=${workGroupId}&workingTimeId=${workingTimeId}&page=${page}`
@@ -169,22 +173,27 @@ function JobOpportunity() {
                             </Button>
                         </div>
                         <div className='md:col-span-9 col-span-full md:mt-0 mt-5'>
-                            {listJob.data.length > 0 ? (
-                                <>
-                                    <div className='flex flex-col gap-y-3'>
-                                        {listJob.data.map((item: FormAddJob) => (
-                                            <JobItem key={item._id} {...item} />
-                                        ))}
-                                    </div>
-                                    <div className='flex justify-center items-center mt-10'>
-                                        <Pagination page={page} pageCount={listJob?.pageCount || 1} setPage={setPage} />
-                                    </div>
-                                </>
-                            ) : (
-                                <h5 className='flex justify-center w-full col-span-3 mt-[50px] font-bold text-xl'>
-                                    Hiện không có công việc nào, bạn vui lòng quay lại sau
-                                </h5>
-                            )}
+                            {!loading &&
+                                (listJob.data.length > 0 ? (
+                                    <>
+                                        <div className='flex flex-col gap-y-3'>
+                                            {listJob.data.map((item: FormAddJob) => (
+                                                <JobItem key={item._id} {...item} />
+                                            ))}
+                                        </div>
+                                        <div className='flex justify-center items-center mt-10'>
+                                            <Pagination
+                                                page={page}
+                                                pageCount={listJob?.pageCount || 1}
+                                                setPage={setPage}
+                                            />
+                                        </div>
+                                    </>
+                                ) : (
+                                    <h5 className='flex justify-center w-full col-span-3 mt-[50px] font-bold text-xl'>
+                                        Hiện không có công việc nào, bạn vui lòng quay lại sau
+                                    </h5>
+                                ))}
                         </div>
                     </div>
                 </div>

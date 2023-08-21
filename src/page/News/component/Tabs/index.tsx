@@ -1,11 +1,11 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react-hooks/exhaustive-deps */
-
 import { NavLink } from 'react-router-dom'
 import NewItem from '~/component/customs/NewItem'
 import useRequest from '@ahooksjs/use-request'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ArticleType } from '~/types/article.type'
 import { PostType } from '~/types/post.type'
 import Pagination from '~/component/customs/Pagination'
@@ -61,25 +61,29 @@ function Tabs() {
                 ))}
             </div>
             <div className='grid grid-cols-12 gap-x-3 gap-y-5 '>
-                {!loadingPost &&
-                    postList.map((item: PostType) => (
-                        <div key={item._id} className='lg:col-span-3 md:col-span-4 sm:col-span-6 col-span-full'>
-                            <NewItem
-                                img={item.image}
-                                useName='Le Link'
-                                date={item.createdAt.toString().slice(0, 10)}
-                                title={item.title}
-                                description={item.description}
-                                _id={item._id}
-                            />
+                {!loadingPost && (
+                    <>
+                        {postList.map((item: PostType) => (
+                            <div key={item._id} className='lg:col-span-3 md:col-span-4 sm:col-span-6 col-span-full'>
+                                <NewItem
+                                    img={item.image}
+                                    useName='Le Link'
+                                    date={item.createdAt.toString().slice(0, 10)}
+                                    title={item.title}
+                                    description={item.description}
+                                    _id={item._id}
+                                />
+                            </div>
+                        ))}
+
+                        <div className='col-span-12 mt-10 mb-10 flex justify-center items-center'>
+                            <Pagination pageCount={pageCount || 1} page={page} setPage={setPage} />
                         </div>
-                    ))}
-                <div className='col-span-12 mt-10 mb-10 flex justify-center items-center'>
-                    <Pagination pageCount={pageCount || 1} page={page} setPage={setPage} />
-                </div>
+                    </>
+                )}
             </div>
         </div>
     )
 }
 
-export default Tabs
+export default React.memo(Tabs)

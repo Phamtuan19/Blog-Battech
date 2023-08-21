@@ -23,7 +23,7 @@ import { PostType } from '~/types/post.type'
 function LatestNews() {
     const { t } = useTranslation(['home'])
 
-    const { data: NewsEvents } = useRequest(async () => {
+    const { loading, data } = useRequest(async () => {
         try {
             const res = await axios.get('http://localhost:3001/api/posts')
             return res.data.data
@@ -38,24 +38,30 @@ function LatestNews() {
             <div className=''>
                 <h6 className='text-xl font-bold not-italic text-[#444444] mb-4'>{t('news.title2')}</h6>
                 <div className='grid grid-cols-11 lg:gap-x-8 gap-y-5'>
-                    <div className='lg:col-span-7 col-span-12 max-h-[358px]'>
-                        <NewBannerItem
-                            img='https://s3-alpha-sig.figma.com/img/77ef/c6b7/08345b0e32542e2ae3678931f63d980d?Expires=1691971200&Signature=H6dMTWS8h6LjxMT7ZCQzEnzsbDOk2r1AzAAjlL6iEGdFw5Rypebk9k7Hau1kazwwAkauW7MuhGBypRs1prag9ea6Wm49zwSNmL7qa286KrpOafHACXb1W7CJDIUwfR6tB6~39VrkI0X7klpiCsBPH50s8Ts3YfjCGGqxcK49t3ZT1JTvP-LkSiyYGS8VMY6EYj9s0WFfmIlozxAmJmtMMWyAAG11lPcyC8SnKJLSLA-OCIrjr7QLmegskr75WFySfn1jPKHttX9UhOlZ~edsCyxiWKwuhW7qly9E3p78oVw1iI83VCgXSPrqTftijCuBkL8h761G~P10ypptRYHstg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-                            btnName='Phát triển phần mềm'
-                            content='Chuyển đổi số ngành sản xuất: Làm thế nào để doanh nghiệp tối ưu lợi thế trong thị trường siêu cạnh tranh?'
-                            useName='Le Link'
-                            date='May 4th 2023'
-                        />
-                    </div>
-                    <div className='lg:col-span-4 col-span-12'>
-                        <NewBannerItem
-                            img='https://s3-alpha-sig.figma.com/img/7ce7/2014/ba2ca0ab1c516b94cf15cb79d78d5b40?Expires=1693180800&Signature=Q-1TM3uackZuMwXlddmV7~zrqJiwHkxJurpHNHbL-aPIxAkgRTxzAUysu36JzZxSsz8EYYMWChahk69TZYeZqOSODyFXqBgw-FSiVs8bGDclM74UMR7LrjqGe3zyIK07BPhcAEsTciCwopxKwn6LGX5yeoBQdU9oVDZ7IdBBWwafoxNxZYaonhp5F95XPWuUbCgUHcJd2eD2rj7ZexCXOFDZxwsgpYb1~3H86Wo6MwbVvsE44lhKM0oxuMtdRCEQzorxoS89263krl4fkztpPKlILGfl~xED1XvEYZK-vAuXS6a7KNAiSc-uyiNN2iReXIF1py1XMtt321mUnLQRiA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-                            btnName='BLOCKCHAIN'
-                            content='Blockchain là gì? Hoạt động và ứng dụng của Blockchain'
-                            useName='Le Link'
-                            date='May 4th 2023'
-                        />
-                    </div>
+                    {!loading && data && (
+                        <>
+                            <div className='lg:col-span-7 col-span-12 max-h-[358px]'>
+                                <NewBannerItem
+                                    id={data[0]._id}
+                                    img={data[0].image}
+                                    btnName={data[0].articleTypeId.name}
+                                    content={data[0].title}
+                                    useName='Le Link'
+                                    date={data[0].createdAt.toString().slice(0, 10)}
+                                />
+                            </div>
+                            <div className='lg:col-span-4 col-span-12'>
+                                <NewBannerItem
+                                    id={data[1]._id}
+                                    img={data[1].image}
+                                    btnName={data[1].articleTypeId.name}
+                                    content={data[1].title}
+                                    useName='Le Link'
+                                    date={data[1].createdAt.toString().slice(0, 10)}
+                                />
+                            </div>
+                        </>
+                    )}
                 </div>
 
                 <div className='mt-6'>
@@ -79,14 +85,14 @@ function LatestNews() {
                             pagination={{
                                 clickable: true
                             }}
-                            // autoplay={{
-                            //     delay: 3000,
-                            //     disableOnInteraction: false
-                            // }}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false
+                            }}
                             modules={[Autoplay, Pagination, Grid]}
                             className='relative w-full h-full pb-10 bg-[transparent]'
                         >
-                            {NewsEvents?.map((item: PostType) => (
+                            {data?.map((item: PostType) => (
                                 <SwiperSlide key={item._id} className='px-1'>
                                     <NewItem
                                         img={item.image}

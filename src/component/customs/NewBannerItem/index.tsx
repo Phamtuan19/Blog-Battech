@@ -4,6 +4,7 @@ import calendar from '~/assets/svg/calendar.svg'
 import { Link } from 'react-router-dom'
 
 interface TypeNewsItems {
+    id: string
     img: string
     content: string
     useName: string
@@ -12,8 +13,8 @@ interface TypeNewsItems {
 }
 
 function NewBannerItem(props: TypeNewsItems) {
-    const { img, content, useName, date, btnName } = props
-
+    const { id, img, content, useName, date, btnName } = props
+    console.log(id)
     return (
         <div
             className='relative rounded-xl w-full h-full'
@@ -29,13 +30,16 @@ function NewBannerItem(props: TypeNewsItems) {
             <div className='absolute left-0 bottom-0 w-full h-full py-2 px-4 flex flex-col justify-end'>
                 <div className=''>
                     <button className='flex justify-center items-center py-[8px] px-[18px] text-xl font-normal text-white rounded-xl mb-3 bg-[#FD4848] hover:bg-[#7F1D1D]'>
-                        <Link to='' className='text-white lg:text-xl text-lg text-center not-italic font-bold'>
+                        <Link
+                            to={`/news/${id}`}
+                            className='text-white lg:text-xl text-lg text-center not-italic font-bold'
+                        >
                             {btnName}
                         </Link>
                     </button>
                 </div>
                 <Link
-                    to=''
+                    to={`/news/${id}`}
                     className='lg:text-2xl text-xl leading-7 font-bold not-italic text-white hover:underline hover:decoration-1'
                     style={{
                         display: '-webkit-box',
