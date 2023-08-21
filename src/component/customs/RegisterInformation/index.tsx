@@ -21,7 +21,7 @@ function RegisterInformation() {
         formState: { errors }
     } = useForm<TypeFormRegister>({})
 
-    const handleSubmitForm = (data: TypeFormRegister): void => {
+    const handleSubmitForm = (_data: TypeFormRegister): void => {
         reset()
         setOpen(true)
     }

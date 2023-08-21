@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react-hooks/rules-of-hooks */
 import i18next from 'i18next'
