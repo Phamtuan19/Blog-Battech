@@ -1,0 +1,22 @@
+{
+    "name": {
+        "required": "Name is not required"
+    },
+    "email": {
+        "required": "Email is not required",
+        "typeEmail": "Email is not in the correct format"
+    },
+    "phone": {
+        "required": "Phone number is not required",
+        "typePhone": "Phone number is not in the correct format"
+    },
+    "cv": {
+        "required": "CV number is not required"
+    },
+    "address": {
+        "required": "Address is not required"
+    },
+    "question": {
+        "required": "Question is not required"
+    }
+}

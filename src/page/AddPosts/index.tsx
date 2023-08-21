@@ -37,7 +37,6 @@ function AddPosts() {
             await axios.post('http://localhost:3001/api/posts/create', data)
             toast.success('Thêm bài viết thành công!')
             reset()
-            setValue('content', '')
         } catch (error) {
             toast.error('Đã có lỗi xảy ra!')
         }

@@ -10,9 +10,7 @@ interface FilterType {
 
 function Filter(props: FilterType) {
     const { options, jobAll, check, setCheck } = props
-    console.log(options)
     const handleChange = (val: string) => {
-        console.log(val)
         setCheck(val)
     }
 

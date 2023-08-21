@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+/* eslint-disable import/no-unresolved */
+import { useRef, useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from 'react-i18next'
 
 import logo from '~/assets/svg/logo.svg'
 
 import { LANGUAGE } from '~/i18n/i18n'
-import { useLanguage } from '~/redux/slices/language.slice'
 import LazyImage from '~/component/customs/LazyImage'
 
 function Header() {
@@ -17,23 +17,22 @@ function Header() {
         query: '(min-width: 1280px)'
     })
 
-    const { actionSetLanguage } = useLanguage()
-
     const handleChangeLanguage = () => {
         i18n.changeLanguage(lng.name)
-        actionSetLanguage(lng.name)
     }
 
     const HEADER: { path: string; title: string }[] = t('header', { returnObjects: true })
     const lngActive = i18n.language === LANGUAGE[0].name ? LANGUAGE[0] : LANGUAGE[1]
     const lng = i18n.language === LANGUAGE[0].name ? LANGUAGE[1] : LANGUAGE[0]
 
+    const refLanguage = useRef(null)
+
     return (
-        <div className={`fixed top-0 left-0 w-full bg-white shadow-header z-[99] `}>
+        <div className={`fixed top-0 left-0 right-0 bg-white shadow-header overflow-hidden z-[99] `}>
             <div className={`md:px-8 px-1 w-full h-header flex justify-between items-center`}>
-                <div className='max-w-[150px] max-h-[50px]'>
+                <Link to='/' className='max-w-[150px] max-h-[50px]'>
                     <LazyImage src={logo} />
-                </div>
+                </Link>
                 {/* nav item */}
 
                 <div className='flex items-center'>
@@ -43,18 +42,14 @@ function Header() {
                                 {HEADER.map((item, index) => (
                                     <NavLink
                                         key={index}
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? 'text-2xl not-italic font-bold leading-normal text-default'
-                                                : 'text-2xl not-italic font-normal leading-normal'
-                                        }
+                                        className={({ isActive }) => (isActive ? ' text-default' : 'border-[#9CA3AF]')}
                                         to={item.path}
                                     >
-                                        <span>{item.title}</span>
+                                        <span className='px-1 text-2xl not-italic leading-normal'>{item.title}</span>
                                     </NavLink>
                                 ))}
                             </div>
-                            <span className='w-[1px] h-8 border border-solid border-[#9CA3AF] mx-3'></span>
+                            <span className='w-[1px] h-8 border border-solid mx-3'></span>
                         </>
                     )}
                     <div className='relative'>
@@ -66,7 +61,7 @@ function Header() {
                             <span className='uppercase'>{lngActive.name}</span>
                         </button>
                         {openLng && (
-                            <div className='absolute left-0 -bottom-8'>
+                            <div className='absolute left-0 -bottom-8' ref={refLanguage}>
                                 <button
                                     className='flex justify-between items-center gap-1 text-xl font-normal not-italic w-[70px]'
                                     onClick={handleChangeLanguage}
@@ -127,7 +122,5 @@ function Header() {
         </div>
     )
 }
-
-// flex items-center justify-start
 
 export default Header

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react-refresh/only-export-components */
 import { Link } from 'react-router-dom'
 
@@ -43,7 +44,7 @@ function NewItem(props: TypeNewItem) {
                 </div>
                 <div className='min-h-[64px]'>
                     <Link
-                        to={`/article/${_id}`}
+                        to={`/news/${_id}`}
                         className='flex lg:text-xl text-lg font-bold not-italic mt-2 text-start hover:text-default'
                         style={{
                             display: '-webkit-box',
@@ -55,18 +56,19 @@ function NewItem(props: TypeNewItem) {
                         {title}
                     </Link>
                 </div>
-
-                <div
-                    className='flex text-base font-medium leading-6 not-italic text-start mt-2 text-[#929292]'
-                    style={{
-                        display: '-webkit-box',
-                        WebkitLineClamp: 3,
-                        WebkitBoxOrient: 'vertical',
-                        overflow: 'hidden'
-                    }}
-                >
-                    {description}
-                </div>
+                {description && (
+                    <div
+                        className='h-[72px] flex text-base font-medium leading-6 not-italic text-start mt-2 text-[#929292]'
+                        style={{
+                            display: '-webkit-box',
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden'
+                        }}
+                    >
+                        {description}
+                    </div>
+                )}
             </div>
         </div>
     )

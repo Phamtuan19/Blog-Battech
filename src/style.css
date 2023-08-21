@@ -3,10 +3,75 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'SanFrancisco';
-    src: url('./fonts/SF-Pro-Display-Light.otf');
+    font-family: 'SFProDisplay';
+    src: url('./fonts/') format('woff2'),
+        url('./fonts/SFProDisplay-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('./fonts/SFProDisplay-Bold.woff2') format('woff2'),
+        url('./fonts/SFProDisplay-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('./fonts/SFProDisplay-Black.woff2') format('woff2'),
+        url('./fonts/SFProDisplay-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('./fonts/SFProDisplay-Medium.woff2') format('woff2'),
+        url('./fonts/SFProDisplay-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('./fonts/SFProDisplay-Light.woff2') format('woff2'),
+        url('./fonts/SFProDisplay-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('./fonts/SFProDisplay-Semibold.woff2') format('woff2'),
+        url('./fonts/SFProDisplay-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('./fonts/SFProDisplay-Regular.woff2') format('woff2'),
+        url('./fonts/SFProDisplay-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('./fonts/SFProDisplay-Thin.woff2') format('woff2'),
+        url('./fonts/SFProDisplay-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
 }
 
 * {
@@ -16,7 +81,7 @@
 }
 
 body {
-    font-family: 'SanFrancisco', sans-serif;
+    font-family: 'SFProDisplay', sans-serif;
     font-size: 16px;
     line-height: 1.5rem;
     overflow-y: scroll;
@@ -24,9 +89,31 @@ body {
 }
 
 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: #fff;
+    background-color: #fff;
+}
+
+body::-webkit-scrollbar {
+    width: 7px;
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #e5e7eb;
+}
+
+
+
 .scroll-0::-webkit-scrollbar {
     width: 0;
     height: 0;
+}
+
+.swiper {
+    padding-bottom: 2.5rem !important;
 }
 
 .swiper-pagination {

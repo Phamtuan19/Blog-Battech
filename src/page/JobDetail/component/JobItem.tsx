@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function JobItem() {
     return (
         <div className='p-4 rounded-md flex justify-between'>
             <div className='w-full'>
-                <h4
+                <Link
+                    to={`/job/`}
                     className='text-xl font-bold not-italic'
                     style={{
                         display: '-webkit-box',
@@ -14,7 +16,7 @@ function JobItem() {
                     }}
                 >
                     Product Design
-                </h4>
+                </Link>
                 <p
                     className='text-base font-normal not-italic leading-normal'
                     style={{

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+
 import { NavLink } from 'react-router-dom'
 import NewItem from '~/component/customs/NewItem'
-import useQuery from '~/hook/useQuery'
 import useRequest from '@ahooksjs/use-request'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
@@ -10,15 +10,11 @@ import { PostType } from '~/types/post.type'
 import Pagination from '~/component/customs/Pagination'
 
 function Tabs() {
-    const query = useQuery()
     const [page, setPage] = useState<number>(1)
     const [pageCount, setPageCount] = useState<number>(1)
+    const [queryType, setQueryType] = useState<string>('64d48880eaf1945fc72fde97')
 
-    const {
-        loading: loadingArticleType,
-        data: articleType,
-        run: runArticle
-    } = useRequest(async () => {
+    const { data: articleType } = useRequest(async () => {
         try {
             const res = await axios.get('http://localhost:3001/api/articleType')
             return res.data.data
@@ -33,7 +29,7 @@ function Tabs() {
         run: runPost
     } = useRequest(async (id, page) => {
         try {
-            const res = await axios.get('http://localhost:3001/api/posts/news/' + id + '?page=' + page)
+            const res = await axios.get(`http://localhost:3001/api/posts/news/${id}?page=${page}`)
             setPageCount(res.data.pageCount)
             return res.data.data
         } catch (error) {
@@ -42,30 +38,26 @@ function Tabs() {
     })
 
     useEffect(() => {
-        runArticle()
-    }, [])
-
-    useEffect(() => {
-        runPost(query.get('q'), page)
-    }, [query.get('q'), page])
+        runPost(queryType, page)
+    }, [queryType, page])
 
     return (
         <div className='flex flex-col gap-8'>
             <div className='flex gap-8 overflow-x-auto scroll-0'>
-                {!loadingArticleType &&
-                    articleType.map((item: ArticleType) => (
-                        <div
-                            key={item._id}
-                            className='lg:text-xl text-lg leading-7 font-bold not-italic uppercase w-auto whitespace-nowrap'
+                {articleType?.map((item: ArticleType) => (
+                    <div
+                        key={item._id}
+                        className='lg:text-xl text-lg leading-7 font-bold not-italic uppercase w-auto whitespace-nowrap'
+                        onClick={() => setQueryType(item._id)}
+                    >
+                        <NavLink
+                            to={`?q=${item.name}`}
+                            className={`${queryType === item._id ? 'text-default' : 'text-[#7A7A7A]'} block`}
                         >
-                            <NavLink
-                                to={`?q=${item._id}`}
-                                className={`${query.get('q') === item._id ? 'text-default' : 'text-[#7A7A7A]'} block`}
-                            >
-                                {item.name}
-                            </NavLink>
-                        </div>
-                    ))}
+                            {item.name}
+                        </NavLink>
+                    </div>
+                ))}
             </div>
             <div className='grid grid-cols-12 gap-x-3 gap-y-5 '>
                 {!loadingPost &&

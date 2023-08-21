@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 // import required modules
 import { Autoplay, Pagination, Grid } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'

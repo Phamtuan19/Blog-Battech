@@ -108,7 +108,7 @@ function AddJob() {
                                 <input
                                     type='text'
                                     className='border border-solid outline-none h-[42px] px-3 w-full rounded-lg'
-                                    {...register('technology', { required: 'Yêu cầu công nghệ không được để trống' })}
+                                    {...register('technology')}
                                 />
                                 {errors?.technology && <p className='text-red-500'>{errors?.technology.message}</p>}
                             </div>
