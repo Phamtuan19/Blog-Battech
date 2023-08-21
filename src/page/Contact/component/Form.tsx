@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable import/no-unresolved */
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import Button from '~/component/customs/Button'
@@ -24,7 +24,7 @@ function Form() {
         formState: { errors }
     } = useForm<TypeFormContact>({})
 
-    const handleSubmitForm = (data: TypeFormContact): void => {
+    const handleSubmitForm = (_data: TypeFormContact): void => {
         reset()
         setOpen(true)
     }

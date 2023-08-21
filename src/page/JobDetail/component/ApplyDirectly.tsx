@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Modal from '~/component/customs/Modal'
 
@@ -23,7 +23,7 @@ function ApplyDirectly() {
     } = useForm<TypeFormApp>({})
 
     const [open, setOpen] = useState<boolean>(false)
-    const handleSubmitForm = (data: TypeFormApp) => {
+    const handleSubmitForm = (_data: TypeFormApp) => {
         reset()
         setOpen(true)
     }

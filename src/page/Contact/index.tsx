@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react'
 import bannerSvg from '~/assets/svg/banner-7.svg'
 import Form from './component/Form'
 import { useTranslation } from 'react-i18next'

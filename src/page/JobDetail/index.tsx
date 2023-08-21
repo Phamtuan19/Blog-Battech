@@ -1,6 +1,5 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-empty */
-import React from 'react'
 import Banner from '~/component/customs/banner'
 
 import banner6 from '~/assets/svg/banner-6.svg'

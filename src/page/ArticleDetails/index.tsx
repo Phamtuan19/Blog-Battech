@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import useRequest from '@ahooksjs/use-request'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'

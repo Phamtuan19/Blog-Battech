@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react'
 
 import userBlue from '~/assets/svg/userBlue.svg'
 import calendar from '~/assets/svg/calendar-2.svg'
