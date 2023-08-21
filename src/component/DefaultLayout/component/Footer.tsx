@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { useTranslation } from 'react-i18next'
 
 import phone from '~/assets/svg/phone.svg'

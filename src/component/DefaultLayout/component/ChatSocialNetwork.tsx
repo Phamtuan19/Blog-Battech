@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { useMediaQuery } from 'react-responsive'
 
 import facebook from '../assets/svg/facebook.svg'
