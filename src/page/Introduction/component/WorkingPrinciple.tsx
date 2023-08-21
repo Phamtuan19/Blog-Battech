@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import teamwork from '~/assets/svg/teamwork.svg'
 import trust from '~/assets/svg/trust.svg'
 import innovation from '~/assets/svg/innovation.svg'

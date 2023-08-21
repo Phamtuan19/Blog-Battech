@@ -169,7 +169,7 @@ function JobOpportunity() {
                             </Button>
                         </div>
                         <div className='md:col-span-9 col-span-full md:mt-0 mt-5'>
-                            {listJob && (
+                            {listJob?.data.length > 0 ? (
                                 <>
                                     <div className='flex flex-col gap-y-3'>
                                         {listJob.data.map((item: FormAddJob) => (
@@ -180,10 +180,11 @@ function JobOpportunity() {
                                         <Pagination page={page} pageCount={listJob?.pageCount || 1} setPage={setPage} />
                                     </div>
                                 </>
+                            ) : (
+                                <h5 className='flex justify-center w-full text-3xl font-bold col-span-3 mt-[50px]'>
+                                    Hiện không có công việc nào phù hợp
+                                </h5>
                             )}
-                            {/* <h5 className='flex justify-center w-full col-span-3 mt-[50px]'>
-                                Hiện không có công việc nào, bạn vui lòng quay lại sau
-                            </h5> */}
                         </div>
                     </div>
                 </div>
