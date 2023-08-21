@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import banner from '~/assets/svg/bannerIntroduction.svg'
 import NewBannerItem from '~/component/customs/NewBannerItem'
 import Banner from '~/component/customs/banner'

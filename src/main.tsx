@@ -10,7 +10,6 @@ import './i18n/i18n.ts'
 import './style.css'
 import LazyLoadingFullScreen from './component/customs/LazyLoadingFullScreen.tsx'
 
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <>
         <Suspense fallback={<LazyLoadingFullScreen />}>
