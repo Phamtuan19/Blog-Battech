@@ -59,10 +59,12 @@ function JobOpportunity() {
             const resType = await axios.get(
                 BASE_URL + `jobs?${workGroupId !== 0 && `${queryWorGroup}${queryWorkingTIme}${queryAddressId}`}`
             )
-            setPageCount(Math.ceil(resType.data.length / 5))
+            setPageCount(Math.ceil(resType?.data?.length / 5))
 
-            return res.data
-        } catch (error) {}
+            return res?.data
+        } catch (error) {
+            console.log(error)
+        }
     })
 
     useEffect(() => {
@@ -146,7 +148,7 @@ function JobOpportunity() {
                         </div>
                         <div className='md:col-span-9 col-span-full md:mt-0 mt-5'>
                             {!loading &&
-                                (listJob.length > 0 ? (
+                                (listJob && listJob.length > 0 ? (
                                     <>
                                         <div className='flex flex-col gap-y-3'>
                                             {listJob.map((item: FormAddJob) => (
