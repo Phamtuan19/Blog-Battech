@@ -4,12 +4,13 @@ import axios from 'axios'
 
 import NewItemArticleDetail from './NewItem'
 import { PostType } from '~/types/post.type'
+import { BASE_URL } from '~/config/env'
 
 function PostNews() {
     const { data: postNews } = useRequest(async () => {
         try {
-            const res = await axios.get('http://localhost:3001/api/posts/detail/news')
-            return res.data.data
+            const res = await axios.get(BASE_URL + `posts?_limit=5`)
+            return res.data
         } catch (error) {
             console.log(error)
         }
@@ -21,7 +22,7 @@ function PostNews() {
             <div className='grid grid-cols-12 mt-3 gap-4'>
                 {postNews?.length > 0 &&
                     postNews?.map((item: PostType) => (
-                        <div key={item._id} className='lg:col-span-12 col-span-full'>
+                        <div key={item.id} className='lg:col-span-12 col-span-full'>
                             <NewItemArticleDetail {...item} />
                         </div>
                     ))}

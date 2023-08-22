@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-empty */
 import Banner from '~/component/customs/banner'
@@ -8,17 +9,32 @@ import ApplyDirectly from './component/ApplyDirectly'
 import JobItem from './component/JobItem'
 import useRequest from '@ahooksjs/use-request'
 import axios from 'axios'
+import { BASE_URL } from '~/config/env'
+import { useEffect } from 'react'
+import { ADDRESS } from '~/config/dataSample'
 
 function JobDetail() {
     const { id } = useParams()
 
-    const { loading, data: jobDetail } = useRequest(async () => {
+    const {
+        loading,
+        data: jobDetail,
+        run
+    } = useRequest(async () => {
         try {
-            const res = await axios.get(`http://localhost:3001/api/job/${id}`)
-            return res.data.data
+            const res = await axios.get(BASE_URL + `jobs/${id}`)
+            const resAll = await axios.get(BASE_URL + `jobs?_limit=3`)
+            return {
+                jobOne: res.data,
+                jobAll: resAll.data
+            }
         } catch (error) {}
     })
 
+    useEffect(() => {
+        run()
+    }, [id])
+    console.log(jobDetail)
     return (
         <>
             <Banner
@@ -35,15 +51,15 @@ function JobDetail() {
                         <Link to='' className='text-default'>
                             Cơ hội việc làm /
                         </Link>
-                        <p className='text-[#929292]'>{jobDetail?.name}</p>
+                        <p className='text-[#929292]'>{jobDetail?.jobOne?.name}</p>
                     </div>
                     <div className='mt-7 grid grid-cols-12 lg:gap-8 gap-y-8'>
                         {loading ? (
                             <h1>Loading...</h1>
                         ) : (
                             <div className='lg:col-span-8 col-span-full'>
-                                <h1 className='text-2xl font-bold not-italic'>{jobDetail?.name}</h1>
-                                <p className='text-base font-normal not-italic'>{jobDetail?.technology}</p>
+                                <h1 className='text-2xl font-bold not-italic'>{jobDetail?.jobOne?.name}</h1>
+                                <p className='text-base font-normal not-italic'>{jobDetail?.jobOne?.technology}</p>
                                 <div className='flex gap-8'>
                                     <div className='flex items-center gap-1'>
                                         <span>
@@ -61,7 +77,7 @@ function JobDetail() {
                                             </svg>
                                         </span>
                                         <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>
-                                            {jobDetail?.addressId?.name}
+                                            {ADDRESS[jobDetail?.jobOne?.addressId].name}
                                         </span>
                                     </div>
                                     <div className='flex items-center gap-1'>
@@ -80,11 +96,14 @@ function JobDetail() {
                                             </svg>
                                         </span>
                                         <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>
-                                            {jobDetail?.updatedAt}
+                                            {jobDetail?.jobOne?.updatedAt.toString().slice(0, 10)}
                                         </span>
                                     </div>
                                 </div>
-                                <div className='mt-3' dangerouslySetInnerHTML={{ __html: jobDetail?.content }}></div>
+                                <div
+                                    className='mt-3'
+                                    dangerouslySetInnerHTML={{ __html: jobDetail?.jobOne?.content }}
+                                ></div>
                             </div>
                         )}
                         <div className='lg:col-span-4 col-span-full lg:mt-7 mt-10 '>
@@ -95,7 +114,7 @@ function JobDetail() {
                                     <h1 className='text-2xl font-bold not-italic'>Công việc tương tự</h1>
                                 </div>
                                 <div className='p-3'>
-                                    <JobItem />
+                                    <JobItem data={jobDetail?.jobAll} />
                                 </div>
                             </div>
                         </div>

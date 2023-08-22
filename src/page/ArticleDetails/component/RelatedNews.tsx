@@ -10,6 +10,7 @@ import useRequest from '@ahooksjs/use-request'
 import axios from 'axios'
 import { PostType } from '~/types/post.type'
 import NewItem from '~/component/customs/NewItem'
+import { BASE_URL } from '~/config/env'
 
 function RelatedNews(props: { articleTypeId: string }) {
     const { articleTypeId } = props
@@ -17,8 +18,8 @@ function RelatedNews(props: { articleTypeId: string }) {
     const { data: postList } = useRequest(async () => {
         try {
             if (articleTypeId) {
-                const res = await axios.get('http://localhost:3001/api/posts/article/' + articleTypeId)
-                return res.data.data
+                const res = await axios.get(BASE_URL + `posts?articleTypeId=${articleTypeId}&_limit=4`)
+                return res.data
             }
         } catch (error) {
             console.log(error)
@@ -56,14 +57,14 @@ function RelatedNews(props: { articleTypeId: string }) {
                     className='relative bg-white pb-10 '
                 >
                     {postList?.map((item: PostType) => (
-                        <SwiperSlide key={item._id} className='w-full h-full' style={{ height: '100% !important' }}>
+                        <SwiperSlide key={item.id} className='w-full h-full' style={{ height: '100% !important' }}>
                             <NewItem
                                 img={item.image}
                                 useName='Le Link'
                                 date={item.createdAt.toString().slice(0, 10)}
                                 title={item.title}
                                 description={item.description}
-                                _id={item._id}
+                                id={item.id}
                             />
                         </SwiperSlide>
                     ))}

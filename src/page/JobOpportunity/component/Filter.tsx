@@ -1,16 +1,15 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 
 interface FilterType {
-    options: { _id: string; name: string }[]
-    jobAll: string
-    check: string
-    setCheck: Dispatch<SetStateAction<string>>
+    options: { id: number; name: string }[]
+    check: number
+    setCheck: React.Dispatch<React.SetStateAction<number>>
 }
 
 function Filter(props: FilterType) {
-    const { options, jobAll, check, setCheck } = props
-    const handleChange = (val: string) => {
+    const { options, check, setCheck } = props
+    const handleChange = (val: number) => {
         setCheck(val)
     }
 
@@ -19,21 +18,21 @@ function Filter(props: FilterType) {
             <div className='flex items-center gap-2'>
                 <input
                     type='radio'
-                    id={`job_all_${jobAll}`}
-                    checked={check === '' ? true : false}
-                    onChange={() => handleChange('')}
+                    id={`job_all_`}
+                    checked={check === 0 ? true : false}
+                    onChange={() => handleChange(0)}
                 />
-                <label htmlFor={`job_all_${jobAll}`} className='text-base font-normal not-italic'>
+                <label htmlFor={`job_all_`} className='text-base font-normal not-italic'>
                     Tất cả
                 </label>
             </div>
-            {options?.map((option: { _id: string; name: string }) => (
-                <div key={option._id} className='flex items-center gap-2'>
+            {options?.map((option: { id: number; name: string }) => (
+                <div key={option.id} className='flex items-center gap-2'>
                     <input
                         type='radio'
                         id={`job_${option.name}`}
-                        checked={check === option._id ? true : false}
-                        onChange={() => handleChange(option._id)}
+                        checked={check === option.id ? true : false}
+                        onChange={() => handleChange(option.id)}
                     />
                     <label htmlFor={`job_${option.name}`} className='text-base font-normal not-italic'>
                         {option.name}

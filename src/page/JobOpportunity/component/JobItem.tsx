@@ -3,16 +3,16 @@
 import { useTranslation } from 'react-i18next'
 import { FormAddJob } from '..'
 import { Link } from 'react-router-dom'
+import { ADDRESS } from '~/config/dataSample'
 
 function JobItem(props: FormAddJob) {
     const { t } = useTranslation(['jobOpportunity'])
-    const { _id, addressId, name, salaryLevel, technology, createdAt } = props
-
+    const { id, addressId, name, salaryLevel, technology, createdAt } = props
     return (
         <div className='bg-[#EEEEEE] p-4 rounded-md flex sm:flex-row flex-col justify-between gap-y-3 w-full'>
             <div className='flex-1'>
                 <Link
-                    to={`/job/${_id}`}
+                    to={`/job/${id}`}
                     className='text-xl font-bold not-italic'
                     style={{
                         display: '-webkit-box',
@@ -71,7 +71,7 @@ function JobItem(props: FormAddJob) {
                                 </svg>
                             </span>
                             <span className='text-sm text-[#979797] font-normal leading-7 not-italic'>
-                                {addressId.name}
+                                {ADDRESS[addressId - 1].name}
                             </span>
                         </div>
                         <div className='flex items-center gap-1 '>
@@ -98,7 +98,7 @@ function JobItem(props: FormAddJob) {
             </div>
             <div className='w-28 flex items-end justify-end'>
                 <Link
-                    to={`/job/${_id}`}
+                    to={`/job/${id}`}
                     className='w-28 block rounded-md bg-default hover:bg-hoverDefault text-xs leading-6 uppercase not-italic font-semibold text-white py-2 px-5'
                 >
                     {t('job.btnApply')}

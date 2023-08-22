@@ -8,7 +8,7 @@ import React from 'react'
 import LazyImage from '../LazyImage'
 
 export interface TypeNewItem {
-    _id: string
+    id: string
     img: string
     useName: string
     date: string
@@ -17,7 +17,7 @@ export interface TypeNewItem {
 }
 
 function NewItem(props: TypeNewItem) {
-    const { _id, img, useName, date, title, description } = props
+    const { id, img, useName, date, title, description } = props
 
     return (
         <div className='text-center bg-white shadow-baseShadow rounded-xl overflow-hidden '>
@@ -44,7 +44,7 @@ function NewItem(props: TypeNewItem) {
                 </div>
                 <div className='min-h-[64px]'>
                     <Link
-                        to={`/news/${_id}`}
+                        to={`/news/${id}`}
                         className='flex lg:text-xl text-lg font-bold not-italic mt-2 text-start hover:text-default'
                         style={{
                             display: '-webkit-box',

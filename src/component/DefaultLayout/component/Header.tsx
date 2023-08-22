@@ -42,7 +42,7 @@ function Header() {
                                 {HEADER.map((item, index) => (
                                     <NavLink
                                         key={index}
-                                        className={({ isActive }) => (isActive ? ' text-default' : 'border-[#9CA3AF]')}
+                                        className={({ isActive }) => (isActive ? ' text-default ' : 'border-[#9CA3AF]')}
                                         to={item.path}
                                     >
                                         <span className='px-1 text-2xl not-italic leading-normal'>{item.title}</span>

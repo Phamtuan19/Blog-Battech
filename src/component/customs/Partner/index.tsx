@@ -34,12 +34,12 @@ export default function Partner() {
                             disableOnInteraction: false
                         }}
                         modules={[Autoplay, Pagination]}
-                        className='relative w-full h-full bg-white'
+                        className='relative w-full h-full bg-white px-1'
                     >
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
                             <SwiperSlide
                                 key={item}
-                                className='text-center bg-white shadow-baseShadow flex justify-center items-center rounded-xl overflow-hidden'
+                                className=' text-center bg-white shadow-baseShadow flex justify-center items-center rounded-xl overflow-hidden'
                             >
                                 <div className=' flex justify-center items-center mx-auto w-[150px] h-[105px] object-contain'>
                                     <div className='flex justify-center items-center'>

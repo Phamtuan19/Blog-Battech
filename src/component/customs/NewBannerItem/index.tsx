@@ -14,7 +14,6 @@ interface TypeNewsItems {
 
 function NewBannerItem(props: TypeNewsItems) {
     const { id, img, content, useName, date, btnName } = props
-    console.log(id)
     return (
         <div
             className='relative rounded-xl w-full h-full'

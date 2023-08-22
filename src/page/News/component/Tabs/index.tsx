@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -9,30 +10,32 @@ import React, { useEffect, useState } from 'react'
 import { ArticleType } from '~/types/article.type'
 import { PostType } from '~/types/post.type'
 import Pagination from '~/component/customs/Pagination'
+import { BASE_URL } from '~/config/env'
 
 function Tabs() {
     const [page, setPage] = useState<number>(1)
     const [pageCount, setPageCount] = useState<number>(1)
-    const [queryType, setQueryType] = useState<string>('64d48880eaf1945fc72fde97')
+    const [queryType, setQueryType] = useState<number>(1)
 
     const { data: articleType } = useRequest(async () => {
         try {
-            const res = await axios.get('http://localhost:3001/api/articleType')
-            return res.data.data
-        } catch (error) {
-            console.log(error)
-        }
+            const res = await axios.get(BASE_URL + 'articletypes')
+            return res.data
+        } catch (error) {}
     })
 
     const {
         loading: loadingPost,
         data: postList,
         run: runPost
-    } = useRequest(async (id, page) => {
+    } = useRequest(async (articleTypeId, page) => {
         try {
-            const res = await axios.get(`http://localhost:3001/api/posts/news/${id}?page=${page}`)
-            setPageCount(res.data.pageCount)
-            return res.data.data
+            const res = await axios.get(BASE_URL + `posts?articleTypeId=${articleTypeId}&_page=${page}&_limit=4`)
+
+            const resType = await axios.get(BASE_URL + `posts?articleTypeId=${articleTypeId}`)
+            setPageCount(Math.ceil(resType.data.length / 4))
+
+            return res.data
         } catch (error) {
             console.log(error)
         }
@@ -45,33 +48,35 @@ function Tabs() {
     return (
         <div className='flex flex-col gap-8'>
             <div className='flex gap-8 overflow-x-auto scroll-0'>
-                {articleType?.map((item: ArticleType) => (
-                    <div
-                        key={item._id}
-                        className='lg:text-xl text-lg leading-7 font-bold not-italic uppercase w-auto whitespace-nowrap'
-                        onClick={() => setQueryType(item._id)}
-                    >
-                        <NavLink
-                            to={`?q=${item.name}`}
-                            className={`${queryType === item._id ? 'text-default' : 'text-[#7A7A7A]'} block`}
+                {articleType?.map((item: ArticleType) => {
+                    return (
+                        <div
+                            key={item.id}
+                            className='lg:text-xl text-lg leading-7 font-bold not-italic uppercase w-auto whitespace-nowrap'
+                            onClick={() => setQueryType(item.id)}
                         >
-                            {item.name}
-                        </NavLink>
-                    </div>
-                ))}
+                            <NavLink
+                                to={`?q=${item.name}`}
+                                className={`${queryType === item.id ? 'text-default' : 'text-[#7A7A7A]'} block`}
+                            >
+                                {item.name}
+                            </NavLink>
+                        </div>
+                    )
+                })}
             </div>
             <div className='grid grid-cols-12 gap-x-3 gap-y-5 '>
                 {!loadingPost && (
                     <>
                         {postList.map((item: PostType) => (
-                            <div key={item._id} className='lg:col-span-3 md:col-span-4 sm:col-span-6 col-span-full'>
+                            <div key={item.id} className='lg:col-span-3 md:col-span-4 sm:col-span-6 col-span-full'>
                                 <NewItem
                                     img={item.image}
                                     useName='Le Link'
                                     date={item.createdAt.toString().slice(0, 10)}
                                     title={item.title}
                                     description={item.description}
-                                    _id={item._id}
+                                    id={item.id}
                                 />
                             </div>
                         ))}

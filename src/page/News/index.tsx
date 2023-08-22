@@ -6,20 +6,20 @@ import Tabs from './component/Tabs'
 import { useTranslation } from 'react-i18next'
 import useRequest from '@ahooksjs/use-request'
 import axios from 'axios'
+import { BASE_URL } from '~/config/env'
+import { ARTICLETYPE } from '~/config/dataSample'
 
 function News() {
     const { t } = useTranslation(['news'])
 
     const { loading, data } = useRequest(async () => {
         try {
-            const res = await axios.get('http://localhost:3001/api/posts')
-            return res.data.data
+            const res = await axios.get(BASE_URL + 'posts')
+            return res.data
         } catch (error) {
             console.log(error)
         }
     })
-
-    console.log(data)
 
     return (
         <>
@@ -38,9 +38,9 @@ function News() {
                             <div className='grid grid-cols-12 gap-2'>
                                 <div className='lg:col-span-7 col-span-full'>
                                     <NewBannerItem
-                                        id={data[0]._id}
+                                        id={data[0].id}
                                         img={data[0].image}
-                                        btnName={data[0].articleTypeId.name}
+                                        btnName={ARTICLETYPE[data[0].articleTypeId - 1].name}
                                         content={data[0].title}
                                         useName='Le Link'
                                         date={data[0].createdAt.toString().slice(0, 10)}
@@ -50,9 +50,9 @@ function News() {
                                     <div className='w-full grid grid-cols-12 gap-y-2'>
                                         <div className='col-span-full'>
                                             <NewBannerItem
-                                                id={data[1]._id}
+                                                id={data[1].id}
                                                 img={data[1].image}
-                                                btnName={data[1].articleTypeId.name}
+                                                btnName={ARTICLETYPE[data[1].articleTypeId - 1].name}
                                                 content={data[1].title}
                                                 useName='Le Link'
                                                 date={data[1].createdAt.toString().slice(0, 10)}
@@ -60,9 +60,9 @@ function News() {
                                         </div>
                                         <div className='col-span-full'>
                                             <NewBannerItem
-                                                id={data[2]._id}
+                                                id={data[2].id}
                                                 img={data[2].image}
-                                                btnName={data[2].articleTypeId.name}
+                                                btnName={ARTICLETYPE[data[1].articleTypeId - 1].name}
                                                 content={data[2].title}
                                                 useName='Le Link'
                                                 date={data[2].createdAt.toString().slice(0, 10)}

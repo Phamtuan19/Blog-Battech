@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -14,57 +15,33 @@ import axios from 'axios'
 import Pagination from '~/component/customs/Pagination'
 import { useMediaQuery } from 'react-responsive'
 import Button from '~/component/customs/Button'
+import { BASE_URL } from '~/config/env'
+import { ADDRESS, WORKGROUPS, WORKINGTIME } from '~/config/dataSample'
 
 export interface FormAddJob {
-    _id: string
+    id: string
     name: string
     technology: string
-    addressId: { name: string }
+    addressId: number
     content: string
     quantity: number
     salaryLevel: string
-    workGroupId: { name: string }
+    workGroupId: number
     createdAt: string
 }
-
-const workingTime = [
-    {
-        _id: '1',
-        name: 'Toàn thời gian'
-    },
-    {
-        _id: '2',
-        name: 'Bán thời gian'
-    },
-    {
-        _id: '3',
-        name: 'Thực tập sinh'
-    }
-]
-
-const endpoints = ['http://localhost:3001/api/workGroup', 'http://localhost:3001/api/address']
 
 function JobOpportunity() {
     const isDesktopOrLaptop = useMediaQuery({
         query: '(max-width: 450px)'
     })
     const { t } = useTranslation(['jobOpportunity'])
-    const [workGroupId, setWorkGroupId] = useState<string>('')
-    const [addressId, setAddressId] = useState<string>('')
-    const [workingTimeId, setWorkingTimeId] = useState<string>('')
-    const [page, setPage] = useState<number>(1)
-    const [search, setSearch] = useState<string>('')
 
-    const { data: dataFilter } = useRequest(async () => {
-        try {
-            return await axios.all(
-                endpoints.map(async (endpoint) => {
-                    const res = await axios.get(endpoint)
-                    return res.data.data
-                })
-            )
-        } catch (error) {}
-    })
+    const [workGroupId, setWorkGroupId] = useState<number>(0)
+    const [workingTimeId, setWorkingTimeId] = useState<number>(0)
+    const [addressId, setAddressId] = useState<number>(0)
+    const [page, setPage] = useState<number>(1)
+    const [pageCount, setPageCount] = useState<number>(1)
+    const [search, setSearch] = useState<string>('')
 
     const {
         loading,
@@ -72,10 +49,18 @@ function JobOpportunity() {
         run: runGetJob
     } = useRequest(async () => {
         try {
+            const queryWorGroup = workGroupId !== 0 ? `workGroupId=${workGroupId}&` : ''
+            const queryWorkingTIme = workingTimeId !== 0 ? `workingTimeId=${workingTimeId}&` : ''
+            const queryAddressId = addressId !== 0 ? `addressId=${addressId}&` : ''
+
             const res = await axios.get(
-                `http://localhost:3001/api/job?q=${search}&addressId=${addressId}&workGroupId=${workGroupId}&workingTimeId=${workingTimeId}&page=${page}`
+                BASE_URL + `jobs?_page=${page}&_limit=5&${queryWorGroup}${queryWorkingTIme}${queryAddressId}`
             )
-            console.log(res.data)
+            const resType = await axios.get(
+                BASE_URL + `jobs?${workGroupId !== 0 && `${queryWorGroup}${queryWorkingTIme}${queryAddressId}`}`
+            )
+            setPageCount(Math.ceil(resType.data.length / 5))
+
             return res.data
         } catch (error) {}
     })
@@ -100,9 +85,7 @@ function JobOpportunity() {
             />
             <div className=''>
                 <div className='lg:container w-full mx-auto p-4 mb-20'>
-                    <h3 className='text-2xl font-bold not-italic leading-7 uppercase text-center'>
-                        CƠ HỘI LÀM VIỆC HIỆN TẠI
-                    </h3>
+                    <h3 className='text-2xl font-bold not-italic leading-7 uppercase text-center'>{t('job.title')}</h3>
 
                     <div className='mt-10'>
                         <div className='flex rounded-xl'>
@@ -137,34 +120,23 @@ function JobOpportunity() {
                             <div className='md:border-e-[2px] border-e-0 border-solid border-e-default'>
                                 <div className='mb-8'>
                                     <h1 className='text-xl font-bold not-italic'>{t('job.workingGroup.title')}</h1>
-                                    {dataFilter && (
-                                        <Filter
-                                            options={dataFilter[0]}
-                                            jobAll='1'
-                                            check={workGroupId}
-                                            setCheck={setWorkGroupId}
-                                        />
+                                    {WORKGROUPS && (
+                                        <Filter options={WORKGROUPS} check={workGroupId} setCheck={setWorkGroupId} />
                                     )}
                                 </div>
                                 <div className='mb-8'>
                                     <h1 className='text-xl font-bold not-italic'>{t('job.workLocation.title')}</h1>
-                                    {dataFilter && (
-                                        <Filter
-                                            options={dataFilter[1]}
-                                            jobAll='2'
-                                            check={addressId}
-                                            setCheck={setAddressId}
-                                        />
-                                    )}
+                                    {ADDRESS && <Filter options={ADDRESS} check={addressId} setCheck={setAddressId} />}
                                 </div>
                                 <div className='mb-8'>
                                     <h1 className='text-xl font-bold not-italic'>{t('job.typeOfWork.title')}</h1>
-                                    <Filter
-                                        options={workingTime}
-                                        check={workingTimeId}
-                                        setCheck={setWorkingTimeId}
-                                        jobAll={'workingTime'}
-                                    />
+                                    {WORKINGTIME && (
+                                        <Filter
+                                            options={WORKINGTIME}
+                                            check={workingTimeId}
+                                            setCheck={setWorkingTimeId}
+                                        />
+                                    )}
                                 </div>
                             </div>
 
@@ -174,19 +146,15 @@ function JobOpportunity() {
                         </div>
                         <div className='md:col-span-9 col-span-full md:mt-0 mt-5'>
                             {!loading &&
-                                (listJob.data.length > 0 ? (
+                                (listJob.length > 0 ? (
                                     <>
                                         <div className='flex flex-col gap-y-3'>
-                                            {listJob.data.map((item: FormAddJob) => (
-                                                <JobItem key={item._id} {...item} />
+                                            {listJob.map((item: FormAddJob) => (
+                                                <JobItem key={item.id} {...item} />
                                             ))}
                                         </div>
                                         <div className='flex justify-center items-center mt-10'>
-                                            <Pagination
-                                                page={page}
-                                                pageCount={listJob?.pageCount || 1}
-                                                setPage={setPage}
-                                            />
+                                            <Pagination page={page} pageCount={pageCount} setPage={setPage} />
                                         </div>
                                     </>
                                 ) : (

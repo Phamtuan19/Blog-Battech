@@ -10,13 +10,14 @@ import { Link, useParams } from 'react-router-dom'
 import PostNews from './component/PostNews'
 import RelatedNews from './component/RelatedNews'
 import { PostType } from '~/types/post.type'
+import { BASE_URL } from '~/config/env'
 
 function ArticleDetails() {
     const { id } = useParams()
 
     const { loading, data, run }: { loading: boolean; data: PostType; run: () => void } = useRequest(async () => {
-        const res = await axios.get('http://localhost:3001/api/posts/' + id)
-        return res.data.data
+        const res = await axios.get(BASE_URL + 'posts/' + id)
+        return res.data
     })
 
     useEffect(() => {
