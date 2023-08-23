@@ -16,8 +16,9 @@ function Header() {
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1280px)'
     })
-
+    console.log(openNavbar)
     const handleChangeLanguage = () => {
+        setOpenLng(false)
         i18n.changeLanguage(lng.name)
     }
 
@@ -44,6 +45,7 @@ function Header() {
                                         key={index}
                                         className={({ isActive }) => (isActive ? ' text-default ' : 'border-[#9CA3AF]')}
                                         to={item.path}
+                                        onClick={() => setOpenNavbar(false)}
                                     >
                                         <span className='px-1 text-2xl not-italic leading-normal'>{item.title}</span>
                                     </NavLink>

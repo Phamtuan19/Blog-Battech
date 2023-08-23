@@ -49,16 +49,22 @@ function JobOpportunity() {
         run: runGetJob
     } = useRequest(async () => {
         try {
-            const queryWorGroup = workGroupId !== 0 ? `workGroupId=${workGroupId}&` : ''
-            const queryWorkingTIme = workingTimeId !== 0 ? `workingTimeId=${workingTimeId}&` : ''
-            const queryAddressId = addressId !== 0 ? `addressId=${addressId}&` : ''
+            const queryParams = {
+                _page: page,
+                _limit: 5,
+                workGroupId: workGroupId !== 0 ? workGroupId : undefined,
+                workingTimeId: workingTimeId !== 0 ? workingTimeId : undefined,
+                addressId: addressId !== 0 ? addressId : undefined,
+                name: search !== '' ? search : undefined
+            }
 
-            const res = await axios.get(
-                BASE_URL + `jobs?_page=${page}&_limit=5&${queryWorGroup}${queryWorkingTIme}${queryAddressId}`
-            )
-            const resType = await axios.get(
-                BASE_URL + `jobs?${workGroupId !== 0 && `${queryWorGroup}${queryWorkingTIme}${queryAddressId}`}`
-            )
+            const queryString = Object.entries(queryParams)
+                .filter(([_, value]) => value !== undefined)
+                .map(([key, value]) => `${key}=${value}`)
+                .join('&')
+
+            const res = await axios.get(BASE_URL + `jobs?${queryString}`)
+            const resType = await axios.get(BASE_URL + `jobs?${queryString}`)
             setPageCount(Math.ceil(resType?.data?.length / 5))
 
             return res?.data

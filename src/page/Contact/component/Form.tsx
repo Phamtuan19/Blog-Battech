@@ -39,7 +39,7 @@ function Form() {
                                 {t('form.formInput.name.label')} <span className='text-red-500'>*</span>
                             </label>
                             <div className='flex items-center gap-3 border border-solid border-[#00000040] rounded-md px-3'>
-                                <svg
+                                {/* <svg
                                     xmlns='http://www.w3.org/2000/svg'
                                     width='14'
                                     height='16'
@@ -53,7 +53,7 @@ function Form() {
                                         strokeLinecap='round'
                                         strokeLinejoin='round'
                                     />
-                                </svg>
+                                </svg> */}
                                 <input
                                     type='text'
                                     placeholder={t('form.formInput.name.placeholder')}
@@ -68,7 +68,7 @@ function Form() {
                                 {t('form.formInput.email.label')} <span className='text-red-500'>*</span>
                             </label>
                             <div className='flex items-center gap-3 border border-solid border-[#00000040] rounded-md px-3'>
-                                <svg
+                                {/* <svg
                                     xmlns='http://www.w3.org/2000/svg'
                                     width='14'
                                     height='16'
@@ -82,7 +82,7 @@ function Form() {
                                         strokeLinecap='round'
                                         strokeLinejoin='round'
                                     />
-                                </svg>
+                                </svg> */}
                                 <input
                                     type='text'
                                     placeholder={t('form.formInput.name.placeholder')}
@@ -103,7 +103,7 @@ function Form() {
                                 {t('form.formInput.phone.label')} <span className='text-red-500'>*</span>
                             </label>
                             <div className='flex items-center gap-3 border border-solid border-[#00000040] rounded-md px-3'>
-                                <svg
+                                {/* <svg
                                     xmlns='http://www.w3.org/2000/svg'
                                     width='14'
                                     height='16'
@@ -117,7 +117,7 @@ function Form() {
                                         strokeLinecap='round'
                                         strokeLinejoin='round'
                                     />
-                                </svg>
+                                </svg> */}
                                 <input
                                     type='text'
                                     placeholder={t('form.formInput.phone.placeholder')}

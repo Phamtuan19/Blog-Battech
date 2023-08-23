@@ -105,6 +105,10 @@ const routes = [
                 element: <AddPosts />
             }
         ]
+    },
+    {
+        path: '*',
+        element: <h1 className='text-center text-3xl'>404</h1>
     }
 ]
 

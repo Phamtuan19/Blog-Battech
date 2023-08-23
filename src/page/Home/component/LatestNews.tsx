@@ -34,7 +34,6 @@ function LatestNews() {
         }
     })
 
-    console.log(data)
     return (
         <div>
             <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-2'>{t('news.title')}</h3>

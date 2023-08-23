@@ -96,10 +96,10 @@ function JobItem(props: FormAddJob) {
                     </div>
                 </div>
             </div>
-            <div className='w-28 flex items-end justify-end'>
+            <div className='flex items-end justify-end'>
                 <Link
                     to={`/job/${id}`}
-                    className='w-28 block rounded-md bg-default hover:bg-hoverDefault text-xs leading-6 uppercase not-italic font-semibold text-white py-2 px-5'
+                    className='block rounded-md bg-default hover:bg-hoverDefault text-xs leading-6 uppercase not-italic font-semibold text-white py-2 px-5'
                 >
                     {t('job.btnApply')}
                 </Link>
