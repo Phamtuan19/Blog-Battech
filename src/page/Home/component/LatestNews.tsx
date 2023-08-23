@@ -39,10 +39,10 @@ function LatestNews() {
             <h3 className='text-2xl text-default text-center left-7 font-bold not-italic mb-2'>{t('news.title')}</h3>
             <div className=''>
                 <h6 className='text-xl font-bold not-italic text-[#444444] mb-4'>{t('news.title2')}</h6>
-                <div className='grid grid-cols-11 lg:gap-x-8 gap-y-5'>
+                <div className='grid grid-cols-12 lg:gap-x-8 gap-y-5'>
                     {!loading && data && (
                         <>
-                            <div className='lg:col-span-7 col-span-12 max-h-[358px]'>
+                            <div className='lg:col-span-8 col-span-12 max-h-[358px]'>
                                 <NewBannerItem
                                     id={data[0]._id}
                                     img={data[0].image}
@@ -81,7 +81,7 @@ function LatestNews() {
                                 },
                                 768: {
                                     slidesPerView: 3,
-                                    spaceBetween: 10
+                                    spaceBetween: 25
                                 }
                             }}
                             pagination={{

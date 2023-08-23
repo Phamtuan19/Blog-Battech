@@ -15,6 +15,7 @@ import Button from '~/component/customs/Button'
 
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { NavLink } from 'react-router-dom'
 
 const INTRODUCTION_IMG = [clock, development, padlock, padlock]
 
@@ -48,10 +49,12 @@ function Home() {
 
     return (
         <>
-            <Banner {...DATABANNER} pb='pb-[50%]' sx='lg:-top-16' sxItem='lg:items-center xl:pb-32 lg:pb-20'>
+            <Banner {...DATABANNER} pb='pb-[50%]' sx='lg:-to-16 top-0' sxItem='lg:items-center xl:pb-32 lg:pb-20'>
                 <div className='lg:mt-[52px] mt-8 lg:text-start text-center'>
                     <div className='flex lg:justify-start justify-center items-center'>
-                        <Button>{t('banner.btnTitle')}</Button>
+                        <Button>
+                            <NavLink to='/contact'>{t('banner.btnTitle')}</NavLink>
+                        </Button>
                     </div>
                 </div>
             </Banner>

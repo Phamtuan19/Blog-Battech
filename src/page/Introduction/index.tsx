@@ -18,7 +18,7 @@ function Introduction() {
                 title2={t('banner.title2')}
                 description={t('banner.description')}
                 pb='pb-[45%] '
-                sx='-top-12'
+                sx='lg:-top-12 top-0'
                 sxItem='lg:-top-10'
             />
             <div

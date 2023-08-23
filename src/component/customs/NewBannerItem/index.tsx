@@ -20,7 +20,7 @@ function NewBannerItem(props: TypeNewsItems) {
             style={{
                 background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(${img})`,
                 backgroundPosition: '50% 50%',
-                backgroundSize: 'cover',
+                backgroundSize: 'corver',
                 backgroundRepeat: 'no-repeat',
                 backgroundColor: 'lightgray'
             }}

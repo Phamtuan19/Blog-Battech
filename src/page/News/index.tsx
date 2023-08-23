@@ -27,7 +27,7 @@ function News() {
                 img={banner}
                 title={t('banner.title')}
                 description={t('banner.description')}
-                sx='-top-12'
+                sx='lg:-top-12 top-0'
                 pb='pb-[40%]'
             />
             <div className='flex flex-col '>
@@ -35,7 +35,7 @@ function News() {
                     <div className=''>
                         <h3 className='text-xl font-bold not-italic text-[#444444] mb-4'>{t('news.title')}</h3>
                         {!loading && (
-                            <div className='grid grid-cols-12 gap-2'>
+                            <div className='grid grid-cols-12 gap-7'>
                                 <div className='lg:col-span-7 col-span-full'>
                                     <NewBannerItem
                                         id={data[0].id}
@@ -47,7 +47,7 @@ function News() {
                                     />
                                 </div>
                                 <div className='lg:col-span-5 col-span-full h-auto  '>
-                                    <div className='w-full grid grid-cols-12 gap-y-2'>
+                                    <div className='w-full grid grid-cols-12 gap-y-7'>
                                         <div className='col-span-full'>
                                             <NewBannerItem
                                                 id={data[1].id}

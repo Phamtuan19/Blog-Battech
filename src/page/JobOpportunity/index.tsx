@@ -87,7 +87,7 @@ function JobOpportunity() {
                 img={banner4}
                 title={t('banner.title')}
                 description={t('banner.description')}
-                sx='-top-12'
+                sx='lg:-top-12 top-0'
                 sxItem='lg:items-end xl:pb-20'
                 pb='xl:pb-[35%] pb-[40%]'
             />

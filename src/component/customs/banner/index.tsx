@@ -20,7 +20,7 @@ function Banner(props: TypeBanner) {
     const { img, title, content, description, sx, pb, sxItem, children } = props
 
     return (
-        <div className={`relative w-full flex flex-col justify-end ${sx || ''} overflow-hidden`}>
+        <div className={`relative w-full flex flex-col justify-end ${sx} overflow-hidden`}>
             <p className={`${pb}`}></p>
             <motion.div
                 className='absolute -top-5 right-0'
