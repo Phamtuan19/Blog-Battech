@@ -34,7 +34,7 @@ function AddPosts() {
 
     const handleSubmitForm = async (data: TypeFormPost) => {
         try {
-            await axios.post('http://localhost:3001/api/posts/create', data)
+            await axios.post('http://localhost:3001/api/posts', data)
             toast.success('Thêm bài viết thành công!')
             reset()
         } catch (error) {
